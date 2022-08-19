@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Member Information</title>
+</head>
+<body>
+	<form method="post" action="UpdateServlet" name="frm">
+		<table align="center" width="600">
+			<tr>
+				<td colspan="2">My Page</td>
+			</tr>
+			<tr>
+				<td>ID</td>
+				<td><input type="text" name="id" value="${loginUser.id }" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td>PASSWORD</td>
+				<td><input type="password" name="pass"></td>
+			</tr>
+			<tr>
+				<td>NAME</td>
+				<td><input type="text" name="name" value="${loginUser.name }"></td>
+			</tr>
+			<tr>
+				<td>LEVEL</td>
+				<td><select name="lev">
+						<c:choose>
+							<c:when test="${result == 2 }">
+								<option value="A" selected="selected">Admin</option>
+								<option value="B">Member</option>
+							</c:when>
+							<c:otherwise>
+								<option value="A">Admin</option>
+								<option value="B" selected="selected">Member</option>
+							</c:otherwise>
+						</c:choose>
+				</select></td>
+			</tr>
+			<tr>
+				<td>GENDER</td>
+				<td><select name="gender">
+						<c:choose>
+							<c:when test="${loginUser.gender == 1}">
+								<option value="1" selected="selected">Male</option>
+								<option value="2">Female</option>
+							</c:when>
+							<c:otherwise>
+								<option value="1">Male</option>
+								<option value="2" selected="selected">Female</option>
+							</c:otherwise>
+						</c:choose>
+				</select></td>
+			</tr>
+			<tr>
+				<td>PHONE</td>
+				<td><input type="text" name="phone" value="${loginUser.phone }"></td>
+			</tr>
+			<tr align="center">
+			<td colspan="2"><input type="submit" value="modify"> &nbsp; <input type="reset" value="cancle"></td></tr>
+		</table>
+	</form>
+</body>
+</html>

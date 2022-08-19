@@ -1,0 +1,19 @@
+package com.logon;
+import java.sql.*;
+public class LoginDataBean {
+	
+	private String id;
+	private String passwd;
+	private String name;
+	private String jumin1;
+	private String jumin2;
+	private String email;
+	private String blog;
+	private Timestamp reg_date;
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,16 @@
+select * from tab;
+
+create table board(
+
+num number(7) not null;
+writer varchar2(15) not null;
+email varchar2(30) not null;
+subject varchar2(50) not null;
+pass varchar2(10) not null;
+readcount number(5) default 0 not null;
+ref number(5) default 0 not null;
+step number(3) default 0 not null;
+depth number(3) default 0 not null;
+
+
+);

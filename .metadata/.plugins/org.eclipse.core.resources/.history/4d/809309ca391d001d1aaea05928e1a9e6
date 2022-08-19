@@ -1,0 +1,31 @@
+package com.board;
+
+public class BoardDAO {
+	private static BoardDAO instance = null;
+	private BoardDAO() {}
+
+	private BoardDAO getInstance(){
+
+		
+		
+		if(instance == null) {
+			synchronized (BoardDAO.class) {
+				instance = new BoardDAO();
+			}
+		}
+		return instance;
+		
+	}
+	
+	// 이곳에서부터 게시판 작업 기능을 하나씩 메소드를 추가해서 작성 하면 됨
+	
+	public void insertArticle(BoardVO article) {
+		Connection conn = null;
+		
+		try {
+			conn = ConnUtil.getConnection();
+		}
+	}
+	
+	
+}

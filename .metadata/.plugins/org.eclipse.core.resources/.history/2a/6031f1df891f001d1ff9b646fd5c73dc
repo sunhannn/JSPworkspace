@@ -1,0 +1,5 @@
+package com.logon;
+
+public class LoginDBBean {
+
+}

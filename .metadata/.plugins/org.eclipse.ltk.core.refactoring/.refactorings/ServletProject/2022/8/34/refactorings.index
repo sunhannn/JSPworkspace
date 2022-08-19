@@ -1,0 +1,24 @@
+1660632935371	Move 'write.jsp' to 'view'
+1660632945773	Move 'write.jsp' to 'boardone'
+1660632966255	Move 'color.jsp' to 'view'
+1660636140490	Copy compilation unit
+1660636381450	Copy compilation unit
+1660636387602	Delete element
+1660636390030	Delete element
+1660649360699	Move 'writeProc.jsp' to 'boardone'
+1660651399892	Copy file
+1660651780999	Delete element
+1660718586288	Move 'content.jsp' to 'boardone'
+1660732272113	Delete element
+1660732733877	Delete element
+1660732738590	Delete element
+1660732739439	Delete element
+1660735774005	Move 'boardone' to 'webapp'
+1660745799974	Delete element
+1660797362110	Delete element
+1660802388790	Move 'deleteProc.jsp' to 'boardone'
+1660823131259	Rename compilation unit 'MypageDAO.java'
+1660891751423	Copy file
+1660891984509	Move 'modifyCookie.jsp' to 'cookie'
+1660892004553	Copy file
+1660897046860	Move 'setAttributeinfo.jsp' to 'session'

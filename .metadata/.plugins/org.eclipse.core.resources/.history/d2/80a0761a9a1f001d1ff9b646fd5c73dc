@@ -1,0 +1,40 @@
+package com.logon;
+
+import java.sql.*;
+import javax.sql.*;
+
+import org.apache.catalina.realm.DataSourceRealm;
+
+import javax.naming.*;
+
+
+
+
+
+public class LoginDBBean {
+
+	private static LoginDBBean instance = new LoginDBBean();
+	
+	public static LoginDBBean getInstance() {
+		return instance;
+	}
+	
+	public LoginDBBean() {
+		
+	}
+	
+	private Connection getConnection() throws Exception{
+		
+		Context initContext = new InitialContext();
+		DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/myoracle");
+		return ds.getConnection();
+	}
+	// 사용자 인증(아이디, 비밀번호)
+	
+	public int userCheck(String id, String passwd)throws Exception{
+		
+		String dbpasswd ="";
+		
+	}
+	
+}

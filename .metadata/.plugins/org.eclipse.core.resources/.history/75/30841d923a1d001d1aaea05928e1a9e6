@@ -1,0 +1,62 @@
+package com.board;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class BoardDAO {
+	private static BoardDAO instance = null;
+	private BoardDAO() {}
+
+	private BoardDAO getInstance(){
+
+		
+		
+		if(instance == null) {
+			synchronized (BoardDAO.class) {
+				instance = new BoardDAO();
+			}
+		}
+		return instance;
+		
+	}
+	
+	// 이곳에서부터 게시판 작업 기능을 하나씩 메소드를 추가해서 작성 하면 됨
+	
+	public void insertArticle(BoardVO article) {
+		Connection conn = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int num = article.getNum();
+		int ref = article.getRef();
+		int step = article.getStep();
+		int depth = article.getDepth();
+		int number = 0;
+		String strQuery = "";
+		
+		
+		try {
+			
+			conn = ConnUtil.getConnection();
+			pstmt = conn.prepareStatement("select max(num) from board");
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) number = rs.getInt(1) + 1;
+			else number = 1;
+			if (num != 0) {// 답변 글일 경우
+				
+			}else {// 새 글일 경우
+				
+			}
+			
+		}catch(SQLException s1) {
+			s1.printStackTrace();
+		}
+		
+	}
+	
+	
+}
