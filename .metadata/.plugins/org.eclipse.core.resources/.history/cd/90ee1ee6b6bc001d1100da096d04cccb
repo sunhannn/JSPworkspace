@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+	request.setCharacterEncoding("utf-8");
+	%>
+	<%
+	String id = request.getParameter("id");
+	String ansyo = request.getParameter("passwd");
+	String namae = request.getParameter("name");
+	String ketai = request.getParameter("phone1");
+	String seibetsu = request.getParameter("gender");
+	String seibetsu = request.getParameter("hobby1");
+	String kotoba = request.getParameter("comment");
+	
+	
+	%>
+	
+	<p>
+	아이디는 : <%=id %> <br>
+	아이디는 : <%=ansyo %> <br>
+	아이디는 : <%=namae %> <br>
+	아이디는 : <%=ketai %> <br>
+	아이디는 : <%=seibetsu %> <br>
+	아이디는 : <%=kotoba %> <br>
+	</p>
+</body>
+</html>

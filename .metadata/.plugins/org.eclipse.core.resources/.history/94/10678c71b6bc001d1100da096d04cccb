@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+	request.setCharacterEncoding("utf-8");
+	%>
+	<%
+	String id = request.getParameter("id");
+	String ansyo = request.getParameter("passwd");
+	String namae = request.getParameter("name");
+	String ketai = request.getParameter("phone1");
+	String seibetsu = request.getParameter("gender");
+	String seibetsu = request.getParameterValues(name);
+	
+	%>
+</body>
+</html>
