@@ -23,7 +23,6 @@ request.setCharacterEncoding("utf-8");
 	<br>
 	<hr>
 	<br>
-
 	<b>request.getParameterValues() : </b> 여러 개의 인자값을 가져오는 경우 사용한다. 배열 객체를
 	이용하여 받을 수 있다.
 	<br>
@@ -35,6 +34,7 @@ request.setCharacterEncoding("utf-8");
 			out.print(values[i]);
 		}
 	}
+	
 	%>
 
 	<hr>
