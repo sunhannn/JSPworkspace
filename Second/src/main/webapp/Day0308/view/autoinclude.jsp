@@ -11,7 +11,7 @@
 <body>
 	<%@ page contentType="text/html; charset=utf-8"%>
 	현재 시간은
-	<jsp:include file="/common/variable.jsp">
-		<%=CURRENT_TIME%>입니다.
-		<jsp:include file="/common/footer.jsp"></body>
+	<jsp:include file="/common/variable.jsp" />
+	<%=CURRENT_TIME%>입니다.
+	<jsp:include file="/common/footer.jsp" /></body>
 </html>
