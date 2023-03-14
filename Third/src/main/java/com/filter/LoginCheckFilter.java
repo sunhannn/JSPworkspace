@@ -34,7 +34,7 @@ public class LoginCheckFilter implements Filter {
 
 		boolean login = false;
 		if (session != null) {
-			if (!session.getAttribute("Member").equals(""))
+			if (!session.getAttribute("MEMBER").toString().equals(""))
 				login = true;
 		}
 		if (login) {
@@ -42,7 +42,7 @@ public class LoginCheckFilter implements Filter {
 		} else {
 			// RequestDispatcher : 현재 request에 담고 있는 정보를 저장하고 있다가
 			// 그 다음페이지, 다음페이지에서도 해당 정보를 볼 수 있게 저장하는 기능을한다.
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/18_01_loginForm.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/18_01_loginform.jsp");
 			dispatcher.forward(request, response);
 		}
 		chain.doFilter(request, response);

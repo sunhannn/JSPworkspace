@@ -4,16 +4,25 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>Third</display-name>
-	<filter>
-		<filter-name>LoginCheck</filter-name>
-		<filter-class>com.filter.LogFileFilter</filter-class>
-	</filter>
 
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>util.CharacterEncodingFilter</filter-class>
+	</filter>
 	<filter-mapping>
-		<filter-name>LoginCheck</filter-name>
-		<url-pattern>/board/*</url-pattern>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+
+	<!-- <filter> -->
+	<!-- <filter-name>LoginCheck</filter-name> -->
+	<!-- <filter-class>com.filter.LoginCheckFilter</filter-class> -->
+	<!-- </filter> -->
+	<!-- <filter-mapping> -->
+	<!-- <filter-name>LoginCheck</filter-name> -->
+	<!-- <url-pattern>/board/*</url-pattern> -->
+	<!-- </filter-mapping> -->
 
 
 	<!-- <filter> -->
