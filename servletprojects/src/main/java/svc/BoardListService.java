@@ -9,7 +9,6 @@ import vo.BoardBean;
 public class BoardListService {
 
 	public int getListCount() throws Exception{
-		// TODO Auto-generated method stub
 		
 		int listCount = 0;
 		Connection con = getConnection();

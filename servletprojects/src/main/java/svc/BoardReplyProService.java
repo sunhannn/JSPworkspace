@@ -8,7 +8,6 @@ import vo.BoardBean;
 public class BoardReplyProService {
 
 	public boolean replyArticle(BoardBean article) throws Exception{
-		// TODO Auto-generated method stub
 		
 		boolean isReplySuccess = false;
 		int insertCount = 0;

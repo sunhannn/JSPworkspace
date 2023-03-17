@@ -8,7 +8,6 @@ import dao.BoardDAO;
 public class BoardModifyProService {
 
 	public boolean isArticleWriter(int board_num, String pass) throws Exception {
-		// TODO Auto-generated method stub
 		
 		boolean isArticleWriter = false;
 		Connection con = getConnection();
@@ -21,7 +20,6 @@ public class BoardModifyProService {
 	}
 
 	public boolean modifyArticle(BoardBean article) throws Exception {
-		// TODO Auto-generated method stub
 		
 		boolean isModifySuccess = false;
 		Connection con = getConnection();
