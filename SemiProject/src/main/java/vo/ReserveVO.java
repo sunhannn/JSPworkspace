@@ -3,11 +3,37 @@ package vo;
 public class ReserveVO {
 	private String R_ID; // 예약자 아이디
 	private String R_NAME; // 예약자 이름
-	private String R_TIME; // 예약 시간
+	private String R_DATE; // 예약 날짜
+	private String R_STIME; // 예약 시작 시간
+	private String R_ETIME; // 예약 끝나는 시간
 	private String R_PH; // 예약자 핸드폰 번호
 	private String R_ROOM; // 예약 방번호
 	private int R_NUM; // 예약 번호
 	private int R_PRI; // 예약 가격
+
+	public String getR_DATE() {
+		return R_DATE;
+	}
+
+	public void setR_DATE(String r_DATE) {
+		R_DATE = r_DATE;
+	}
+
+	public String getR_STIME() {
+		return R_STIME;
+	}
+
+	public void setR_STIME(String r_STIME) {
+		R_STIME = r_STIME;
+	}
+
+	public String getR_ETIME() {
+		return R_ETIME;
+	}
+
+	public void setR_ETIME(String r_ETIME) {
+		R_ETIME = r_ETIME;
+	}
 
 	public String getR_ID() {
 		return R_ID;
@@ -23,14 +49,6 @@ public class ReserveVO {
 
 	public void setR_NAME(String r_NAME) {
 		R_NAME = r_NAME;
-	}
-
-	public String getR_TIME() {
-		return R_TIME;
-	}
-
-	public void setR_TIME(String r_TIME) {
-		R_TIME = r_TIME;
 	}
 
 	public String getR_PH() {

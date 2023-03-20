@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +13,6 @@ import action.Action;
 import action.ReserveAction;
 import vo.ActionForward;
 import static db.JdbcUtil.*;
-
-
 
 @WebServlet("*.go")
 public class StudyServlet extends HttpServlet {
@@ -27,22 +27,30 @@ public class StudyServlet extends HttpServlet {
 		String command = RequestURI.substring(contextPath.length());
 		ActionForward forward = null;
 		Action action = null;
-		
-		//예약 페이지 if문
+
+		// 예약 페이지 if문
 		if (command == "/rev.go") {
-			forward=new ActionForward();
+			action = new ReserveAction();
 			forward.setPath("/board/qna_board_write.jsp");
 			try {
-				forward = new ReserveAction();
-			}catch(Exception e) {
-				
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			
+
 		}
-		
-		
-		
-		
+
+		if (forward != null) {
+
+			if (forward.isRedirect()) {
+				response.sendRedirect(forward.getPath());
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response);
+			}
+
+		}
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
