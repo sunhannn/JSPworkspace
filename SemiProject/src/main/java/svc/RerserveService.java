@@ -1,10 +1,12 @@
 package svc;
 
+import vo.MemberVO;
 import vo.ReserveVO;
 import dao.StudyDAO;
 import static db.JdbcUtil.*;
 
-import java.sql.Connection;
+
+import java.sql.*;
 
 public class RerserveService {
 
@@ -12,7 +14,9 @@ public class RerserveService {
 		boolean reserveSuccess = false;
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		Connection con = getConnection();
-		int insertCount = studyDAO.insertMember(reserve);
+		studyDAO.setConnection(con);
+		MemberVO member = studyDAO.selectMember("leo");
+		int insertCount = studyDAO.insertMember(reserve, member);
 		if (insertCount > 0) {
 			reserveSuccess = true;
 			commit(con);
@@ -20,6 +24,7 @@ public class RerserveService {
 		} else {
 			rollback(con);
 		}
+		close(con);
 		return reserveSuccess;
 	}
 

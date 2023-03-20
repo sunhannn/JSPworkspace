@@ -13,7 +13,7 @@ public class JdbcUtil {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-			DataSource ds = (DataSource) envCtx.lookup("jdbc/jsptest");
+			DataSource ds = (DataSource) envCtx.lookup("jdbc/orcl");
 			con = ds.getConnection();
 			con.setAutoCommit(false);
 			System.out.println("connect success");

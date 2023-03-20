@@ -30,14 +30,19 @@
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="action.MemberDeleteAction"/>
     <fullyQualifiedTypeName name="svc.MemberDeleteService"/>
-    <fullyQualifiedTypeName name="action.Action"/>
     <fullyQualifiedTypeName name="vo.MemberBean"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="svc.MemberJoinService"/>
     <fullyQualifiedTypeName name="vo.ActionForward"/>
     <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="svc.RerserveService"/>
+    <fullyQualifiedTypeName name="dao.StudyDAO"/>
     <fullyQualifiedTypeName name="db.JdbcUtil"/>
     <fullyQualifiedTypeName name="action.ReserveAction"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="vo.MemberVO"/>
+    <fullyQualifiedTypeName name="javax.websocket.Session"/>
+    <fullyQualifiedTypeName name="svc.ReserveListService"/>
     <fullyQualifiedTypeName name="vo.ReserveVO"/>
+    <fullyQualifiedTypeName name="action.Action"/>
 </qualifiedTypeNameHistroy>
