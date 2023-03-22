@@ -6,18 +6,30 @@
 <title>예약 정보 보기</title>
 <style>
 	#reserveInfoArea{
-		width : 400px;
+		width :500px;
 		margin : auto;
 		border : 1px solid gray;
 	}
 	table{
-		width : 380px;
+		width : 480px;
 		margin : auto;
 		text-align: center;
+	}
+	td{
+	border-bottom : 2px solid gray;
+	
 	}
 </style>
 </head>
 <body>
+
+<div style="text-align: center;">
+<h1>예약 상세 보기</h1>
+
+
+
+</div>
+
 
 <section id = "reserveInfoArea">
 <table>

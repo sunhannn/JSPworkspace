@@ -11,13 +11,19 @@
 <style>
 	#reserveListArea{
 		width : 400px;
-		border : 1px solid gray;
+		border : 2px solid gray;
 		margin : auto;
 	}
 	table{
 		width : 380px;
 		margin : auto;
 		text-align: center;
+	}
+	td{
+	border-bottom : 2px solid gray;
+	
+	
+	
 	}
 </style>
 </head>
@@ -40,6 +46,7 @@
 		<a href="revDel.go?num=${reserve.getR_NUM()}">삭제</a>
 		</td>
 	</tr>
+	
 	</c:forEach>
 </table>
 </section>

@@ -24,11 +24,7 @@ public class ReserveListAction implements Action {
 			forward = new ActionForward();
 			ReserveListService reserveListService = new ReserveListService();
 			ArrayList<ReserveVO> reserveList = reserveListService.getMemberList();
-//			for(ReserveVO s : reserveList) {
-//				System.out.println(s.getR_ID());
-//				
-//				
-//			}
+
 			request.setAttribute("reserveList", reserveList);
 			
 			forward.setPath("./reserveList.jsp");

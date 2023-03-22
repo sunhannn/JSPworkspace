@@ -13,7 +13,6 @@ public class ReserveViewService {
 		Connection con = getConnection();
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		studyDAO.setConnection(con);
-
 		ReserveVO reserve = studyDAO.selectReserve(num);
 		close(con);
 		return reserve;

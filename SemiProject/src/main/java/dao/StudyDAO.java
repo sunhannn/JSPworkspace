@@ -173,6 +173,93 @@ public class StudyDAO {
 	}
 	
 	
+	public ArrayList<ReserveVO> joongbokPandan(String date){
+		String sql="SELECT * FROM reserve where r_date = ?";
+		ArrayList<ReserveVO> reserveList=new ArrayList<ReserveVO>();
+		ReserveVO reserve = null;
+		try{
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, date);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				do{
+				reserve =new ReserveVO();
+				reserve.setR_NUM(rs.getInt("R_NUM"));
+				reserve.setR_ID(rs.getString("R_ID"));
+				reserve.setR_NAME(rs.getString("R_NAME"));
+				reserve.setR_DATE(rs.getString("R_DATE"));
+				reserve.setR_STIME(rs.getString("R_STIME"));
+				reserve.setR_ETIME(rs.getString("R_ETIME"));
+				reserve.setR_PRI(rs.getInt("R_PRI"));
+				reserve.setR_PH(rs.getString("R_PH"));
+				reserve.setR_ROOM(rs.getString("R_ROOM"));
+				reserveList.add(reserve);
+				}while(rs.next());
+			}
+		}catch(Exception ex){
+			System.out.println("getDeatilReserve 에러: " + ex);			
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return reserveList;
+	}
+	
+	
+	
+	public int insertDelReserve(ReserveVO reserve) {
+		String sql = "INSERT INTO RESERVE_del VALUES (?,?,?,?,?,?,?,?,?)";
+		int insertCount = 0;
+		
+		
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, reserve.getR_NUM());
+			pstmt.setString(2, reserve.getR_ID());
+			pstmt.setString(3, reserve.getR_NAME());
+			pstmt.setString(4, reserve.getR_DATE());
+			pstmt.setString(5, reserve.getR_STIME());
+			pstmt.setString(6, reserve.getR_ETIME());
+			pstmt.setInt(7, reserve.getR_PRI());
+			pstmt.setString(8, reserve.getR_PH());
+			pstmt.setString(9, reserve.getR_ROOM());
+			insertCount = pstmt.executeUpdate();
+			
+			
+		} catch (Exception ex) {
+			System.out.println("reserve 에러: " + ex);
+		} finally {
+			close(pstmt);
+			
+		}
+
+		return insertCount;
+	}
+	
+	
+	public int KandeleteReserve(int num){
+		String sql="DELETE reserve_del WHERE d_num = ?";
+		int deleteCount = 0;
+
+		try{
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			deleteCount = pstmt.executeUpdate();
+		}catch(Exception ex){
+			System.out.println("deleteSeserve 에러: " + ex);	
+		}finally{
+			close(pstmt);
+		}
+		
+		return deleteCount;
+	}
+	
+	
+	
+	
 	
 	
 	
