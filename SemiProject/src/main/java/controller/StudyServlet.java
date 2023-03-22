@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.MemberViewAction;
 import action.ReserveAction;
+import action.ReserveDeleteAction;
+import action.ReserveListAction;
+import action.ReserveViewAction;
 import vo.ActionForward;
 import static db.JdbcUtil.*;
 
@@ -42,7 +44,7 @@ public class StudyServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}else if (command.equals("/rev.sel")) {
+		}else if (command.equals("/revSel.go")) {
 			
 			action = new ReserveViewAction();
 			try{
@@ -51,6 +53,26 @@ public class StudyServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+			
+		}else if(command.equals("/revList.go")) {
+			action = new ReserveListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+		}else if (command.equals("/revDel.go")) {
+			
+			action = new ReserveDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 			
 		}
 

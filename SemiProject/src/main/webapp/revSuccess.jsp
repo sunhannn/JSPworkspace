@@ -29,14 +29,19 @@
 	<div>
 		<form action="revJjin.jsp">
 			<button type="submit">추가 예약하기</button>
-
-
 		</form>
 
-
-
 	</div>
-
+	<div>
+	<form action="revList.go">
+	<button type="submit">예약 목록 보기</button>
+	
+	
+	
+	</form>
+	
+	
+	</div>
 </body>
 
 </html>

@@ -14,20 +14,27 @@ public class ReserveListAction implements Action {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		ActionForward forward = null;
-		if (id == null) {
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("main.jsp");
-		} else {
+		
+		
+//		if (id == null) {
+//			forward = new ActionForward();
+//			forward.setRedirect(true);
+//			forward.setPath("main.jsp");
+//		} else {
 			forward = new ActionForward();
 			ReserveListService reserveListService = new ReserveListService();
 			ArrayList<ReserveVO> reserveList = reserveListService.getMemberList();
+//			for(ReserveVO s : reserveList) {
+//				System.out.println(s.getR_ID());
+//				
+//				
+//			}
 			request.setAttribute("reserveList", reserveList);
 			
-			forward.setPath("./member_list.jsp");
+			forward.setPath("./reserveList.jsp");
 			
 
-		}
+//		}
 		return forward;
 	}
 

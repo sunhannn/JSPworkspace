@@ -40,23 +40,16 @@ public class StudyDAO {
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member.getM_ID());
-			System.out.println(member.getM_ID());
 			pstmt.setString(2, member.getM_NAME());
-			System.out.println(member.getM_NAME());
 			pstmt.setString(3, reserve.getR_DATE());
-			System.out.println(reserve.getR_DATE());
 			pstmt.setString(4, reserve.getR_STIME());
-			System.out.println(reserve.getR_STIME());
 			pstmt.setString(5, reserve.getR_ETIME());
-			System.out.println(reserve.getR_ETIME());
 			pstmt.setInt(6, reserve.getR_PRI());
-			System.out.println(reserve.getR_PRI());
 			pstmt.setString(7, member.getM_PH());
-			System.out.println(member.getM_PH());
 			pstmt.setString(8, reserve.getR_ROOM());
-			System.out.println(reserve.getR_ROOM());
 			insertCount = pstmt.executeUpdate();
-
+			
+			
 		} catch (Exception ex) {
 			System.out.println("reserve 에러: " + ex);
 		} finally {
@@ -96,13 +89,13 @@ public class StudyDAO {
 		return member;
 	}
 	
-	public ArrayList<ReserveVO> selectMemberList(){
-		String sql="SELECT * FROM reserve";
+	public ArrayList<ReserveVO> selectReserveList(){
+		String sql="SELECT * FROM reserve where r_id = ?";
 		ArrayList<ReserveVO> reserveList=new ArrayList<ReserveVO>();
 		ReserveVO reserve = null;
 		try{
-			
 			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "leo");
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -130,13 +123,13 @@ public class StudyDAO {
 	}
 	
 	
-	public ReserveVO selectReserve(String id){
-		String sql="SELECT * FROM MEMBER WHERE M_ID=?";
+	public ReserveVO selectReserve(int NUM){
+		String sql="SELECT * FROM reserve WHERE R_NUM=?";
 		ReserveVO reserve = null;
 		try{
 			
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, NUM);
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -161,5 +154,26 @@ public class StudyDAO {
 		
 		return reserve;
 	}
+	
+	public int deleteReserve(int num){
+		String sql="DELETE reserve WHERE r_num = ?";
+		int deleteCount = 0;
+
+		try{
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			deleteCount = pstmt.executeUpdate();
+		}catch(Exception ex){
+			System.out.println("deleteMember 에러: " + ex);	
+		}finally{
+			close(pstmt);
+		}
+		
+		return deleteCount;
+	}
+	
+	
+	
+	
 	
 }

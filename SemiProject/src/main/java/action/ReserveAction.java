@@ -16,24 +16,32 @@ public class ReserveAction implements Action {
 		ReserveVO reserve = new ReserveVO();
 		boolean reserveResult = false;
 
-		if (reserve.getR_ROOM() == "1" || reserve.getR_ROOM() == "2") {
-			reserve.setR_PRI(10000);
-
-		} else if (reserve.getR_ROOM() == "3" || reserve.getR_ROOM() == "4") {
-			reserve.setR_PRI(20000);
-		} else {
-			reserve.setR_PRI(30000);
-		}
+		
+		
+		
+		
+		
+		
+		
 		
 		reserve.setR_ID(request.getParameter("M_ID"));
 		reserve.setR_NAME(request.getParameter("M_NAME"));
 		reserve.setR_DATE(request.getParameter("R_DATE"));
-//		reserve.setR_NUM(Integer.parseInt(request.getParameter("R_NUM")));
 		reserve.setR_PH(request.getParameter("M_PH"));
-//		reserve.setR_PRI(Integer.parseInt(request.getParameter("R_PRI")));
 		reserve.setR_ROOM(request.getParameter("R_ROOM"));
 		reserve.setR_STIME(request.getParameter("R_STIME"));
 		reserve.setR_ETIME(request.getParameter("R_ETIME"));
+		
+		int roomNum =  Integer.parseInt(reserve.getR_ROOM());
+		int time = Integer.parseInt(reserve.getR_ETIME()) - Integer.parseInt(reserve.getR_STIME());
+		if (roomNum < 3 ) {
+			reserve.setR_PRI(10000 * time);
+
+		} else if (roomNum < 5) {
+			reserve.setR_PRI(20000 * time);
+		} else {
+			reserve.setR_PRI(30000 * time);
+		}
 		
 		RerserveService reserveService = new RerserveService();
 		reserveResult = reserveService.reserveResult(reserve);

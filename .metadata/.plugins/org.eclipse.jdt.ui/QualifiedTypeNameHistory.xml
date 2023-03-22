@@ -32,17 +32,22 @@
     <fullyQualifiedTypeName name="svc.MemberDeleteService"/>
     <fullyQualifiedTypeName name="vo.MemberBean"/>
     <fullyQualifiedTypeName name="svc.MemberJoinService"/>
-    <fullyQualifiedTypeName name="vo.ActionForward"/>
     <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="svc.RerserveService"/>
-    <fullyQualifiedTypeName name="dao.StudyDAO"/>
     <fullyQualifiedTypeName name="db.JdbcUtil"/>
     <fullyQualifiedTypeName name="action.ReserveAction"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="vo.MemberVO"/>
     <fullyQualifiedTypeName name="javax.websocket.Session"/>
     <fullyQualifiedTypeName name="svc.ReserveListService"/>
-    <fullyQualifiedTypeName name="vo.ReserveVO"/>
     <fullyQualifiedTypeName name="action.Action"/>
+    <fullyQualifiedTypeName name="action.ReserveViewAction"/>
+    <fullyQualifiedTypeName name="svc.ReserveViewService"/>
+    <fullyQualifiedTypeName name="action.ReserveListAction"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="vo.ActionForward"/>
+    <fullyQualifiedTypeName name="action.ReserveDeleteAction"/>
+    <fullyQualifiedTypeName name="svc.ReserveDeleteService"/>
+    <fullyQualifiedTypeName name="vo.ReserveVO"/>
+    <fullyQualifiedTypeName name="dao.StudyDAO"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

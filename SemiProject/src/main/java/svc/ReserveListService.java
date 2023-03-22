@@ -15,7 +15,7 @@ public class ReserveListService {
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		studyDAO.setConnection(con);
 
-		ArrayList<ReserveVO> reserveList = studyDAO.selectMemberList();
+		ArrayList<ReserveVO> reserveList = studyDAO.selectReserveList();
 		close(con);
 		return reserveList;
 

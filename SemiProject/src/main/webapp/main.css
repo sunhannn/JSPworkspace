@@ -1,24 +1,12 @@
-*{margin: 0px; padding: 0px;}
+*{margin: 0px; padding: 0px;
 
-/*footer하단고정*/
-/*
-html,body{
-    margin: 0;
-    padding: 0;
-    height: 100%;
 }
-#body-wrapper{ min-height: 100%; position: relative;}
-#body-cotent{
-    padding-bottom: 500px; }*/ /*footer의 높이*/
 
-ul{
-    list-style: none;/*리스트 앞에 . 같은 것을 제거*/
-    text-align: auto;
+.wrapper{ min-height: 100%; position: relative;}
+.container{
+    padding: 20px;
 }
-a{
- text-decoration: none;/*링크에 밑줄제거*/
-}
-header{
+header{ /*header 영역*/
     position: fixed;
     width: 100%; /*메인이미지의 너비사이즈와 같음*/
     height: 100px;
@@ -28,6 +16,27 @@ header{
     헤더의 position이 relative여야 함*/
    /* position: relative;*/
 }
+
+
+/*footer 영역설정*/
+.footer{  /*footer하단고정*/
+    width: 100%; /*헤더와 같은 사이즈*/
+    height: 100px; /*footer의 높이*/
+    position: absolute;
+    color: white;
+    background-color: gray;
+    bottom: 0; /*하단에 여백없이*/
+    margin-top: 50px; /*footer 위쪽여백설정*/
+}
+.footer p{text-align: center;}/*footer내부의 글자들 위치설정*/
+ul{
+    list-style: none;/*리스트 앞에 . 같은 것을 제거*/
+    text-align: auto;
+}
+a{
+ text-decoration: none;/*링크에 밑줄제거*/
+}
+
 
 /*메인페이지의 로고 이미지위치 지정*/
 #logo{ 
@@ -40,10 +49,14 @@ header{
 #login{
     position: fixed;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 40px;
+    right: 50px;
 }
 
+.main{ /*화면양쪽에 여백부여*/
+    margin-left: 150px;
+    margin-right: 150px;  
+}
 /*제목영역안에 오른쪽 상단에 menubar배치*/
 #menubar{
     position: fixed;
@@ -86,17 +99,18 @@ nav li a{color: white;}
    background-size: cover;
    
 }
-/*콘텐츠 영역 아래에 있는 배너이미지 inline설정*/
-
-/*footer 영역설정*/
-footer{
-    width: 100%; /*헤더와 같은 사이즈*/
-    height: 500px;
-    position: absolute;
-    background-color: #f1f1f1;
-    bottom: 0; /*하단에 여백없이*/
-    left: 0;
+/* 각메뉴들의 div크기 통합*/
+.menu{
+    width: 600%;
+    height: 400px;
 }
+/*공지영역 설정*/
+
+/*예약영역설정*/
+
+/*지도 영역 설정*/
+
+/*콘텐츠 영역 아래에 있는 배너이미지 inline설정*/
 
 /*전체 페이지가 가운데로 오도록 설정*/
 #page{

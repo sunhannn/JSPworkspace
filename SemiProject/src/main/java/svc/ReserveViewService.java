@@ -9,12 +9,12 @@ import dao.StudyDAO;
 import vo.ReserveVO;
 
 public class ReserveViewService {
-	public ReserveVO getMember(String viewId) {
+	public ReserveVO getReserve(int num) {
 		Connection con = getConnection();
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		studyDAO.setConnection(con);
 
-		ReserveVO reserve = studyDAO.selectReserve(viewId);
+		ReserveVO reserve = studyDAO.selectReserve(num);
 		close(con);
 		return reserve;
 

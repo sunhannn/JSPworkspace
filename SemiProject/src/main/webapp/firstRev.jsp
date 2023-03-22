@@ -11,6 +11,8 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="revGo.css">
+	 <link rel="stylesheet" href="./main.css">
+	
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -19,17 +21,28 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<!-- Brand/logo -->
-		<a class="navbar-brand" href="#">Logo</a>
-
-		<!-- Links -->
-		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="#">Link 1</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Link 3</a></li>
-		</ul>
-	</nav>
+	<div id="mainpage">
+             <header>
+               <div id="logo"> <!--이미지로고 추가할시 사용--> 
+                 <img src="" alt=""> 
+               </div><!--로고 div영역끝-->
+                <div id="login"> <!--로그인 부분-->
+                  <a href="#">LOGIN</a>           
+                </div><!--로그인 div영역끝-->
+      
+                <nav> <!--메뉴바 목록들-->
+                 <ul class="menubar">
+                   <li><a href="#">HOME</a></li>
+                   <li><a href="#" onclick="location.href='info.html'">공지</a></li>
+                   <li><a href="#" onclick="location.href='showcase.html'">공간소개 및 오시는 길</a></li>
+                   <li><a href="#" onclick="location.href='firstRev.jsp'">스터디룸 예약</a></li>                      
+                 </ul>
+                </nav>        
+             </header>
+           </div>
+	<br>
+	<br>
+	<br>
 	<br>
 	<br>
 	<br>
@@ -69,6 +82,17 @@
 		</ul>
 
 	</div>
+	
+	<footer class="footer"><br>
+        <p>현재 사이트는 교육용으로 제작된 웹사이트로 실제로는 사용불가능합니다.</p>
+        <p>카피라이터: 1조 평균나이 96년생</p>
+        <p>팀장: 한상현, 부팀장: 박수빈, 팀원: 김선찬, 송채은, 윤지원</p>
+       </footer>
+	
+	
+	
+	
+	
 	<script>
 		window.onload = function() {
 			document.getElementById('btn').onclick = function() {

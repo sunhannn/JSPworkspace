@@ -28,7 +28,7 @@
     </div>
 
     <div class="container-fluid" style="text-align: center;">
-        <form action="rev.go">
+        <form action="rev.go" id="rev" onsubmit="time()">
             <div class="date">
                 <p style="font-size: 15px; font-weight: bold;">예약 일자</p><br>
                 <input type="date" name="R_DATE" id="currentDate" value="today">
@@ -116,9 +116,27 @@
     </div>
     <!-- 디폴트 오늘날짜 JS -->
     <script>
-        document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-
-
+        
+    document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
+    
+    function time(){
+    var start = document.getElementById('startTime').value;
+    var end = document.getElementById('endTime').value;
+    
+    if (start > end){
+    	alert('시작시간을 종료 시간보다 빠르게 설정해주세요!');
+    	history.back();
+    	  event.preventDefault();
+    }else if (start == end) {
+    	alert('시작시간을 종료 시간보다 빠르게 설정해주세요!');
+    	history.back();
+    	  event.preventDefault();
+    	
+    }
+    }
+    
+    
+    
     </script>
 
 
