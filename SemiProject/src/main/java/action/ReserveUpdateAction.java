@@ -6,19 +6,20 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vo.ReserveVO;
-import vo.ActionForward;
 import svc.JoongbokService;
 import svc.RerserveService;
+import svc.ReserveUpdateService;
+import vo.ActionForward;
+import vo.ReserveVO;
 
-public class ReserveAction implements Action {
+public class ReserveUpdateAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		int num = Integer.parseInt(request.getParameter("num"));
 		ActionForward forward = null;
 		ReserveVO reserve = new ReserveVO();
-		boolean reserveResult = false;
-
+		boolean updateResult = false;
+		reserve.setR_NUM(num);
 		reserve.setR_ID(request.getParameter("M_ID"));
 		reserve.setR_NAME(request.getParameter("M_NAME"));
 		reserve.setR_DATE(request.getParameter("R_DATE"));
@@ -26,8 +27,8 @@ public class ReserveAction implements Action {
 		reserve.setR_ROOM(request.getParameter("R_ROOM"));
 		reserve.setR_STIME(request.getParameter("R_STIME"));
 		reserve.setR_ETIME(request.getParameter("R_ETIME"));
-		
-		// 방번호에 따라 가격 계산식
+
+		// 방번호에 따라 시간을 빼서 가격 계산
 		int roomNum = Integer.parseInt(reserve.getR_ROOM());
 		int time = Integer.parseInt(reserve.getR_ETIME()) - Integer.parseInt(reserve.getR_STIME());
 		if (roomNum < 3) {
@@ -39,7 +40,6 @@ public class ReserveAction implements Action {
 			reserve.setR_PRI(30000 * time);
 		}
 
-		
 		// 방번호와 그 시간에 예약이 있는 경우 찾아내는 식
 		JoongbokService joongbok = new JoongbokService();
 		ArrayList<ReserveVO> joongbokList = joongbok.reserveCheck(reserve.getR_DATE());
@@ -48,30 +48,27 @@ public class ReserveAction implements Action {
 		boolean check2 = false;
 		boolean check3 = false;
 		for (ReserveVO s : joongbokList) {
-			if (Integer.parseInt(s.getR_STIME())  == Integer.parseInt(reserve.getR_STIME())) {
+			if (Integer.parseInt(s.getR_STIME()) == Integer.parseInt(reserve.getR_STIME())) {
 				check1 = true;
 				break;
 			}
 
 		}
 		for (ReserveVO s : joongbokList) {
-			if (Integer.parseInt(s.getR_ETIME())  == Integer.parseInt(reserve.getR_ETIME())) {
+			if (Integer.parseInt(s.getR_ETIME()) == Integer.parseInt(reserve.getR_ETIME())) {
 				check2 = true;
 				break;
 			}
 
 		}
 		for (ReserveVO s : joongbokList) {
-			if (Integer.parseInt(s.getR_ROOM())  == Integer.parseInt(reserve.getR_ROOM())) {
+			if (Integer.parseInt(s.getR_ROOM()) == Integer.parseInt(reserve.getR_ROOM())) {
 				check3 = true;
 				break;
 			}
 
 		}
 
-		
-
-		//3개 조건이 다 참이면 예약
 		if (check1 && check2 && check3) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -82,26 +79,27 @@ public class ReserveAction implements Action {
 			return forward;
 		}
 
-		RerserveService reserveService = new RerserveService();
-		
-		reserveResult = reserveService.reserveResult(reserve);
+		ReserveUpdateService updateService = new ReserveUpdateService();
 
-		if (reserveResult == false) {
+		updateResult = updateService.updateResult(reserve);
+
+		if (updateResult == false) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('예약에 실패하였습니다!')");
+			out.println("alert('수정에 실패했습니다!')");
 			out.println("history.back()");
 			out.println("</script>");
 
 		} else {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("./revSuccess.jsp");
+			forward.setPath("./revList.go");
 
 		}
 
 		return forward;
+
 	}
 
 }

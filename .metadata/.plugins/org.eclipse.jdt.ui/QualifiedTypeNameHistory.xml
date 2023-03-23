@@ -35,7 +35,6 @@
     <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
     <fullyQualifiedTypeName name="svc.RerserveService"/>
     <fullyQualifiedTypeName name="db.JdbcUtil"/>
-    <fullyQualifiedTypeName name="action.ReserveAction"/>
     <fullyQualifiedTypeName name="vo.MemberVO"/>
     <fullyQualifiedTypeName name="javax.websocket.Session"/>
     <fullyQualifiedTypeName name="svc.ReserveListService"/>
@@ -47,7 +46,9 @@
     <fullyQualifiedTypeName name="vo.ActionForward"/>
     <fullyQualifiedTypeName name="action.ReserveDeleteAction"/>
     <fullyQualifiedTypeName name="svc.ReserveDeleteService"/>
-    <fullyQualifiedTypeName name="vo.ReserveVO"/>
+    <fullyQualifiedTypeName name="action.ReserveAction"/>
     <fullyQualifiedTypeName name="dao.StudyDAO"/>
+    <fullyQualifiedTypeName name="svc.JoongbokService"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="vo.ReserveVO"/>
 </qualifiedTypeNameHistroy>

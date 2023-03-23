@@ -43,6 +43,12 @@
 
 		</td>
 		<td>
+		<form action="revUp.go">
+		<button type="submit" value="${reserve.getR_NUM()}" name="num">수정</button>
+		</form>
+		</td>
+		
+		<td>
 		<a href="revDel.go?num=${reserve.getR_NUM()}">삭제</a>
 		</td>
 	</tr>
