@@ -1,0 +1,15 @@
+#rev {
+  width: 100%;
+  height: 100%;
+  color: white;
+  border: 0px;
+  background-color: chocolate;
+}
+.roomNum {
+  font-size: 16px;
+  font-weight: bold;
+}
+.revBtn {
+  display: block;
+  text-align: center;
+}

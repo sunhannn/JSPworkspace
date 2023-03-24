@@ -1,13 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!--<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@page import="vo.ReserveVO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+-->
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta charset="UTF-8">
 <title>예약 목록 보기</title>
+<link rel="stylesheet" href="revGo.css">
 <style>
 	#reserveListArea{
 		width : 400px;

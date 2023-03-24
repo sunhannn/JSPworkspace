@@ -96,7 +96,7 @@
         <hr><br>
 
         <div class="container-fluid" style="text-align: center;">
-            <form action="rev.go" id="rev" onsubmit="time()">
+            <form action="rev.go" id="rev">
                 <div class="date">
                     <p style="font-size: 15px; font-weight: bold;">예약 일자</p>
                     <input type="date" name="R_DATE" id="currentDate" value="today"

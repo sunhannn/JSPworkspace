@@ -30,7 +30,8 @@ public class StudyDAO {
 	public void setConnection(Connection con) {
 		this.con = con;
 	}
-	//예약 정보 추가
+
+	// 예약 정보 추가
 	public int insertMember(ReserveVO reserve, MemberVO member) {
 		String sql = "INSERT INTO RESERVE VALUES (SEQ_RENUM.nextval,?,?,?,?,?,?,?,?)";
 		int insertCount = 0;
@@ -57,7 +58,7 @@ public class StudyDAO {
 
 		return insertCount;
 	}
-	
+
 	// 멤버 테이블 정보 가져오기
 	public MemberVO selectMember(String id) {
 		String sql = "SELECT * FROM MEMBER WHERE M_ID=?";
@@ -87,8 +88,8 @@ public class StudyDAO {
 
 		return member;
 	}
-	
-	//예약 테이블 전체 정보 가져오기
+
+	// 예약 테이블 전체 정보 가져오기
 	public ArrayList<ReserveVO> selectReserveList() {
 		String sql = "SELECT * FROM reserve where r_id = ?";
 		ArrayList<ReserveVO> reserveList = new ArrayList<ReserveVO>();
@@ -122,7 +123,7 @@ public class StudyDAO {
 		return reserveList;
 	}
 
-	//예약 번호를 이용한 한줄 정보 조회
+	// 예약 번호를 이용한 한줄 정보 조회
 	public ReserveVO selectReserve(int NUM) {
 		String sql = "SELECT * FROM reserve WHERE R_NUM=?";
 		ReserveVO reserve = null;
@@ -154,8 +155,8 @@ public class StudyDAO {
 
 		return reserve;
 	}
-	
-	//예약 정보 삭제 (임시삭제)
+
+	// 예약 정보 삭제 (임시삭제)
 	public int deleteReserve(int num) {
 		String sql = "DELETE reserve WHERE r_num = ?";
 		int deleteCount = 0;
@@ -172,7 +173,7 @@ public class StudyDAO {
 
 		return deleteCount;
 	}
-	
+
 	// 중복 판단용 같은 날짜 정보 전부 가져오기
 	public ArrayList<ReserveVO> joongbokPandan(String date) {
 		String sql = "SELECT * FROM reserve where r_date = ?";
@@ -207,9 +208,8 @@ public class StudyDAO {
 		}
 		return reserveList;
 	}
-	
-	
-	//임시 삭제 정보 보관 테이블
+
+	// 임시 삭제 정보 보관 테이블
 	public int insertDelReserve(ReserveVO reserve) {
 		String sql = "INSERT INTO RESERVE_del VALUES (?,?,?,?,?,?,?,?,?)";
 		int insertCount = 0;
@@ -237,8 +237,8 @@ public class StudyDAO {
 
 		return insertCount;
 	}
-	
-	//임시 저장 테이블에서도 완전 삭제
+
+	// 임시 저장 테이블에서도 완전 삭제
 	public int KandeleteReserve(int num) {
 		String sql = "DELETE reserve_del WHERE d_num = ?";
 		int deleteCount = 0;
@@ -255,23 +255,24 @@ public class StudyDAO {
 
 		return deleteCount;
 	}
-	
-	//예약 정보 수정
+
+	// 예약 정보 수정
 	public int updateReserve(ReserveVO reserve) {
-		String sql = "UPDATE reserve set r_date = ?, r_stime = ?, r_etime = ?, r_room = ? where r_num = ?";
+		String sql = "UPDATE reserve set r_date = ?, r_stime = ?, r_etime = ?,r_pri = ? , r_room = ? where r_num = ?";
 		int updateCount = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, reserve.getR_DATE());
 			pstmt.setString(2, reserve.getR_STIME());
 			pstmt.setString(3, reserve.getR_ETIME());
-			pstmt.setString(4, reserve.getR_ROOM());
-			pstmt.setInt(5, reserve.getR_NUM());
+			pstmt.setInt(4, reserve.getR_PRI());
+			pstmt.setString(5, reserve.getR_ROOM());
+			pstmt.setInt(6, reserve.getR_NUM());
 			updateCount = pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close(pstmt);
 		}
 		return updateCount;
