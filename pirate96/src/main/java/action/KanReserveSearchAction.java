@@ -10,7 +10,7 @@ import vo.ActionForward;
 import vo.PageInfo;
 import vo.ReserveBean;
 
-public class ReserveSearchAction implements Action  {
+public class KanReserveSearchAction implements Action  {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response)
 			throws Exception{

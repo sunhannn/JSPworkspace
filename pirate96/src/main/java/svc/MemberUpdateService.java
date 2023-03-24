@@ -7,19 +7,19 @@ import static db.JdbcUtil.rollback;
 
 import java.sql.Connection;
 
-import dao.MemberDAO;
-import vo.Member;
+import dao.StudyDAO;
+import vo.MemberVO;
 
 public class MemberUpdateService {
 //내정보수정
-	public boolean updateMember(String updateId,Member member) {
+	public boolean updateMember(String updateId,MemberVO member) {
 		
 		boolean updateResult = false;
 		Connection con = getConnection();
-		MemberDAO memberDAO = MemberDAO.getInstance(); //instance
-		memberDAO.setConnection(con);
+		StudyDAO studyDAO = StudyDAO.getInstance(); //instance
+		studyDAO.setConnection(con);
 		
-		int updateCount = memberDAO.updateMember(updateId,member); //뭘넣어야하니
+		int updateCount = studyDAO.updateMember(updateId,member); //뭘넣어야하니
 		if(updateCount > 0) {
 			
 			commit(con);

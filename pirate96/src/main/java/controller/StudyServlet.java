@@ -17,16 +17,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-
 import action.Action;
+import action.MemberJoinAction;
+import action.MemberLoginAction;
 import action.ReserveAction;
 import action.ReserveDeleteAction;
 import action.ReserveListAction;
 import action.ReserveUpdateAction;
 import action.ReserveViewAction;
+import dao.StudyDAO;
 import vo.ActionForward;
 import static db.JdbcUtil.*;
+import vo.MemberVO;
 
 @WebServlet("*.go")
 public class StudyServlet extends HttpServlet {
@@ -98,19 +100,19 @@ public class StudyServlet extends HttpServlet {
 			forward = new ActionForward();
 //			forward.setRedirect(true);
 			forward.setPath("./revUpdate.jsp");
-		} else if (command.equals("/memberLogin.me")) {
+		} else if (command.equals("/memberLogin.go")) {
 			action = new MemberLoginAction();
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("./loginForm.jsp");
 			// 회원가입페이지
-		} else if (command.equals("/memberJoin.me")) {
+		} else if (command.equals("/memberJoin.go")) {
 			action = new MemberJoinAction();
 			forward = new ActionForward(); // 페이지를 보내줘야해서 forward객체 생성 필요
 			forward.setRedirect(true); // url변경 페이지 전송 데이터전송x
 			forward.setPath("./joinForm.jsp");
 			// 로그인 서블릿
-		} else if (command.equals("/memberLoginAction.me")) {
+		} else if (command.equals("/memberLoginAction.go")) {
 			action = new MemberLoginAction();
 			try {
 				forward = action.execute(request, response);
@@ -118,7 +120,7 @@ public class StudyServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			// 회원가입 서블릿
-		} else if (command.equals("/memberJoinAction.me")) {
+		} else if (command.equals("/memberJoinAction.go")) {
 			action = new MemberJoinAction();
 			try {
 				forward = action.execute(request, response);
@@ -128,15 +130,15 @@ public class StudyServlet extends HttpServlet {
 			}
 
 		} // 아이디 중복검사 아약스인데 모름
-		else if (command.equals("/loginCheck.me")) {
+		else if (command.equals("/loginCheck.go")) {
 
 			String id = request.getParameter("uid");
 			System.out.println(id);
 
-			Member member = new Member();
+			MemberVO member = new MemberVO();
 			member.setM_ID(id);
-			MemberDAO DAO = MemberDAO.getInstance();
-			boolean result = DAO.idCheck(member); // 메소드필요
+			StudyDAO study = study.getInstance();
+			boolean result = study.idCheck(member); // 메소드필요
 
 			String str;
 
@@ -150,12 +152,12 @@ public class StudyServlet extends HttpServlet {
 			map.put("str", str);
 			map.put("M_ID", id);
 
-			JSONObject jObject = new JSONObject();
-			jObject.put("map", map);
+//			JSONObject jObject = new JSONObject();
+//			jObject.put("map", map);
 
 			response.setContentType("application/x-json; charset=utf-8");
 
-			response.getWriter().print(jObject);
+//			response.getWriter().print(jObject);
 			// 회원탈퇴 서블릿
 		} else if (command.equals("/memberDeleteAction.me")) {
 			action = new MemberDeleteAction();
@@ -276,7 +278,7 @@ public class StudyServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			// 게시판 글 수정
 		} else if (command.equals("/boardModifyForm.go")) {
 			action = new BoardModifyFormAction();
@@ -285,7 +287,7 @@ public class StudyServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			//게시판 글 수정(액션)
+			// 게시판 글 수정(액션)
 		} else if (command.equals("/boardModifyPro.go")) {
 			action = new BoardModifyProAction();
 			try {

@@ -1,13 +1,13 @@
 package svc;
 
-import static db.jdbcUtil.*;
+import static db.JdbcUtil.*;
 import java.sql.Connection;
 
 import dao.ReserveDAO;
-import vo.ReserveBean;
+import dao.StudyDAO;
+import vo.ReserveVO;
 
-
-public class ReserveModifyFormService {
+public class KanReserveModifyFormService {
 
 //	public boolean isArticleWriter(int board_num, String pass) throws Exception {
 //		// TODO Auto-generated method stub
@@ -21,19 +21,18 @@ public class ReserveModifyFormService {
 //		return isArticleWriter;
 //		
 //	}
-	
-	//해당 r_num(예약번호)인 것 가져옴 
-	public ReserveBean getArticle(int r_num) throws Exception {
-		
-		Connection con = getConnection();
-		ReserveDAO reserveDAO = ReserveDAO.getInstance();
-		reserveDAO.setConnection(con);
-		ReserveBean reserveBean = reserveDAO.getRnumArticle(r_num);
 
-		
+	// 해당 r_num(예약번호)인 것 가져옴
+	public ReserveVO getArticle(int r_num) throws Exception {
+
+		Connection con = getConnection();
+		StudyDAO studyDAO = StudyDAO.getInstance();
+		studyDAO.setConnection(con);
+		ReserveVO reserveBean = studyDAO.getRnumArticle(r_num);
+
 		close(con);
 		return reserveBean;
-		
+
 	}
 
 }

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import svc.CheckMyInfoService;
 import vo.ActionForward;
 import vo.Member;
+import vo.MemberVO;
 
 public class CheckMyInfoAction  implements Action{
 	
@@ -18,7 +19,7 @@ public class CheckMyInfoAction  implements Action{
 		
 		
 		
-		Member member = new Member();
+		MemberVO member = new MemberVO();
 		
 		member.setM_ID(id);
 		System.out.println(member.getM_ID());

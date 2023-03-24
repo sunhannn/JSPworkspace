@@ -6,7 +6,7 @@ import svc.ReserveModifyFormService;
 import vo.ActionForward;
 import vo.ReserveBean;
 
-public class ReserveModifyFormAction implements Action {
+public class KanReserveModifyFormAction implements Action {
 	
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 

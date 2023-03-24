@@ -3,12 +3,12 @@ package action;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.ReserveDeleteService;
+import svc.KanReserveDeleteService;
 import vo.ActionForward;
 import vo.PageInfo;
-import vo.ReserveBean;
+import vo.ReserveVO;
 
-public class ReserveDeleteAction implements Action {
+public class KanReserveDeleteAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 			throws Exception{	 
@@ -16,9 +16,9 @@ public class ReserveDeleteAction implements Action {
 		ActionForward forward = null;
 		int r_num=Integer.parseInt(request.getParameter("r_num"));
 		String nowPage = request.getParameter("page");
-		ReserveDeleteService reserveDeleteService = new ReserveDeleteService();
-		ReserveBean article=new ReserveBean();
-		reserveDeleteService.deleteArticle(r_num);
+		KanReserveDeleteService reserveDeleteService = new KanReserveDeleteService();
+		ReserveVO article=new ReserveVO();
+		 reserveDeleteService.deleteArticle(r_num);
 		
 		PageInfo pageInfo = new PageInfo();
 		request.setAttribute("pageInfo", pageInfo);

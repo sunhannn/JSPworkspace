@@ -10,7 +10,7 @@ import vo.ReserveBean;
 import vo.PageInfo;
 
 // 예약리스트 Action
- public class ReserveListAction implements Action {
+ public class KanReserveListAction implements Action {
 	 
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 

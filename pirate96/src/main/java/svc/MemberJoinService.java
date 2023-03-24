@@ -7,12 +7,12 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 
 import dao.MemberDAO;
-import vo.Member;
+import vo.MemberVO;
 
 public class MemberJoinService {
 
 		//회원가입
-		public boolean joinMember(Member member) {
+		public boolean joinMember(MemberVO member) {
 			boolean joinSuccess = false;
 			MemberDAO memberDAO = MemberDAO.getInstance();
 			Connection con = getConnection();

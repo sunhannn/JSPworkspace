@@ -1,27 +1,24 @@
 package svc;
 
-import static db.jdbcUtil.*;
 import java.sql.Connection;
+import static db.JdbcUtil.*;
+import dao.StudyDAO;
 
-import dao.ReserveDAO;
+public class KanReserveDeleteService {
 
-public class ReserveDeleteService {
+	public void deleteArticle(int r_num) throws Exception {
 
-
-	public void deleteArticle(int r_num) throws Exception{
-		
 		Connection con = getConnection();
-		ReserveDAO reserveDAO = ReserveDAO.getInstance();
-		reserveDAO.setConnection(con);
-		int deleteCount = reserveDAO.deleteArticle(r_num);
-		
-		if(deleteCount > 0){
+		StudyDAO studyDAO = StudyDAO.getInstance();
+		studyDAO.setConnection(con);
+		int deleteCount = studyDAO.deleteArticle(r_num);
+
+		if (deleteCount > 0) {
 			commit(con);
-		}
-		else{
+		} else {
 			rollback(con);
 		}
-		
+
 		close(con);
 	}
 

@@ -9,7 +9,7 @@ import vo.ActionForward;
 import vo.PageInfo;
 import vo.ReserveBean;
 
-public class ReserveModifyAction implements Action {
+public class KanReserveModifyAction implements Action {
 	
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 	

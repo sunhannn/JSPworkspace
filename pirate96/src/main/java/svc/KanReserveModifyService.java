@@ -1,20 +1,19 @@
 package svc;
 
-import static db.jdbcUtil.*;
 import java.sql.Connection;
+import static db.JdbcUtil.*;
+import dao.StudyDAO;
+import vo.ReserveVO;
 
-import dao.ReserveDAO;
-import vo.ReserveBean;
 
-
-public class ReserveModifyService {
+public class KanReserveModifyService {
 	
-	public void modifyArticle(ReserveBean article) throws Exception {
+	public void modifyArticle(ReserveVO article) throws Exception {
 	
 	Connection con = getConnection();
-	ReserveDAO reserveDAO = ReserveDAO.getInstance();
-	reserveDAO.setConnection(con);
-	int updateCount = reserveDAO.updateArticle(article);
+	StudyDAO studyDAO = StudyDAO.getInstance();
+	studyDAO.setConnection(con);
+	int updateCount = studyDAO.updateArticle(article);
 	System.out.println(updateCount);
 	if(updateCount > 0){
 		commit(con);

@@ -6,7 +6,6 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 
 import dao.MemberDAO;
-import vo.Member;
 
 public class MemberDeleteService {
 //회원탈퇴
