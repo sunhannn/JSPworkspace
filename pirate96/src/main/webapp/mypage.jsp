@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@page import="vo.Member"%>
+<%@page import="vo.MemberVO"%>
     
 <!DOCTYPE html>
 <html>
@@ -30,21 +30,35 @@
             	}
             }
     %>
-    <form action="myinfo.mo">
+    <form action="./myinfo.go">
     <button type="submit" >내정보 확인</button>
 </form>
 <form action ="updatepage.jsp">
 <input type="submit" value="내정보 수정">
 </form>
 
-<form action ="memberDeleteAction.me"  >
+<form action ="../memberDeleteAction.go"  >
 
 <input type="submit" value="회원탈퇴">
 </form>
-<form action="memberLogout.me">
+<form action="memberLogout.go">
 <input type="submit" value="로그아웃">
 </form>
+<form action="../revList.go">
 
+<button type="submit">
+예약 목록 보기
+</button>
+
+</form>
+
+
+<form action="../mainPage/main.jsp">
+<button type="submit">
+메인페이지로 가기
+</button>
+
+</form>
 
  
 </body>

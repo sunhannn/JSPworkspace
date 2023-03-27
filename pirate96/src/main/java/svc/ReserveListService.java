@@ -10,12 +10,12 @@ import dao.StudyDAO;
 import vo.ReserveVO;
 
 public class ReserveListService {
-	public ArrayList<ReserveVO> getMemberList() {
+	public ArrayList<ReserveVO> getMemberList(String id) {
 		Connection con = getConnection();
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		studyDAO.setConnection(con);
 
-		ArrayList<ReserveVO> reserveList = studyDAO.selectReserveList();
+		ArrayList<ReserveVO> reserveList = studyDAO.selectReserveList(id);
 		close(con);
 		return reserveList;
 

@@ -7,7 +7,6 @@ import static db.JdbcUtil.*;
 public class BoardWriteProService {
 
 	public boolean registArticle(BoardBean boardBean) throws Exception{
-		// TODO Auto-generated method stub
 		
 		boolean isWriteSuccess = false;
 		Connection con = getConnection();

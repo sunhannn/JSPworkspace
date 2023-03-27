@@ -1,13 +1,13 @@
 <%@page import="vo.PageInfo"%>
-<%@page import="vo.ReserveBean"%>
+<%@page import="vo.ReserveVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 
 <%
-ArrayList<ReserveBean> articleList = (ArrayList<ReserveBean>) request.getAttribute("articleList");
+ArrayList<ReserveVO> articleList = (ArrayList<ReserveVO>) request.getAttribute("articleList");
 PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-ReserveBean article = (ReserveBean) request.getAttribute("article");
+ReserveVO article = (ReserveVO) request.getAttribute("article");
 int listCount = pageInfo.getListCount();
 int nowPage = pageInfo.getPage();
 int maxPage = pageInfo.getMaxPage();
@@ -19,21 +19,20 @@ String list_search_value = request.getParameter("search_value");
 
 
 <!-- -start- 관리자 아이디인지 세션 확인 -->
-	<%
-		String user_id = (String)session.getAttribute("userID");  // 이전 페이지에서 로그인으로 받아온 아이디
-		String user_pw = (String)session.getAttribute("userPW"); // 이전 페이지에서 로그인으로 받아온 비밀번호 
-		boolean return_main = false;
-		
-		if(user_id==null || user_pw==null || !(user_id.equals("admin") || user_pw.equals("1234"))) {
-			return_main = true;
-		}
-		
-		if(return_main)
-		{
-			// 관리자 계정이 아닐 시 메인 페이지로 이동
-		    out.print("<script>alert('권한이 없습니다.'); location.href ='main.jsp';</script>");
-		}
- 	%>
+<%
+String user_id = (String) session.getAttribute("userID"); // 이전 페이지에서 로그인으로 받아온 아이디
+String user_pw = (String) session.getAttribute("userPW"); // 이전 페이지에서 로그인으로 받아온 비밀번호 
+boolean return_main = false;
+
+if (user_id == null || user_pw == null || !(user_id.equals("admin") || user_pw.equals("1234"))) {
+	return_main = true;
+}
+
+if (return_main) {
+	// 관리자 계정이 아닐 시 메인 페이지로 이동
+	out.print("<script>alert('권한이 없습니다.'); location.href ='main.jsp';</script>");
+}
+%>
 <!-- -end- 관리자 아이디인지 세션 확인 -->
 
 <!DOCTYPE html>
@@ -47,26 +46,25 @@ String list_search_value = request.getParameter("search_value");
 <link rel="stylesheet" href="css/main.css">
 
 <script>
-/* 예약 취소 시 경고창 */
+	/* 예약 취소 시 경고창 */
 
-$(function(){
-	$(".delete_btn").on("click",function(){
-		
-		if(confirm("정말 해당 예약을 취소하시겠습니까 ?") == true){
-	        alert("취소되었습니다");
-	        $(this).parent().submit();
-	    }
-	    else{
-	        return ;
-	    }
+	$(function() {
+		$(".delete_btn").on("click", function() {
+
+			if (confirm("정말 해당 예약을 취소하시겠습니까 ?") == true) {
+				alert("취소되었습니다");
+				$(this).parent().submit();
+			} else {
+				return;
+			}
+		});
 	});
-});
 
-/* 페이징 넘어갈 때마다 스타일 */
-$("button.paging_btn").click(function(){
-    $("button.paging_btn").removeClass("select");
-    $(this).addClass("select");
-});
+	/* 페이징 넘어갈 때마다 스타일 */
+	$("button.paging_btn").click(function() {
+		$("button.paging_btn").removeClass("select");
+		$(this).addClass("select");
+	});
 </script>
 
 
@@ -91,8 +89,8 @@ a {
 }
 
 /* 예약 취소에 포인터 설정 */
-a.delete_btn:hover{
-	cursor:pointer;
+a.delete_btn:hover {
+	cursor: pointer;
 }
 
 /* 테이블 */
@@ -152,23 +150,23 @@ a.delete_btn:hover{
 }
 
 /* 페이징 버튼 css */
-.paging_btn{
-background-color:#f5f6f7;
-outline: none;
-border: 0;
-cursor:pointer;
-padding: 3px;
+.paging_btn {
+	background-color: #f5f6f7;
+	outline: none;
+	border: 0;
+	cursor: pointer;
+	padding: 3px;
 }
 
-button.select{
-font-weight: bold;
-border: 1px solid #ccc;
+button.select {
+	font-weight: bold;
+	border: 1px solid #ccc;
 }
 
 /* 검색 div 가운데 정렬 */
-#search_table{
-width: 75%;
-margin: auto;
+#search_table {
+	width: 75%;
+	margin: auto;
 }
 
 /* 검색 셀렉트 박스 */
@@ -190,10 +188,10 @@ margin: auto;
 }
 
 /* 검색 버튼 */
-#search_submit{
+#search_submit {
 	border: 1px solid #999;
 	vertical-align: middle;
-	background-color:#999;
+	background-color: #999;
 	color: white;
 	padding: 14px 15px;
 	font-size: 0.9em;
@@ -276,17 +274,19 @@ margin: auto;
 										<td class="td_center"><%=articleList.get(i).getR_ID()%></td>
 										<td class="td_center"><%=articleList.get(i).getR_NAME()%></td>
 										<td class="td_center"><%=articleList.get(i).getR_ROOM()%></td>
-										<td class="td_center"><%=articleList.get(i).getR_TIME()%></td>
+										<td class="td_center"><%=articleList.get(i).getR_STIME()%></td>
+										<td class="td_center"><%=articleList.get(i).getR_ETIME()%></td>
 										<td class="td_right"><%=articleList.get(i).getR_PRI()%> 원</td>
 										<td class="td_center"><%=articleList.get(i).getR_PH()%></td>
 										<td class="td_center"><a style="color: gray;"
 											href="reserveModify.go?r_num=<%=articleList.get(i).getR_NUM()%>&page=<%=nowPage%>"%>
 												예약 수정</a></td>
 										<td class="td_center">
-										<form name="delete_form" method="post" action="reserveDelete.go?r_num=<%=articleList.get(i).getR_NUM()%>">
-										<a class ="delete_btn" style="color: gray;">예약 취소</a>
-										</form>
-												</td>
+											<form name="delete_form" method="post"
+												action="reserveDelete.go?r_num=<%=articleList.get(i).getR_NUM()%>">
+												<a class="delete_btn" style="color: gray;">예약 취소</a>
+											</form>
+										</td>
 									</tr>
 									<%
 									}
@@ -301,13 +301,13 @@ margin: auto;
 						<%
 						if (nowPage <= 1) {
 						%>
-						<button type="button" class="paging_btn">
-						이전
-						</button>
+						<button type="button" class="paging_btn">이전</button>
 						<%
 						} else {
 						%>
-						<button type="button" class="paging_btn" onClick="location.href='reserveSearch.go?page=<%=nowPage-1 %>&search=<%=list_search%>&search_value=<%=list_search_value%>'">이전</button>&nbsp;
+						<button type="button" class="paging_btn"
+							onClick="location.href='reserveSearch.go?page=<%=nowPage - 1%>&search=<%=list_search%>&search_value=<%=list_search_value%>'">이전</button>
+						&nbsp;
 						<%
 						}
 						%>
@@ -317,30 +317,31 @@ margin: auto;
 							if (a == nowPage) {
 						%>
 						<button type="button" class="paging_btn select">
-						<%=a%>
+							<%=a%>
 						</button>
 						<%
 						} else {
 						%>
-						<button class="paging_btn" onClick="location.href='reserveSearch.go?page=<%=a%>&search=<%=list_search%>&search_value=<%=list_search_value%>'"><%=a%>
+						<button class="paging_btn"
+							onClick="location.href='reserveSearch.go?page=<%=a%>&search=<%=list_search%>&search_value=<%=list_search_value%>'"><%=a%>
 						</button>
 						<%
 						}
 						%>
 						<%
-						}%>
-						
+						}
+						%>
+
 
 						<%
 						if (nowPage >= maxPage) {
 						%>
-						<button type="button" class="paging_btn">
-						다음
-						</button>
+						<button type="button" class="paging_btn">다음</button>
 						<%
 						} else {
 						%>
-						<button type="button" class="paging_btn" onClick="location.href='reserveSearch.go?page=<%=nowPage + 1%>&search=<%=list_search%>&search_value=<%=list_search_value%>'">다음
+						<button type="button" class="paging_btn"
+							onClick="location.href='reserveSearch.go?page=<%=nowPage + 1%>&search=<%=list_search%>&search_value=<%=list_search_value%>'">다음
 						</button>
 						<%
 						}
@@ -353,8 +354,8 @@ margin: auto;
 					<%
 					}
 					%>
-					
-					
+
+
 					<br> <br>
 
 					<!-- 예약 검색창 -->
@@ -366,12 +367,16 @@ margin: auto;
 										<!--  찾을 조건들 -->
 										<option value="id" class="reserve_search_sub">아이디
 										<option value="num" class="reserve_search_sub">예약 번호
+
+
 										
 										<option value="name" class="reserve_search_sub">이름
 										<option value="ph" class="reserve_search_sub">핸드폰 번호
 											<!--  찾을 조건들 -->
 								</select> <input type="text" name="search_value"
-									id="reserve_search_value" placeholder="검색할 정보를 입력해주세요." maxlength="200"><button id="search_submit" type="submit">검색</button></td>
+									id="reserve_search_value" placeholder="검색할 정보를 입력해주세요."
+									maxlength="200">
+									<button id="search_submit" type="submit">검색</button></td>
 							</tr>
 						</table>
 					</form>

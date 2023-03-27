@@ -15,8 +15,7 @@ public class RerserveService {
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		Connection con = getConnection();
 		studyDAO.setConnection(con);
-		MemberVO member = studyDAO.selectMember("leo");
-		int insertCount = studyDAO.insertMember(reserve, member);
+		int insertCount = studyDAO.insertMember(reserve);
 		if (insertCount > 0) {
 			reserveSuccess = true;
 			commit(con);

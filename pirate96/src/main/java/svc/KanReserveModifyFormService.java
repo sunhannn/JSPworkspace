@@ -1,9 +1,7 @@
 package svc;
 
-import static db.JdbcUtil.*;
 import java.sql.Connection;
-
-import dao.ReserveDAO;
+import static db.JdbcUtil.*;
 import dao.StudyDAO;
 import vo.ReserveVO;
 
@@ -26,9 +24,9 @@ public class KanReserveModifyFormService {
 	public ReserveVO getArticle(int r_num) throws Exception {
 
 		Connection con = getConnection();
-		StudyDAO studyDAO = StudyDAO.getInstance();
-		studyDAO.setConnection(con);
-		ReserveVO reserveBean = studyDAO.getRnumArticle(r_num);
+		StudyDAO reserveDAO = StudyDAO.getInstance();
+		reserveDAO.setConnection(con);
+		ReserveVO reserveBean = reserveDAO.getRnumArticle(r_num);
 
 		close(con);
 		return reserveBean;

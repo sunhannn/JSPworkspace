@@ -1,13 +1,13 @@
 <%@page import="vo.PageInfo"%>
 <%@page import="action.MemberSearchAction"%>
-<%@page import="vo.MemberBean"%>
+<%@page import="vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
-<%@page import="controller.AdminController"%>
+<%@page import="controller.StudyServlet"%>
 
 <%
-ArrayList<MemberBean> articleList = (ArrayList<MemberBean>) request.getAttribute("articleList");
+ArrayList<MemberVO> articleList = (ArrayList<MemberVO>) request.getAttribute("articleList");
 PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 int listCount = pageInfo.getListCount();
 int nowPage = pageInfo.getPage();
@@ -46,6 +46,20 @@ if (return_main) {
 <!--외부 스타일시트 적용-->
 <link rel="stylesheet" href="css/main.css">
 <script>
+	/* 예약 취소 시 경고창 */
+
+	$(function() {
+		$(".delete_btn").on("click", function() {
+
+			if (confirm("정말 해당 회원을 삭제하시겠습니까 ?") == true) {
+				alert("삭제되었습니다");
+				$(this).parent().submit();
+			} else {
+				return;
+			}
+		});
+	});
+
 	/* 페이징 넘어갈 때마다 스타일 */
 	$("button.paging_btn").click(function() {
 		$("button.paging_btn").removeClass("select");
@@ -70,6 +84,11 @@ section.list {
 /* 모든 하이퍼 a 링크에 밑줄제거*/
 a {
 	text-decoration: none;
+}
+
+/* 예약 취소에 포인터 설정 */
+a.delete_btn:hover {
+	cursor: pointer;
 }
 
 /* 테이블 */
@@ -143,9 +162,9 @@ button.select {
 }
 
 /* 검색 div 가운데 정렬 */
-#search_table{
-width: 75%;
-margin: auto;
+#search_table {
+	width: 75%;
+	margin: auto;
 }
 
 /* 검색 셀렉트 박스 */
@@ -167,10 +186,10 @@ margin: auto;
 }
 
 /* 검색 버튼 */
-#search_submit{
+#search_submit {
 	border: 1px solid #999;
 	vertical-align: middle;
-	background-color:#999;
+	background-color: #999;
 	color: white;
 	padding: 14px 15px;
 	font-size: 0.9em;
@@ -242,6 +261,7 @@ margin: auto;
 									<th scope="col">주소</th>
 									<th scope="col">이메일</th>
 									<th scope="col">성별</th>
+									<th scope="col" colspan="2">관 리</th>
 								</tr>
 
 								<tbody>
@@ -256,6 +276,15 @@ margin: auto;
 										<td class="td_center"><%=articleList.get(i).getM_ADDR()%></td>
 										<td class="td_center"><%=articleList.get(i).getM_EMAIL()%></td>
 										<td class="td_center"><%=articleList.get(i).getM_GENDER()%></td>
+										<td class="td_center"><a style="color: gray;"
+											href="memberModify.go?m_id=<%=articleList.get(i).getM_ID()%>&page=<%=nowPage%>">
+												회원 수정</a></td>
+										<td class="td_center">
+											<form name="delete_form" method="post"
+												action="memberDelete.go?m_id=<%=articleList.get(i).getM_ID()%>">
+												<a class="delete_btn" style="color: gray;">회원 삭제</a>
+											</form>
+										</td>
 									</tr>
 									<%
 									}
@@ -344,7 +373,8 @@ margin: auto;
 										<option value="gender" class="member_search_sub">성별
 											<!--  찾을 조건들 -->
 								</select> <input type="text" name="search_value" id="member_search_value"
-									placeholder="검색할 정보를 입력해주세요." maxlength="200"><button id="search_submit" type="submit">검색</button></td>
+									placeholder="검색할 정보를 입력해주세요." maxlength="200">
+								<button id="search_submit" type="submit">검색</button></td>
 							</tr>
 						</table>
 					</form>

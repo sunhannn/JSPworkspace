@@ -159,7 +159,7 @@ margin: 0;
  
 	<section id="writeForm">
 		<h4>게시판글등록</h4><br><br>
-		<form action="boardWritePro.go" method="post" enctype="multipart/form-data" name="boardform">
+		<form action="../boardWritePro.go" method="post" enctype="multipart/form-data" name="boardform">
 			<table>
 				<tr>
 					<td class="td_left"><label for="BOARD_NAME">작성자</label></td>

@@ -5,28 +5,44 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import vo.ReserveVO;
 import vo.ActionForward;
+import vo.MemberVO;
 import svc.JoongbokService;
 import svc.RerserveService;
+import svc.ReserveMemberGoService;
 
 public class ReserveAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		System.out.println(id);
 		ActionForward forward = null;
 		ReserveVO reserve = new ReserveVO();
 		boolean reserveResult = false;
-
-		reserve.setR_ID(request.getParameter("M_ID"));
-		reserve.setR_NAME(request.getParameter("M_NAME"));
+		ReserveMemberGoService memberGo = new ReserveMemberGoService();
+		MemberVO member = new MemberVO();
+		member = memberGo.reserveMemCheck(id);
+		reserve.setR_ID(id);
+		reserve.setR_NAME(member.getM_NAME());
 		reserve.setR_DATE(request.getParameter("R_DATE"));
-		reserve.setR_PH(request.getParameter("M_PH"));
+		reserve.setR_PH(member.getM_PH());
 		reserve.setR_ROOM(request.getParameter("R_ROOM"));
 		reserve.setR_STIME(request.getParameter("R_STIME"));
 		reserve.setR_ETIME(request.getParameter("R_ETIME"));
-
+		
+		System.out.println(reserve.getR_ID());
+		System.out.println(reserve.getR_NAME());
+	
+		
+		
+		
+		
+		
+		
 		// 방번호에 따라 가격 계산식
 		int roomNum = Integer.parseInt(reserve.getR_ROOM());
 		int time = Integer.parseInt(reserve.getR_ETIME()) - Integer.parseInt(reserve.getR_STIME());

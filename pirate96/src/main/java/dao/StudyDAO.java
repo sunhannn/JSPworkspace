@@ -36,20 +36,20 @@ public class StudyDAO {
 	}
 
 	// 예약 정보 추가
-	public int insertMember(ReserveVO reserve, MemberVO member) {
+	public int insertMember(ReserveVO reserve) {
 		String sql = "INSERT INTO RESERVE VALUES (SEQ_RENUM.nextval,?,?,?,?,?,?,?,?)";
 		int insertCount = 0;
 
 		try {
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, member.getM_ID());
-			pstmt.setString(2, member.getM_NAME());
+			pstmt.setString(1, reserve.getR_ID());
+			pstmt.setString(2, reserve.getR_NAME());
 			pstmt.setString(3, reserve.getR_DATE());
 			pstmt.setString(4, reserve.getR_STIME());
 			pstmt.setString(5, reserve.getR_ETIME());
 			pstmt.setInt(6, reserve.getR_PRI());
-			pstmt.setString(7, member.getM_PH());
+			pstmt.setString(7, reserve.getR_PH());
 			pstmt.setString(8, reserve.getR_ROOM());
 			insertCount = pstmt.executeUpdate();
 
@@ -94,13 +94,13 @@ public class StudyDAO {
 	}
 
 	// 예약 테이블 전체 정보 가져오기
-	public ArrayList<ReserveVO> selectReserveList() {
+	public ArrayList<ReserveVO> selectReserveList(String id) {
 		String sql = "SELECT * FROM reserve where r_id = ?";
 		ArrayList<ReserveVO> reserveList = new ArrayList<ReserveVO>();
 		ReserveVO reserve = null;
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "leo");
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -840,7 +840,7 @@ public class StudyDAO {
 	}
 
 	// 예약 수정.
-	public int updateArticle(ReserveVO article) {
+	public int updateArticleReserve(ReserveVO article) {
 
 		int updateCount = 0;
 		PreparedStatement pstmt = null;
@@ -1275,6 +1275,124 @@ public class StudyDAO {
 				articleList.add(boradbean);
 
 			}
+		} catch (Exception ex) {
+			System.out.println("selectSearchArticleList 에러 : " + ex);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+
+	}
+
+	// 선택한 멤버 id로 수정창에 넣을 정보 가져오기
+	public MemberVO getMIDArticle(String m_id) {
+		MemberVO member = new MemberVO();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		String sql = "select * from member where m_id=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, m_id);
+			rs = pstmt.executeQuery();
+
+			// 가져온 값 memberBean에 셋팅
+			while (rs.next()) {
+				member.setM_ID(rs.getString("M_ID"));
+				member.setM_PW(rs.getString("M_PW"));
+				member.setM_NAME(rs.getString("M_NAME"));
+				member.setM_PH(rs.getString("M_PH"));
+				member.setM_ADDR(rs.getString("M_ADDR"));
+				member.setM_EMAIL(rs.getString("M_EMAIL"));
+				member.setM_GENDER(rs.getString("M_GENDER"));
+			}
+
+		} catch (Exception ex) {
+			System.out.println("ReserveModifyselect 에러 : " + ex);
+		} finally {
+			close(pstmt);
+		}
+
+		return member;
+	}
+
+	// 회원 수정.
+	public int updateArticle(MemberVO article) {
+
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		String sql = "update member set m_name=?,m_ph=?, m_addr=?, m_email=?, m_gender=? where m_id=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, article.getM_NAME());
+			pstmt.setString(2, article.getM_PH());
+			pstmt.setString(3, article.getM_ADDR());
+			pstmt.setString(4, article.getM_EMAIL());
+			pstmt.setString(5, article.getM_GENDER());
+			pstmt.setString(6, article.getM_ID());
+
+			updateCount = pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println("MemberModify 에러 : " + ex);
+		} finally {
+
+			close(pstmt);
+		}
+
+		return updateCount;
+
+	}
+
+	public ArrayList<ReserveVO> selectSearchArticleListReserveGo(String list_search, String list_search_value, int page,
+			int limit) {
+
+		ArrayList<ReserveVO> articleList = new ArrayList<ReserveVO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String reserve_search_sql;
+		try {
+			if (list_search.equals("id")) {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_id like ? order by r_num desc) A ) where rnum between ? and ?";
+			} else if (list_search.equals("num")) {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_num in ? order by r_num desc) A ) where rnum between ? and ?";
+			} else if (list_search.equals("name")) {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_name like ? order by r_num desc) A ) where rnum between ? and ?";
+			} else {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_ph like ? order by r_num desc) A ) where rnum between ? and ?";
+			}
+
+//			ArrayList<ReserveBean> articleList = new ArrayList<ReserveBean>();
+			int startrow = (page - 1) * 10 + 1;
+			int endrow = (page - 1) * 10 + 10;
+
+			pstmt = con.prepareStatement(reserve_search_sql);
+
+			// 자료형 맞춰서 검색되도록 조건문 걸기
+			if (list_search.equals("num")) {
+				pstmt.setString(1, list_search_value);
+			} else {
+				pstmt.setString(1, "%" + list_search_value + "%");
+			}
+			pstmt.setInt(2, startrow);
+			pstmt.setInt(3, endrow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ReserveVO reserve = new ReserveVO();
+				reserve.setR_ID(rs.getString("R_ID"));
+				reserve.setR_NUM(rs.getInt("R_NUM"));
+				reserve.setR_NAME(rs.getString("R_NAME"));
+				reserve.setR_STIME(rs.getString("R_TIME"));
+				reserve.setR_ETIME(rs.getString("R_TIME"));
+				reserve.setR_PRI(rs.getInt("R_PRI"));
+				reserve.setR_PH(rs.getString("R_PH"));
+				reserve.setR_ROOM(rs.getString("R_ROOM"));
+
+				articleList.add(reserve);
+			}
+
 		} catch (Exception ex) {
 			System.out.println("selectSearchArticleList 에러 : " + ex);
 		} finally {

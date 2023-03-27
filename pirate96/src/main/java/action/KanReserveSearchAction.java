@@ -5,17 +5,19 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import svc.KanReserveListService;
 import svc.ReserveListService;
 import vo.ActionForward;
+import vo.BoardBean;
 import vo.PageInfo;
-import vo.ReserveBean;
+import vo.ReserveVO;
 
 public class KanReserveSearchAction implements Action  {
 
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response)
 			throws Exception{
 		
-		ArrayList<ReserveBean> articleList=new ArrayList<ReserveBean>();
+		ArrayList<BoardBean> articleList=new ArrayList<BoardBean>();
 	  	int page=1;
 		int limit=10;
 
@@ -31,7 +33,7 @@ public class KanReserveSearchAction implements Action  {
 		
 	
 		
-		ReserveListService reserveListService = new ReserveListService();
+		KanReserveListService reserveListService = new KanReserveListService();
 		int listCount=reserveListService.getSearchListCount(list_search,list_search_value); //총 리스트 수를 받아옴.
 		articleList = reserveListService.getSearchArticleList(list_search,list_search_value,page,limit); //리스트를 받아옴.
 		

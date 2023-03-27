@@ -2,9 +2,10 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.ReserveModifyFormService;
+
+import svc.KanReserveModifyFormService;
 import vo.ActionForward;
-import vo.ReserveBean;
+import vo.ReserveVO;
 
 public class KanReserveModifyFormAction implements Action {
 	
@@ -12,9 +13,9 @@ public class KanReserveModifyFormAction implements Action {
 		 
 		 	ActionForward forward = new ActionForward();
 			int reserve_num=Integer.parseInt(request.getParameter("r_num"));
-			ReserveModifyFormService reserveModifyService
-			= new ReserveModifyFormService();	
-		   	ReserveBean article = reserveModifyService.getArticle(reserve_num);
+			KanReserveModifyFormService reserveModifyService
+			= new KanReserveModifyFormService();	
+		   	ReserveVO article = reserveModifyService.getArticle(reserve_num);
 		   	request.setAttribute("article", article);
 	   		forward.setPath("/reserveList/reserveModify.jsp");
 	   		return forward;

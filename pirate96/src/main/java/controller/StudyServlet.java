@@ -7,7 +7,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,17 +17,29 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
+import action.BoardDeleteProAction;
+import action.BoardDetailAction;
+import action.BoardGoGoAction;
+import action.BoardListAction;
+import action.BoardModifyFormAction;
+import action.BoardModifyProAction;
+import action.BoardWriteProAction;
+import action.CheckMyInfoAction;
+import action.KanReserveModifyAction;
+import action.KanReserveModifyFormAction;
+import action.MemberDeleteAction;
 import action.MemberJoinAction;
+import action.MemberListAction;
 import action.MemberLoginAction;
+import action.MemberSearchAction;
+import action.MemberUpdateAction;
 import action.ReserveAction;
 import action.ReserveDeleteAction;
 import action.ReserveListAction;
+import action.ReserveSearchAction;
 import action.ReserveUpdateAction;
 import action.ReserveViewAction;
-import dao.StudyDAO;
 import vo.ActionForward;
-import static db.JdbcUtil.*;
-import vo.MemberVO;
 
 @WebServlet("*.go")
 public class StudyServlet extends HttpServlet {
@@ -45,8 +56,8 @@ public class StudyServlet extends HttpServlet {
 		Action action = null;
 
 		// 카데고리 값(아이디, 이름 등) 과 검색값(input에 쓴 내용) 받아오기
-		String list_search = request.getParameter("search"); // 카테고리
-		String list_search_value = request.getParameter("search_value");// 검색값
+//		String list_search = request.getParameter("search"); // 카테고리
+//		String list_search_value = request.getParameter("search_value");// 검색값
 
 		// 예약 페이지 if문
 		if (command.equals("/rev.go")) {
@@ -110,7 +121,14 @@ public class StudyServlet extends HttpServlet {
 			action = new MemberJoinAction();
 			forward = new ActionForward(); // 페이지를 보내줘야해서 forward객체 생성 필요
 			forward.setRedirect(true); // url변경 페이지 전송 데이터전송x
-			forward.setPath("./joinForm.jsp");
+			forward.setPath("../login/joinForm.jsp");
+			// 마이페이지 가기
+
+		} else if (command.equals("/myPage.go")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./mypage.jsp");
+
 			// 로그인 서블릿
 		} else if (command.equals("/memberLoginAction.go")) {
 			action = new MemberLoginAction();
@@ -130,36 +148,37 @@ public class StudyServlet extends HttpServlet {
 			}
 
 		} // 아이디 중복검사 아약스인데 모름
-		else if (command.equals("/loginCheck.go")) {
-
-			String id = request.getParameter("uid");
-			System.out.println(id);
-
-			MemberVO member = new MemberVO();
-			member.setM_ID(id);
-			StudyDAO study = study.getInstance();
-			boolean result = study.idCheck(member); // 메소드필요
-
-			String str;
-
-			if (result)
-				str = "사용하실 수 없는 아이디입니다.";
-
-			else
-				str = "사용 가능한 아이디입니다.";
-
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("str", str);
-			map.put("M_ID", id);
-
+//		else if (command.equals("/loginCheck.go")) {
+//
+//			String id = request.getParameter("uid");
+//			System.out.println(id);
+//
+//			MemberVO member = new MemberVO();
+//			member.setM_ID(id);
+//			StudyDAO study = study.getInstance();
+//			boolean result = study.idCheck(member); // 메소드필요
+//
+//			String str;
+//
+//			if (result)
+//				str = "사용하실 수 없는 아이디입니다.";
+//
+//			else
+//				str = "사용 가능한 아이디입니다.";
+//
+//			HashMap<String, Object> map = new HashMap<String, Object>();
+//			map.put("str", str);
+//			map.put("M_ID", id);
+//
 //			JSONObject jObject = new JSONObject();
 //			jObject.put("map", map);
-
-			response.setContentType("application/x-json; charset=utf-8");
-
+//
+//			response.setContentType("application/x-json; charset=utf-8");
+//
 //			response.getWriter().print(jObject);
-			// 회원탈퇴 서블릿
-		} else if (command.equals("/memberDeleteAction.me")) {
+//			// 회원탈퇴 서블릿
+//		} 
+		else if (command.equals("/memberDeleteAction.go")) {
 			action = new MemberDeleteAction();
 
 			try {
@@ -168,7 +187,7 @@ public class StudyServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			// 내정보수정 서블릿
-		} else if (command.equals("/memberUpdateAction.me")) {
+		} else if (command.equals("/memberUpdateAction.go")) {
 			action = new MemberUpdateAction();
 
 			try {
@@ -178,13 +197,13 @@ public class StudyServlet extends HttpServlet {
 
 			}
 
-		} else if (command.equals("/memberLogout.me")) {
+		} else if (command.equals("/memberLogout.go")) {
 			HttpSession session = request.getSession(false);
 			session.invalidate();
 			response.sendRedirect("loginForm.jsp");
 
 		} else if (command.equals("/myinfo.go")) {
-
+			action = new CheckMyInfoAction();
 			try {
 				forward = action.execute(request, response);
 
@@ -209,7 +228,7 @@ public class StudyServlet extends HttpServlet {
 			}
 			// 예약 수정 폼 가는 거--------------------------------------
 		} else if (command.equals("/reserveModify.go")) {
-			action = new ReserveModifyFormAction();
+			action = new KanReserveModifyFormAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -217,7 +236,7 @@ public class StudyServlet extends HttpServlet {
 			}
 			// 예약 수정 완료하기(DB데이터 바꾸기)--------------------------------------
 		} else if (command.equals("/reserveModifyPro.go")) {
-			action = new ReserveModifyAction();
+			action = new KanReserveModifyAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -319,6 +338,14 @@ public class StudyServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/boardGo.go")) {
+			action = new BoardGoGoAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		else {
@@ -327,7 +354,7 @@ public class StudyServlet extends HttpServlet {
 				String fileName = request.getParameter("fname");
 
 				// 파일이 실제 업로드 되어있는(파일이 존재하는) 경로를 지정한다.
-				String filePath = "C:\\jspwork\\servletproject\\src\\main\\webapp\\boardUpload\\";
+				String filePath = "C:\\jspwork\\pirate96\\src\\main\\webapp\\boardUpload\\";
 
 				// 경로와 파일명으로 파일 객체를 생성한다.
 				File dFile = new File(filePath, fileName);

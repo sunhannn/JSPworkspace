@@ -4,10 +4,8 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import svc.MemberListService;
-import svc.ReserveListService;
 import vo.ActionForward;
-import vo.MemberBean;
-import vo.ReserveBean;
+import vo.MemberVO;
 import vo.PageInfo;
 
 // 회원리스트 Action
@@ -15,7 +13,7 @@ import vo.PageInfo;
 	 
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 
-		ArrayList<MemberBean> articleList=new ArrayList<MemberBean>();
+		ArrayList<MemberVO> articleList=new ArrayList<MemberVO>();
 	  	int page=1;
 		int limit=10;
 

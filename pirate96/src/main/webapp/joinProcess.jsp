@@ -2,7 +2,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
-<%@ page import="vo.Member" %>
+<%@ page import="vo.MemberVO" %>
 
 <%
 	request.setCharacterEncoding("UTF-8");

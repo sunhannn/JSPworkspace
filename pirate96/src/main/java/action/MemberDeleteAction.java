@@ -13,7 +13,7 @@ public class MemberDeleteAction implements Action{
 			throws Exception{
 		
 		HttpSession session=request.getSession();
-		String id=(String)session.getAttribute("M_ID");
+		String id=(String)session.getAttribute("id");
 		ActionForward forward = null;
 		
 		

@@ -1,19 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="vo.Member" %>
-<!--     회원가입 -->
+    <%@ page import="vo.MemberVO" %>
+<!--     정보수정페이지 -->
 <!DOCTYPE html>
 <html>
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <style>
     body {background-color: #f5f6f7;}
     h2 {
@@ -78,22 +77,16 @@
     box-shadow: 0 0 0 0.2rem rgba(0, 174, 87, 0.25);
   }
   </style>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 
   <div class="container">
-    <h2 class="mt-5 mb-3">STUDY CAFE JOIN</h2>
-    <form class="needs-validation" action ="memberJoinAction.me" name="frm">
-     
+    <h2 class="mt-5 mb-3">UPDATE INFORMATION</h2>
+    <form class="needs-validation" action ="memberUpdateAction.me" >
       <div class="form-group">
         <label for="id">아이디</label>
         <input type="text" class="form-control" id="id" name="M_ID" required>
-        <button type="button" id="idchk">아이디 중복체크</button>
-        <span id="result"></span>
-        
         <div class="valid-feedback">멋진 아이디네요!</div>
         <div class="invalid-feedback">필수 정보입니다.</div>
       </div>
@@ -101,12 +94,6 @@
       <div class="form-group">
         <label for="pwd">비밀번호</label>
         <input type="password" class="form-control" id="password" name="M_PW" required>
-        <div class="invalid-feedback">필수 정보입니다.</div>
-      </div>
-      
-      <div class="form-group">
-        <label for="pwd">비밀번호 확인</label>
-        <input type="password" class="form-control" id="passwordre" name="M_PW" required>
         <div class="invalid-feedback">필수 정보입니다.</div>
       </div>
 
@@ -135,7 +122,7 @@
 	<div class="form-group">
 	<label for="address">주소</label>
       <input type="text" id="sample4_postcode" placeholder="우편번호" name ="	M_ADDR" required>
-	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" name ="M_ADDR" ><br>
+	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 	<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name ="M_ADDR">
 	<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name ="M_ADDR">
 	<span id="guide" style="color:#999;display:none"></span>
@@ -162,7 +149,7 @@
       </div>
 
       <div class="form-group">
-      <input type="submit" value="회원가입" class="btn btn-success">
+      <input type="submit" value="수정하기" class="btn btn-success">
 			
        
       </div>
@@ -245,133 +232,120 @@ function sample4_execDaumPostcode() {
 
 
 
-// function valChk(e){
-//   e.preventDefault();
+function valChk(e){
+  e.preventDefault();
 
-//   var emailRegex = /^[-!#$%\s'*+./0-9=?A-Z^_a-z{|}~]+@[A-Za-z{|}~]+.[A-Za-z]+$/,
-//   idRegex = /^[0-9A-Z_a-z]+$/,
-//   phoneRegex = /^010\d{4}\d{4}$/,
-  
-//   id = $( "#id" ),
-//   name = $( "#name" ),
-//   email = $( "#email" ),
-//   password = $( "#password" ),
-//   passwordre = $( "#passwordre" ),
-//   phone = $( "#cnum" );
+  var emailRegex = /^[-!#$%\s'*+./0-9=?A-Z^_a-z{|}~]+@[A-Za-z{|}~]+.[A-Za-z]+$/,
+  idRegex = /^[0-9A-Z_a-z]+$/,
+  phoneRegex = /^010\d{4}\d{4}$/,
+  yearRegex = /^\d{4}$/,
+  monRegex = /^\d{1,2}$/,
+  dateRegex = /^\d{1,2}$/,
+  id = $( "#id" ),
+  name = $( "#name" ),
+  email = $( "#email" ),
+  password = $( "#password" ),
+  passwordre = $( "#passwordre" ),
+  year = $( "#year" ),
+  mon = $( "#mon" ),
+  year = $( "#year" ),
+  date = $( "#date" ),
+  phone = $( "#cnum" );
 
-//   //입력 년,월에 따라 일 수 max값 조정
-//   $("#mon, #year").on('change', function(){
-//       let dmax = 31;
-//       console.log(mon.val());
-//       if(!(year=='' || year.val() < 1900) ){
-//           switch(Number(mon.val())){
-//           case 4: case 6: case 9: case 11:
-//             dmax = 30; break;
-//           case 2: 
-//             if(year%4==0) dmax = 29;
-//             else dmax = 28;
-//         }
-//       }
-//       console.log('날짜: ',dmax);
+  //입력 년,월에 따라 일 수 max값 조정
+  $("#mon, #year").on('change', function(){
+      let dmax = 31;
+      console.log(mon.val());
+      if(!(year=='' || year.val() < 1900) ){
+          switch(Number(mon.val())){
+          case 4: case 6: case 9: case 11:
+            dmax = 30; break;
+          case 2: 
+            if(year%4==0) dmax = 29;
+            else dmax = 28;
+        }
+      }
+      console.log('날짜: ',dmax);
     
-//       $("#date").attr("max", dmax);
-//   });
+      $("#date").attr("max", dmax);
+  });
 
-//   //비밀번호 매칭 여부 조정
-//   $("# #password,passwordre").on('keyup', function(){
-//     checkMatch(password, passwordre);
-//   });
+  //비밀번호 매칭 여부 조정
+  $("#passwordre, #password").on('keyup', function(){
+    checkMatch(password, passwordre);
+  });
 
-//   var valid = true;
-//   valid = valid && checkLength( id, "아이디는 4 ~ 16자 이상으로 입력해주세요.", 4, 16 );
-//   valid = valid && checkRegexp( id, idRegex,"아이디 입력 형식이 잘못되었습니다." );
-//   valid = valid && checkRegexp( email, emailRegex,"이메일 입력 형식이 잘못되었습니다." );
-//   valid = valid && checkRegexp( phone, phoneRegex,"전화번호 입력 형식이 잘못되었습니다." );
-//   valid = valid && checkLength( password, "비밀번호는 5 ~ 16자 이상으로 입력해주세요.", 5, 16 );
-//   valid = valid && checkMatch( password, passwordre);
-//   valid = valid && checkLength( name, "사용자이름", 3, 16 );
+  var valid = true;
+  valid = valid && checkLength( id, "아이디는 4 ~ 16자 이상으로 입력해주세요.", 4, 16 );
+  valid = valid && checkRegexp( id, idRegex,"아이디 입력 형식이 잘못되었습니다." );
+  valid = valid && checkLength( password, "비밀번호는 5 ~ 16자 이상으로 입력해주세요.", 5, 16 );
+  valid = valid && checkMatch( password, passwordre);
+  valid = valid && checkLength( name, "사용자이름", 3, 16 );
+  valid = valid && checkRegexp( year, yearRegex,"생년은 네 자리 숫자로 입력해주세요." );
+  valid = valid && checkRegexp( mon, monRegex,"태어난 월을 입력해주세요." );
+  valid = valid && checkRegexp( date, dateRegex,"태어난 일을 입력해주세요." );
+  valid = valid && checkRegexp( email, emailRegex,"이메일 입력 형식이 잘못되었습니다." );
+  valid = valid && checkRegexp( phone, phoneRegex,"전화번호 입력 형식이 잘못되었습니다." );
 
-  
 
+//비밀번호 매칭
+function checkMatch(p, pre){
+  let pval = p;
+  let pvalre = pre;
 
-// //비밀번호 매칭
-// function checkMatch(p, pre){
-//   let pval = p;
-//   let pvalre = pre;
+  let res = true;
 
-//   let res = true;
+  if(pval.val() == pvalre.val()){
+    pvalre.nextAll("div.valid-feedback").text("비밀번호가 일치합니다.").show();
+    pvalre.nextAll("div.invalid-feedback").hide();
+  }else{
+    pvalre.nextAll("div.invalid-feedback").text("비밀번호가 일치하지 않습니다.").show();
+    pvalre.nextAll("div.valid-feedback").hide();
+    res = false;
+  }
 
-//   if(pval.val() == pvalre.val()){
-//     pvalre.nextAll("div.valid-feedback").text("비밀번호가 일치합니다.").show();
-//     pvalre.nextAll("div.invalid-feedback").hide();
-//   }else{
-//     pvalre.nextAll("div.invalid-feedback").text("비밀번호가 일치하지 않습니다.").show();
-//     pvalre.nextAll("div.valid-feedback").hide();
-//     res = false;
-//   }
+  return res;
 
-//   return res;
+}
 
-// }
-
-// //정규식 일치 여부 확인
-//   function checkRegexp( o, regexp, n ) {
-//     let cnt = $("#"+o.attr('M_ID')+" ~ div.invalid-feedback").length;
+//정규식 일치 여부 확인
+  function checkRegexp( o, regexp, n ) {
+    let cnt = $("#"+o.attr('id')+" ~ div.invalid-feedback").length;
     
-//     if ( !( regexp.test( o.val() ) ) ) {      
-//       if(cnt == 0){
-//          o.closest("div.row").nextAll("div.invalid-feedback").eq(0).text(n).show();
-//          o.closest("div.row").nextAll("div.valid-feedback").eq(0).hide();
-//       }else{
-//          o.nextAll("div.invalid-feedback").eq(0).text(n).show();
-//          o.nextAll("div.valid-feedback").eq(0).hide();
-//       }
-//       return false;
-//     } else {
-//       if(cnt == 0){
-//         o.closest("div.row").nextAll("div.invalid-feedback").eq(0).hide();
-//       }else{
-//         o.nextAll("div.invalid-feedback").eq(0).hide();
-//       } 
-//       return true;
-//     }
-//   }
+    if ( !( regexp.test( o.val() ) ) ) {      
+      if(cnt == 0){
+         o.closest("div.row").nextAll("div.invalid-feedback").eq(0).text(n).show();
+         o.closest("div.row").nextAll("div.valid-feedback").eq(0).hide();
+      }else{
+         o.nextAll("div.invalid-feedback").eq(0).text(n).show();
+         o.nextAll("div.valid-feedback").eq(0).hide();
+      }
+      return false;
+    } else {
+      if(cnt == 0){
+        o.closest("div.row").nextAll("div.invalid-feedback").eq(0).hide();
+      }else{
+        o.nextAll("div.invalid-feedback").eq(0).hide();
+      } 
+      return true;
+    }
+  }
 
-//   function checkLength( o, n, min, max ) { 
-//     let cnt = $("#"+o.attr('M_ID')+" ~ div.invalid-feedback").length;
-//     if ( o.val().length > max || o.val().length < min ) {
-//       $("#"+o.attr('M_ID')+" ~ div.invalid-feedback").eq(0).text(n).show();
-//       $("#"+o.attr('M_ID')+" ~ div.valid-feedback").eq(0).hide();
-//       return false;
-//     } else {
-//       $("#"+o.attr('M_ID')+" ~ div.invalid-feedback").hide();
-//       return true;
-//     }
-//   }
+  function checkLength( o, n, min, max ) { 
+    let cnt = $("#"+o.attr('id')+" ~ div.invalid-feedback").length;
+    if ( o.val().length > max || o.val().length < min ) {
+      $("#"+o.attr('id')+" ~ div.invalid-feedback").eq(0).text(n).show();
+      $("#"+o.attr('id')+" ~ div.valid-feedback").eq(0).hide();
+      return false;
+    } else {
+      $("#"+o.attr('id')+" ~ div.invalid-feedback").hide();
+      return true;
+    }
+  }
 
-//   if(valid) e.target.submit();
+  if(valid) e.target.submit();
 
-//
-
-$(function(){
-	$('#idchk').click(function(){
-		$.ajax({
-			url : "loginCheck.me",
-			type : "post",
-			data : {uid: document.frm.M_ID.value}, 
-			cache: false,
-			success : function(res){
-				console.log('success');
-					alert(res.map.M_ID + '는' + res.map.str);
-					},
-			error : function(){
-					alert('error');
-			}
-		});
-	});
-});
-
-
+// }api못 끌어오는 이유 syntax에러였음(console창 켜서 확인 가능) ,수정폼에 있는 펑션들을 회원가입폼에 복붙해야 됨(임의로 만졌으니 수정하라는 뜻임)
 
 </script>
 </body>

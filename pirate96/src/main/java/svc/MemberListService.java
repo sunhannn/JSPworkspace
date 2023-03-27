@@ -5,9 +5,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.StudyDAO;
-import vo.MemberBean;
 import vo.MemberVO;
-import vo.ReserveVO;
 
 public class MemberListService {
 

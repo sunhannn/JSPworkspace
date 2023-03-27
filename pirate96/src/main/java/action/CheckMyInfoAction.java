@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import svc.CheckMyInfoService;
 import vo.ActionForward;
-import vo.Member;
 import vo.MemberVO;
 
 public class CheckMyInfoAction  implements Action{
@@ -15,8 +14,7 @@ public class CheckMyInfoAction  implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		String id =(String) session.getAttribute("M_ID");
-		
+		String id =(String) session.getAttribute("id");
 		
 		
 		MemberVO member = new MemberVO();

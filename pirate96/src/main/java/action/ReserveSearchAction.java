@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import svc.ReserveListService;
+import svc.KanReserveListService;
 import vo.ActionForward;
 import vo.BoardBean;
 import vo.PageInfo;
@@ -31,7 +31,7 @@ public ActionForward execute(HttpServletRequest request,HttpServletResponse resp
 	
 
 	
-	ReserveListService reserveListService = new ReserveListService();
+	KanReserveListService reserveListService = new KanReserveListService();
 	int listCount=reserveListService.getSearchListCount(list_search,list_search_value); //총 리스트 수를 받아옴.
 	articleList = reserveListService.getSearchArticleList(list_search,list_search_value,page,limit); //리스트를 받아옴.
 	

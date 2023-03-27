@@ -292,7 +292,7 @@ if(articleList != null && listCount > 0){
 <%-- <%if("admin".equals(session.getAttribute("userID").toString())){%> --%>
 <!-- <a href="boardWriteForm.go" id="write">게시판글쓰기</a> -->
 <%-- <% } %>  --%>		
-<c:if test="${ 'admin' eq userID }">
+<c:if test="${ 'admin' eq id }">
 <a href="boardWriteForm.go" id="write">게시판글쓰기</a>
 </c:if>
 

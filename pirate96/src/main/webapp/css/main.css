@@ -1,11 +1,7 @@
 *{
-    margin: 0px; padding: 0px;   
+    margin: 0px; padding: 0px;
+    
 }
-
-html, body {
-    height: 100%
-}
-
 .wrapper{ 
     background-color: #f5f6f7;
     margin-right: 0;
@@ -13,17 +9,21 @@ html, body {
     padding-bottom: 100px;
     position: relative;
     margin: 0;
-    padding-bottom: 200px;
+    padding: 0;
 }
 .container{
     padding: 20px;
     margin: 0;
+    min-height: calc(100vh- 100px);
+    align-items: center;
+    justify-content: center;
 }
 header{ /*header 영역*/
     position: fixed;
     width: 100%; /*메인이미지의 너비사이즈와 같음*/
     height: 100px;
     background-color:  #495264;
+    margin-top: 0; /*상단여백 0*/
     /*헤더안에 요소들을 모두 absolute포지션으로 배치하기위한
     헤더의 좌상단을 기준으로 해주려면 
     헤더의 position이 relative여야 함*/
@@ -35,15 +35,16 @@ header{ /*header 영역*/
 
 .footer{  /*footer하단고정*/
     width: 100%; /*헤더와 같은 사이즈*/
-    height: 200px; /*footer의 높이*/
+    height: 100px; /*footer의 높이*/
     color:navy;
-	background-color:#f5f6f7;
+    right: 0;
     left: 0;
+    position: absolute;
+    background-color: #f5f6f7;
     bottom: 0; /*하단에 여백없이*/
     padding: 0;
-    margin-top: 50px; /*footer 위쪽여백설정*/
-    margin: 0;
-    
+    /*margin-top: 50px; /*footer 위쪽여백설정*/
+    margin-bottom: 0;
 }
 .footer p{
     text-align: center;
@@ -65,54 +66,68 @@ a{
     left: 30px;
 }
 
-#login{
-    position: fixed;
-    position: absolute;
-    top: 40px;
-    right: 50px;
-}
-
 .main{ /*화면양쪽에 여백부여*/
-    margin-left: 150px;
-    margin-right: 150px;  
+    margin-left: 100px;
+    margin-right: 100px;  
 }
 /*제목영역안에 오른쪽 상단에 menubar배치*/
 #menubar{
     position: fixed;
    /* position: absolute; */
-    top: 20px;
+    top: 40px;
     right: 10px;
-    text-align: center;
     color: white;
 }
 /*menubar a의 글씨색설정*/
 #menubar a{color: white;}
 
 /* 헤더영역에 네비게이션 메뉴 배치*/
-/*nav{ }*/
+
+nav{
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  
+}
+nav div li.login{ /*로그인 여부*/
+    margin-right: 50px;
+}
+nav div li.logged-in::before{ /*로그인전*/
+    content: "로그인";
+}
+nav div li.logged-in::after{ /*로그인이후*/
+    content: "로그아웃";
+}
 
 nav ul{
-    margin: auto;
-    position: absolute;
-    bottom: 10px;
-    left: 220px;
+    text-align: center;
+    list-style-type: none;
     font-size: 16px;
+    margin-top: 15px;
+    margin-right: 100px;
 }
 nav ul a:hover{
-
     color: red;
 }
 
-nav li{
-    text-align: auto;
-    display: inline-block;
-    margin: 30px;
+nav ul li{
+    float: left;
+    white-space: nowrap;
+    margin: 30px 60px 30px 60px;
+   
 }
-nav li a{color: white;}
+nav li a{
+    color: white;
+    display: inline;
+   
+}
 
 
 /*헤더영역 이미지*/
 #main_img{
+    margin-top: 100px;
     background-position: center;
     background-repeat: no-repeat;
    background-size: cover;
@@ -120,51 +135,65 @@ nav li a{color: white;}
 }
 /* 각메뉴들의 div크기 통합*/
 .menu{
-    width: 600%;
+    width: 100%;
     height: 400px;
 }
 
 /*사이드메뉴바*/
-.sidemenu{
-    box-sizing: border-box;
-    width: 70px;
-    height: 340px;
-    border: 1px solid black;
-    float: right;
-    position: absolute;
+.sidemenu{   
+    position: fixed;
     top: 300px;
-    right: 100px;
-    list-style: none;
-    bottom: 0;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center; /*가로정렬*/
-    line-height: 60px; /*세로정렬*/
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: darkcyan;
+    right: 50px;
+    transform: translateX(-50%);
+    transform: translateY(70%); /*사이드바 오른쪽위치높이 설정*/
+    width: 50px;
+    z-index: 1000;
+    height: 300px;
+    overflow: visible; /*사이드바의 가려진 부분을 보여줌*/
     
 }
 
-.sidemenu div li a:hover{
-    color: red;
-    color: white;
+.sidemenu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/*콘텐츠 영역 아래에 있는 배너이미지 inline설정*/
+.sidemenu ul li{
+   
+   text-align: center;
+
+}
+.sidemenu ul li a{
+    width: 40px;
+    height: 20px;
+    display: block;
+    background: skyblue; /*버튼 배경색*/
+    color: #000;
+    padding: 20px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .sidemenu ul li a:hover {
+    background: orange;
+    color: #fff;
+  }
+  
+  .sidemenu ul li a.active {
+    color: #fff;
+  }
+
 
 /*전체 페이지가 가운데로 오도록 설정*/
 #page{
     width: 820px;
     margin: 0px auto;
 }
-
-
-
-/* 모든 구역이 네비 아래로 보이도록  - 수빈*/
-.admin_area {
-     text-align: center;
-     padding: 0;
-     margin-top: 110px;
-    }

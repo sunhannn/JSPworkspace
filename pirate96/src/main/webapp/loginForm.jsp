@@ -83,7 +83,7 @@ body {background-color: #f5f6f7;}
 </head>
 <body>
 <section id = "loginformArea">
-<form name="loginform" action="memberLoginAction.me" method="post">
+<form name="loginform" action="../memberLoginAction.go" method="post">
 <div class="container">
 <h2>로그인</h2>
 	
