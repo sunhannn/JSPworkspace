@@ -151,7 +151,7 @@
             </button>
             </td>
             <td>
-            <button type="button" class="admin_menu_btn" onClick="location.href='공지'"><!-- ★ -->
+            <button type="button" class="admin_menu_btn" onClick="location.href='../boardList.go'"><!-- ★ -->
             <img src="img/board_icon.png" width="230px" height="250px">
             <div style="height:70px;"></div><!-- 버튼에서 이미지랑 텍스트 거리 띄워주는 div -->
             <span class="admin_menu_btn_text">공지</span>

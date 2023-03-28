@@ -1,7 +1,7 @@
 package svc;
 
 import java.sql.Connection;
-import dao.BoardDAO;
+import dao.StudyDAO;
 import vo.BoardBean;
 import static db.JdbcUtil.*;
 public class BoardWriteProService {
@@ -10,7 +10,7 @@ public class BoardWriteProService {
 		
 		boolean isWriteSuccess = false;
 		Connection con = getConnection();
-		BoardDAO boardDAO = BoardDAO.getInstance();
+		StudyDAO boardDAO = StudyDAO.getInstance();
 		boardDAO.setConnection(con);
 		int insertCount = boardDAO.insertArticle(boardBean);
 		

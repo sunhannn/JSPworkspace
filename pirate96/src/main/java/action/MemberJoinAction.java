@@ -21,7 +21,8 @@ public class MemberJoinAction implements Action {
 		member.setM_ADDR(request.getParameter("M_ADDR"));
 		member.setM_EMAIL(request.getParameter("M_EMAIL"));
 		member.setM_GENDER(request.getParameter("M_GENDER"));
-
+		
+		
 		MemberJoinService memberJoinService = new MemberJoinService();
 		joinResult = memberJoinService.joinMember(member);
 

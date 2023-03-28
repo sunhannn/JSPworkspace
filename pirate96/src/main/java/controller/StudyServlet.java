@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
+import action.AdminAction;
 import action.BoardDeleteProAction;
 import action.BoardDetailAction;
 import action.BoardGoGoAction;
@@ -25,18 +26,22 @@ import action.BoardModifyFormAction;
 import action.BoardModifyProAction;
 import action.BoardWriteProAction;
 import action.CheckMyInfoAction;
+import action.KanMemberDeleteAction;
+import action.KanMemberListAction;
+import action.KanMemberSearchAction;
+import action.KanReserveDeleteAction;
+import action.KanReserveListAction;
 import action.KanReserveModifyAction;
 import action.KanReserveModifyFormAction;
+import action.KanReserveSearchAction;
+import action.MemberCheckAjaxAction;
 import action.MemberDeleteAction;
 import action.MemberJoinAction;
-import action.MemberListAction;
 import action.MemberLoginAction;
-import action.MemberSearchAction;
 import action.MemberUpdateAction;
 import action.ReserveAction;
 import action.ReserveDeleteAction;
 import action.ReserveListAction;
-import action.ReserveSearchAction;
 import action.ReserveUpdateAction;
 import action.ReserveViewAction;
 import vo.ActionForward;
@@ -147,38 +152,14 @@ public class StudyServlet extends HttpServlet {
 
 			}
 
-		} // 아이디 중복검사 아약스인데 모름
-//		else if (command.equals("/loginCheck.go")) {
-//
-//			String id = request.getParameter("uid");
-//			System.out.println(id);
-//
-//			MemberVO member = new MemberVO();
-//			member.setM_ID(id);
-//			StudyDAO study = study.getInstance();
-//			boolean result = study.idCheck(member); // 메소드필요
-//
-//			String str;
-//
-//			if (result)
-//				str = "사용하실 수 없는 아이디입니다.";
-//
-//			else
-//				str = "사용 가능한 아이디입니다.";
-//
-//			HashMap<String, Object> map = new HashMap<String, Object>();
-//			map.put("str", str);
-//			map.put("M_ID", id);
-//
-//			JSONObject jObject = new JSONObject();
-//			jObject.put("map", map);
-//
-//			response.setContentType("application/x-json; charset=utf-8");
-//
-//			response.getWriter().print(jObject);
-//			// 회원탈퇴 서블릿
-//		} 
-		else if (command.equals("/memberDeleteAction.go")) {
+		} else if (command.equals("/loginCheck.go")) {
+			action = new MemberCheckAjaxAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/memberDeleteAction.go")) {
 			action = new MemberDeleteAction();
 
 			try {
@@ -212,7 +193,7 @@ public class StudyServlet extends HttpServlet {
 			}
 
 		} else if (command.equals("/reserveList.go")) {
-			action = new ReserveListAction();
+			action = new KanReserveListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -220,7 +201,7 @@ public class StudyServlet extends HttpServlet {
 			}
 		} // 예약 검색-----------------------------------
 		else if (command.equals("/reserveSearch.go")) {
-			action = new ReserveSearchAction();
+			action = new KanReserveSearchAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -245,7 +226,7 @@ public class StudyServlet extends HttpServlet {
 
 			// 예약 삭제--------------------------------------
 		} else if (command.equals("/reserveDelete.go")) {
-			action = new ReserveDeleteAction();
+			action = new KanReserveDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -254,7 +235,7 @@ public class StudyServlet extends HttpServlet {
 
 			// 회원관리창-----------------------------------
 		} else if (command.equals("/memberList.go")) {
-			action = new MemberListAction();
+			action = new KanMemberListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -262,7 +243,7 @@ public class StudyServlet extends HttpServlet {
 			}
 			// 회원 검색-----------------------------------
 		} else if (command.equals("/memberSearch.go")) {
-			action = new MemberSearchAction();
+			action = new KanMemberSearchAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -332,7 +313,7 @@ public class StudyServlet extends HttpServlet {
 			}
 			// 글 검색하기
 		} else if (command.equals("/reserveSearch.go")) {
-			action = new ReserveSearchAction();
+			action = new KanReserveSearchAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -346,9 +327,23 @@ public class StudyServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}
+		} else if (command.equals("/admin.go")) {
+			action = new AdminAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-		else {
+		} // 회원 삭제 -----------------------------------
+		else if (command.equals("/memberDelete.go")) {
+			action = new KanMemberDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
 			try {
 				// fileName 파라미터로 파일명을 가져온다.
 				String fileName = request.getParameter("fname");

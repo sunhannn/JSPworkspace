@@ -5,13 +5,13 @@ import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
 
-import dao.MemberDAO;
+import dao.StudyDAO;
 import vo.MemberVO;
 
 public class ReserveMemberGoService {
 	public MemberVO reserveMemCheck(String id) {
 		Connection con = getConnection();
-		MemberDAO dao = MemberDAO.getInstance();
+		StudyDAO dao = StudyDAO.getInstance();
 		dao.setConnection(con);
 		MemberVO member = dao.checkinfo(id);
 		close(con);

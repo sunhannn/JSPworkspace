@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import vo.BoardBean;
 import vo.MemberVO;
-import vo.MemberVO;
 import vo.ReserveVO;
 
 public class StudyDAO {

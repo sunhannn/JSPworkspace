@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import static db.JdbcUtil.*;
 
-import dao.MemberDAO;
-import dao.ReserveDAO;
 import dao.StudyDAO;
 import vo.MemberVO;
 import vo.ReserveVO;
@@ -28,7 +26,7 @@ public class KanMemberListService {
 
 		ArrayList<MemberVO> articleList = null;
 		Connection con = getConnection();
-		MemberDAO memberDAO = MemberDAO.getInstance();
+		StudyDAO memberDAO = StudyDAO.getInstance();
 		memberDAO.setConnection(con);
 		articleList = memberDAO.selectArticleListMember(page, limit);
 		close(con);
@@ -40,7 +38,7 @@ public class KanMemberListService {
 	public int getSearchListCount(String list_search, String list_search_value) throws Exception {
 		int listCount = 0;
 		Connection con = getConnection();
-		MemberDAO memberDAO = MemberDAO.getInstance();
+		StudyDAO memberDAO = StudyDAO.getInstance();
 		memberDAO.setConnection(con);
 		listCount = memberDAO.selectSearchListCountMember(list_search, list_search_value);
 		close(con);
@@ -54,7 +52,7 @@ public class KanMemberListService {
 
 		ArrayList<MemberVO> articleList = null;
 		Connection con = getConnection();
-		MemberDAO memberDAO = MemberDAO.getInstance();
+		StudyDAO memberDAO = StudyDAO.getInstance();
 		memberDAO.setConnection(con);
 		articleList = memberDAO.selectSearchArticleListMember(list_search, list_search_value, page, limit);
 		close(con);

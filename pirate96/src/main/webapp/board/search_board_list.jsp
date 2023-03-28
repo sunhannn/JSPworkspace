@@ -324,7 +324,9 @@ if(articleList != null && listCount > 0){
 	{
 	%>
 	<section id="emptyArea">등록된 글이 없습니다.</section>
-	<a href="boardWriteForm.go" id="write">게시판글쓰기</a>
+	<c:if test="${ 'admin' eq id }">
+<a href="boardWriteForm.go" id="write">게시판글쓰기</a>
+</c:if>
 	<%
 	}
 %>

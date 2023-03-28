@@ -5,16 +5,16 @@ import static db.JdbcUtil.commit;
 import static db.JdbcUtil.getConnection;
 import static db.JdbcUtil.rollback;
 import java.sql.Connection;
-import dao.BoardDAO;
+
+import dao.StudyDAO;
 
 public class BoardDeleteProService {
 
 	public boolean isArticleWriter(int board_num, String pass) throws Exception {
-		// TODO Auto-generated method stub
 		
 		boolean isArticleWriter = false;
 		Connection con = getConnection();
-		BoardDAO boardDAO = BoardDAO.getInstance();
+		StudyDAO boardDAO = StudyDAO.getInstance();
 		boardDAO.setConnection(con);
 		isArticleWriter = boardDAO.isArticleBoardWriter(board_num, pass);
 		close(con);
@@ -23,11 +23,10 @@ public class BoardDeleteProService {
 	}
 
 	public boolean removeArticle(int board_num) throws Exception{
-		// TODO Auto-generated method stub
 		
 		boolean isRemoveSuccess = false;
 		Connection con = getConnection();
-		BoardDAO boardDAO = BoardDAO.getInstance();
+		StudyDAO boardDAO = StudyDAO.getInstance();
 		boardDAO.setConnection(con);
 		int deleteCount = boardDAO.deleteArticle(board_num);
 		

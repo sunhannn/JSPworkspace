@@ -3,7 +3,6 @@ package svc;
 import java.sql.Connection;
 import java.util.ArrayList;
 import dao.StudyDAO;
-import vo.BoardBean;
 import vo.ReserveVO;
 
 import static db.JdbcUtil.*;
@@ -46,17 +45,16 @@ public class KanReserveListService {
 	}
 
 	// 검색
-	public ArrayList<BoardBean> getSearchArticleList(String list_search, String list_search_value, int page, int limit)
+	public ArrayList<ReserveVO> getSearchArticleList(String list_search, String list_search_value, int page, int limit)
 			throws Exception {
 
-		ArrayList<BoardBean> articleList = null;
+		ArrayList<ReserveVO> articleList = null;
 		Connection con = getConnection();
 		StudyDAO reserveDAO = StudyDAO.getInstance();
 		reserveDAO.setConnection(con);
-		articleList = reserveDAO.selectSearchArticleListReserve(list_search, list_search_value, page, limit);
+		articleList = reserveDAO.selectSearchArticleList(list_search, list_search_value, page, limit);
 		close(con);
 		return articleList;
 
 	}
-
 }

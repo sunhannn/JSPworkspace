@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.servlet.annotation.WebInitParam"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.jdbc.pool.DataSource"/>
     <fullyQualifiedTypeName name="java.sql.Array"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -33,17 +30,8 @@
     <fullyQualifiedTypeName name="action.MemberLoginAction"/>
     <fullyQualifiedTypeName name="action.MemberJoinAction"/>
     <fullyQualifiedTypeName name="vo.MemberVOVOVO"/>
-    <fullyQualifiedTypeName name="vo.BoardBean"/>
-    <fullyQualifiedTypeName name="db.JdbcUtil"/>
-    <fullyQualifiedTypeName name="dao.StudyDAO"/>
-    <fullyQualifiedTypeName name="svc.KanReserveModifyService"/>
-    <fullyQualifiedTypeName name="svc.KanReserveModifyFormService"/>
-    <fullyQualifiedTypeName name="vo.ReserveVO"/>
-    <fullyQualifiedTypeName name="svc.KanReserveListService"/>
     <fullyQualifiedTypeName name="action.MemberDeleteAction"/>
     <fullyQualifiedTypeName name="action.MemberUpdateAction"/>
-    <fullyQualifiedTypeName name="action.KanReserveModifyFormAction"/>
-    <fullyQualifiedTypeName name="action.KanReserveModifyAction"/>
     <fullyQualifiedTypeName name="action.MemberListAction"/>
     <fullyQualifiedTypeName name="action.MemberSearchAction"/>
     <fullyQualifiedTypeName name="action.BoardWriteProAction"/>
@@ -56,8 +44,20 @@
     <fullyQualifiedTypeName name="action.CheckMyInfoAction"/>
     <fullyQualifiedTypeName name="svc.ReserveMemberGoService"/>
     <fullyQualifiedTypeName name="action.ReserveAction"/>
-    <fullyQualifiedTypeName name="vo.MemberVO"/>
     <fullyQualifiedTypeName name="action.BoardGoGoAction"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="dao.StudyDAO"/>
+    <fullyQualifiedTypeName name="db.JdbcUtil"/>
+    <fullyQualifiedTypeName name="svc.KanMemberModifyService"/>
+    <fullyQualifiedTypeName name="svc.KanMemberModifyFormService"/>
+    <fullyQualifiedTypeName name="vo.MemberVO"/>
+    <fullyQualifiedTypeName name="svc.KanReserveDeleteService"/>
+    <fullyQualifiedTypeName name="svc.KanReserveModifyService"/>
+    <fullyQualifiedTypeName name="svc.KanReserveModifyFormService"/>
+    <fullyQualifiedTypeName name="vo.ReserveVO"/>
+    <fullyQualifiedTypeName name="svc.KanReserveListService"/>
+    <fullyQualifiedTypeName name="action.KanReserveModifyFormAction"/>
+    <fullyQualifiedTypeName name="action.KanReserveModifyAction"/>
+    <fullyQualifiedTypeName name="vo.BoardBean"/>
 </qualifiedTypeNameHistroy>
