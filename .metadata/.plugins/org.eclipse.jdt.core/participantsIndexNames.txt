@@ -33,6 +33,8 @@ C:\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2135371883.inde
 \pirate96\src\main\java
 C:\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\965991926.index
 \servletProject\src\main\java
+C:\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1969376771.index
+\pirate96\src\main\java
 C:\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4015542884.index
 \Second\src\main\java
 C:\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1290995472.index

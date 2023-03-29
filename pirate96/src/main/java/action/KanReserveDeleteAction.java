@@ -17,7 +17,6 @@ public class KanReserveDeleteAction implements Action {
 		int r_num = Integer.parseInt(request.getParameter("r_num"));
 		String nowPage = request.getParameter("page");
 		KanReserveDeleteService reserveDeleteService = new KanReserveDeleteService();
-		ReserveVO article = new ReserveVO();
 		reserveDeleteService.deleteArticle(r_num);
 
 		PageInfo pageInfo = new PageInfo();

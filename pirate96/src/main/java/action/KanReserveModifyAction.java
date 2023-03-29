@@ -23,8 +23,8 @@ public class KanReserveModifyAction implements Action {
 		article.setR_PRI(r_pri);
 		article.setR_NAME(request.getParameter("R_NAME"));
 		article.setR_ID(request.getParameter("R_ID"));
-		article.setR_STIME(request.getParameter("R_TIME"));
-		article.setR_ETIME(request.getParameter("R_TIME"));
+		article.setR_STIME(request.getParameter("R_STIME"));
+		article.setR_ETIME(request.getParameter("R_ETIME"));
 		article.setR_PH(request.getParameter("R_PH"));
 		article.setR_ROOM(request.getParameter("R_ROOM"));
 
@@ -34,7 +34,7 @@ public class KanReserveModifyAction implements Action {
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("article", article);
 		forward = new ActionForward();
-		forward.setPath("/reserveList/reserveModifySuccess.jsp");
+		forward.setPath("reserveList.go");
 		return forward;
 	}
 

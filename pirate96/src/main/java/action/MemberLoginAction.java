@@ -24,8 +24,7 @@ public class MemberLoginAction implements Action {
 		if (loginResult) {
 			forward = new ActionForward();
 			session.setAttribute("id", member.getM_ID());
-			forward.setRedirect(true);
-			forward.setPath("../mainPage/main.jsp");
+			forward.setPath("/mainPage/main.jsp");
 		} else {
 			response.setContentType("text/html;charset=euc-kr");
 			PrintWriter out = response.getWriter();

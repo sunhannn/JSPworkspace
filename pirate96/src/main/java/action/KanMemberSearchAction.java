@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import svc.KanMemberListService;
 import svc.MemberListService;
 import svc.ReserveListService;
 import vo.ActionForward;
@@ -27,7 +28,7 @@ public class KanMemberSearchAction implements Action {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 
-		MemberListService reserveListService = new MemberListService();
+		KanMemberListService reserveListService = new KanMemberListService();
 		int listCount = reserveListService.getSearchListCount(list_search, list_search_value); // 총 리스트 수를 받아옴.
 		articleList = reserveListService.getSearchArticleList(list_search, list_search_value, page, limit); // 리스트를 받아옴.
 

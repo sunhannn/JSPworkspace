@@ -15,7 +15,8 @@ import vo.ReserveVO;
 public class ReserveUpdateAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int num = Integer.parseInt(request.getParameter("num"));
+		int num = Integer.parseInt(request.getParameter("r_num"));
+		System.out.println(num);
 		ActionForward forward = null;
 		ReserveVO reserve = new ReserveVO();
 		boolean updateResult = false;

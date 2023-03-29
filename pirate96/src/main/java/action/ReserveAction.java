@@ -123,14 +123,14 @@ public class ReserveAction implements Action {
 		boolean checkGo1 = false;
 		boolean checkGo2 = false;
 		for (ReserveVO s : joongbokTimeList) {
-			if (sTime < Integer.parseInt(s.getR_STIME()) && Integer.parseInt(s.getR_ETIME()) > sTime
+			if (sTime < Integer.parseInt(s.getR_STIME()) && Integer.parseInt(s.getR_ETIME()) >= sTime
 					&& roomNum == Integer.parseInt(s.getR_ROOM())) {
 				checkGo1 = true;
 
 			}
 		}
 		for (ReserveVO s : joongbokTimeList) {
-			if (eTime < Integer.parseInt(s.getR_STIME()) && Integer.parseInt(s.getR_ETIME()) > eTime
+			if (eTime < Integer.parseInt(s.getR_STIME()) && Integer.parseInt(s.getR_ETIME()) >= eTime
 					&& roomNum == Integer.parseInt(s.getR_ROOM())) {
 				checkGo2 = true;
 

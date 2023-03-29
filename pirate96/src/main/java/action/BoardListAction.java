@@ -5,14 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import svc.BoardListService;
 import vo.ActionForward;
-import vo.BoardBean;
+import vo.BoardVO;
 import vo.PageInfo;
 
  public class BoardListAction implements Action {
 	 
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 
-		ArrayList<BoardBean> articleList=new ArrayList<BoardBean>();
+		ArrayList<BoardVO> articleList=new ArrayList<BoardVO>();
 	  	int page=1;
 		int limit=10;
 		

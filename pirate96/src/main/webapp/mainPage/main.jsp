@@ -7,8 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src='js/jquery.js'></script>
-<!--외부 스타일시트 적용-->
 
 <script>
 	const loginButton = document.querySelector('.login');
@@ -22,120 +27,108 @@
 	});
 	alert("로그인하셔야합니다.");
 </script>
+<style>
+div.col-m-6{
+  
+}
+</style>
 </head>
 <body>
-	<div class="wrapper">
+	
 		<form method="post">
 			<jsp:include page="../header.jsp" flush="true" />
-
-			<div class="container">
 
 				<div class="main">
 					<!--화면양쪽에 여백부여-->
 					<div>
-						<br> <br> <br>
+						<br>
+						<h1 style="text-align:center;">하이미디어 스터디룸카페</h1>
+						<br>
 						<section class="main_img">
 							<img src="../img/스터디룸이미지1.jpg" alt="메인이미지"
 								style="width: 100%; height: 500px;">
 						</section>
 						<section class="top"></section>
-					</div>
-					<br> <br>
-
-					<hr style="border-width: thin; border-color: rgb(110, 178, 238);">
-					<br> <br>
+					    </div>
+					     <br>
+	
+					<hr style="border-width: thin; border-color: #495264;">
+					<br>
+			
 					<!--헤더밑 경계선-->
-					<div class="menu">
 						<!--공지작성영역-->
-						<div
-							style="width: 350px; height: 300px; float: left; margin-right: 30px;">
-							<h3>*공지사항*</h3>
-							<img src="img/대나무속 햇볕.jpg" alt="대나무숲"
-								style="width: 340px; height: 280px;">
-						</div>
-						<div style="width: auto; height: auto;"></div>
-						<br> <br>
-						<div
-							style="width: 400px; height: 250px; float: left; border-top: 2px ridge navy; border-bottom: 2px ridge navy;">
-							<h4 style="text-align: center;">
-								<a>*공지사항*</a>
-							</h4>
-							<p>심심</p>
-
-						</div>
-					</div>
-					<div style="clear: both;"></div>
-					<!--영역아래의 div가 따라올라가는 것을 방지-->
-
-					<hr style="border: 2px solid skyblue">
-					<br> <br>
-					<!--예약방법 작성영역-->
-					<div class="menu">
-						<div
-							style="width: 400px; height: 300px; float: left; margin: auto;">
-							<h3>*스터디룸 예약*</h3>
-							<img src="../img/스터디룸이미지2.jpg" alt="예약이미지"
-								style="width: 340px; height: 280px;">
-						</div>
-						<div style="width: auto; height: auto;"></div>
-						<br> <br>
-						<div
-							style="width: 400px; height: 250px; float: left; border-top: 2px ridge navy; border-bottom: 2px ridge navy;">
-							<h4 style="text-align: center;">
-								<a>*스터디룸예약*</a>
-							</h4>
-							<p>방법1</p>
-							<p>방법2</p>
-							<p>방법3</p>
-						</div>
-					</div>
-					<div style="clear: both;"></div>
-					<!--영역아래의 div가 따라올라가는 것을 방지-->
-
-					<hr style="border: 2px solid skyblue">
-					<br> <br>
-					<div class="menu">
-						<div
-							style="width: 350px; height: 300px; float: left; margin-right: 30px;">
-							<br>
-							<!--구글지도- 위치변경시 src에 지도소스넣으면됨 -->
-							<h3>*공간소개 및 오시는 길*</h3>
-							<iframe
-								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6339.176514240069!2d126.92403290000001!3d37.3995685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b619d64bd63cd%3A0x53b7daa94a950172!2z656t7Iqk7YSw65SU7Lm07Y6YIOyViOyWkeyXreygkA!5e0!3m2!1sko!2skr!4v1679272950532!5m2!1sko!2skr"
-								style="border: 0; width: 350px; height: 350px;"
-								allowfullscreen="false" loading="lazy"
-								referrerpolicy="no-referrer-when-downgrade"> </iframe>
-						</div>
-						<div style="width: auto; height: auto;"></div>
-						<br> <br> <br>
-						<div
-							style="width: 400px; height: 250px; float: left; border-top: 2px ridge navy; border-bottom: 2px ridge navy;">
-							<h4 style="text-align: center;">
-								<a>*주변 교통정보*</a>
-							</h4>
-							<p>1.장소에 대한 주변대중교통이용방법 설명칸입니다.</p>
-							<p>2.주변에 근접한 버스정류장</p>
-							<p>3.주변에 근접한 전철역</p>
-						</div>
-					</div>
-					<div style="clear: both;"></div>
-					<!--영역아래의 div가 따라올라가는 것을 방지-->
+						
+						<div class="container-fluid">
+                        <h3>*공지사항*</h3>
+                        <div class="row">
+                          <div class="col-sm-6" style="width:400px; height:280px; padding-right:0 auto;" >
+                           <img alt="대나무숲" src="../img/대나무속 햇볕.jpg"
+                           style="width:400px; height:280px;">
+                           </div>            
+                        <div class="col-sm-6" style="height: 280px; width:600px; padding-left:0 auto;">
+                        <hr style="border-top: 2px ridge skyblue;">
+                        <h4 style="text-align: center;">*공지사항*</h4>
+                        <p>1.팀장의 말을 잘 듣자</p>
+                        <p>2.컨디션 잘 챙기자</p>
+                        <p>3.개발자들이 머리에서 아픈 건 자연스러운 현상이다.</p>
+                        <p>4.열심히 하자</p><br>
+                        <hr style="border-top: 2px ridge skyblue;">
+                        </div>
+                        </div><!-- row의 div -->
+                        </div><!-- fluid의 div -->
+                         <br>
+                       <!-- 영역구분선 -->  
+                         <br>
+                         <div class="container-fluid">
+                        <h3>*스터디룸 예약*</h3>
+                        <div class="row">
+                        <div class="col-sm-6" style="width:400px; height:280px; padding-right:0 auto;">
+                           <img alt="스터디룸배경" src="../img/스터디룸이미지2.jpg"
+                           style="width: 400px; height:280px;">
+                        </div>          
+                        <div class="col-sm-6" style="width:400px; height:280px; padding-left:0 auto;">
+                        <hr style="border-top: 2px ridge skyblue;">
+                        <h4 style="text-align:center;">*스터디룸 예약방법*</h4>
+                        <p>1.회원가입 및 로그인을 한다.</p>
+                        <p>2.상단에 예약페이지를 Click!</p>
+                        <p>3.예약룸과 예약시간을 선택!</p>
+                        <p>4.예약후 마이페이지에서 예약상태 확인까지~!</p>
+                        <br>
+                        <hr style="border-top: 2px ridge skyblue;">
+                        </div>
+                        </div>
+                        </div>
+                         <br>
+                         <!-- 영역구분선 -->
+                         <br>
+                         <div class="container-fluid">
+                        <h3>*공간소개 및 주변정보*</h3>
+                        <div class="row">
+                          <div class="col-sm-6" style="width:400px; height:280px; padding-right:0 auto;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.5564818596504!2d126.91905655129982!3d37.400319779730275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b60d1b8dde3f9%3A0xddc103e417d54cdc!2z7ZWY7J2066-465SU7Ja07Lu07ZOo7YSw7ZWZ7JuQIOyViOyWkey6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1679972863832!5m2!1sko!2skr" 
+                            width="400px" height="280px" allowfullscreen="false" style="border:0;"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade">   
+                           </iframe>
+                           </div>
+                           <br>            
+                        <div class="col-sm-6" style="width:400px; height:280px; padding-left: auto;">
+                        <hr style="border-top: 2px ridge skyblue;">
+                        <h4 style="text-align:center">*주변 교통정보*</h4>
+                        <p>1.가까운 전철역: 안양역</p>
+                        <p>2.가까운 버스정류장: 안양1번가 또는 중앙시장(맞은편) 하차</p>
+                        <p>3.주변 주차장이용</p>
+                        <p>&nbsp;&nbsp;&nbsp;자세한 정보는 공개소개및 위치 페이지에서 확인해주세요~</p><br>
+                         <hr style="border-top: 2px ridge skyblue;">
+                        </div>
+                        </div><!-- row의 div -->
+                        </div><!-- fluid의 div -->
+                         <br>
+                                       
 				</div>
-			</div>
-			<!--div의 container클래스 끝위치-->
-
-			<div class="sidemenu">
-				<ul>
-					<li><a href="#" onclick="location.href='info.html'">공지</a></li>
-					<li><a href="#" onclick="location.href='location.html'">위치</a></li>
-					<li><a href="#" onclick="location.href='reserve.html'">방예약</a></li>
-					<li><a href="#" onclick="selection.top">top</a></li>
-				</ul>
-			</div>
-		</form>
-		<div style="width: 100%; height: 200px;"></div>
+			</form>
+				
+		<div style="width: 100%; height: 100px;"></div>
 		<!--본문과 footer를 나누기위한 div-->
-	</div>
-	<!--wrapper의 끝위치-->
+	
 	<jsp:include page="../footer.jsp" flush="true"/></body>
 </html>

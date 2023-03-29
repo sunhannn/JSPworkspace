@@ -1,11 +1,11 @@
- <%@page import="vo.BoardBean"%>
+ <%@page import="vo.BoardVO"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	int board_num=(Integer)request.getAttribute("board_num");
     String nowPage = (String)request.getAttribute("page");
 %>
 <%
-BoardBean article = (BoardBean)request.getAttribute("article");
+BoardVO article = (BoardVO)request.getAttribute("article");
 %>
 
 <!DOCTYPE html>

@@ -13,7 +13,6 @@ public class KanMemberModifyFormAction implements Action {
 		 
 		 	ActionForward forward = new ActionForward();
 			String m_id=request.getParameter("m_id");
-			System.out.println("m_id= "+m_id);
 			KanMemberModifyFormService memberModifyService = new KanMemberModifyFormService();	
 			MemberVO article = memberModifyService.getArticle(m_id);
 		   	request.setAttribute("article", article);

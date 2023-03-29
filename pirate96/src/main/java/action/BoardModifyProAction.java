@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import svc.BoardModifyProService;
 import vo.ActionForward;
-import vo.BoardBean;
+import vo.BoardVO;
 
 public class BoardModifyProAction implements Action {
 
@@ -15,7 +15,7 @@ public class BoardModifyProAction implements Action {
 		ActionForward forward = null;
 		boolean isModifySuccess = false;
 		int board_num=Integer.parseInt(request.getParameter("BOARD_NUM"));
-		BoardBean article=new BoardBean();
+		BoardVO article=new BoardVO();
 		BoardModifyProService boardModifyProService = new BoardModifyProService();
 		boolean isRightUser=boardModifyProService.isArticleWriter(board_num, request.getParameter("BOARD_NAME"));
 

@@ -11,7 +11,7 @@ import vo.ActionForward;
 public class ReserveDeleteAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int num = Integer.parseInt(request.getParameter("num"));
+		int num = Integer.parseInt(request.getParameter("r_num"));
 		ActionForward forward = null;
 
 		if (num == 0) {

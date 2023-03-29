@@ -29,7 +29,7 @@ body {
 </head>
 
 <body>
-	<jsp:include page="header.jsp" flush="true" />
+<%@ include file="/header.jsp" %> 
 	<br>
 	<br>
 	<br>

@@ -14,7 +14,7 @@
 	padding: 0px;
 }
 
-main { /*화면양쪽에 여백부여*/
+.main { /*화면양쪽에 여백부여*/
 	margin-left: 100px;
 	margin-right: 100px;
 }
@@ -23,17 +23,21 @@ main { /*화면양쪽에 여백부여*/
 	height: 100px;
 	background-color: #f5f6f7;
 	padding-top: 0;
-	/*min-height: 100%;*/
+	min-height: 100px;
 	position: relative;
 	margin: 0;
 }
 
 .container {
-	margin: 0;
+    width: 1300px;
 	align-items: center;
 	justify-content: center;
 }
-
+@media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1300px;
+}
+}
 header { /*header 영역*/
 	position: fixed;
 	width: 100%; /*메인이미지의 너비사이즈와 같음*/
@@ -48,19 +52,13 @@ header { /*header 영역*/
 /*메인페이지의 로고 이미지위치 지정*/
 #logo {
 	position: fixed;
-	position: absolute;
 	top: 30px;
 	left: 30px;
 }
 
-.main { /*화면양쪽에 여백부여*/
-	margin-left: 150px;
-	margin-right: 150px;
-}
 /*제목영역안에 오른쪽 상단에 menubar배치*/
 #menubar {
 	position: fixed;
-	position: absolute;
 	top: 20px;
 	right: 10px;
 	text-align: center;
@@ -69,7 +67,7 @@ header { /*header 영역*/
 
 #menubar nav div li {
 	position: fixed;
-	position: absolute;
+	/*position: absolute;*/
 	float: right;
 	font-size: 16px
 }
@@ -122,8 +120,8 @@ a {
 }
 </style>
 <script></script>
-<div class="wrapper">
 	<form method="post">
+	
 		<div id="mainpage">
 			<header>
 				<div id="logo">
@@ -146,7 +144,7 @@ a {
 						</ul>
 
 
-						<div style="float: right">
+						<div style="float: right; margin:40px;">
 							<c:if test="${ 'admin' eq id }">
 								<button type="button" onclick="location.href='../logout.jsp'">로그아웃</button>
 								<button type="button" onclick="location.href='../admin.jsp'">관리자페이지</button>
@@ -164,21 +162,17 @@ a {
 					</nav>
 				</div>
 			</header>
-		</div>
-		<div></div>
-		<div class="container">
-
-			<div class="main">
-				<!--화면양쪽에 여백부여-->
-
-
+			<div>
+			<br>
+		    <h1 style="text-align:center;">하이미디어 스터디룸카페</h1>
+		    <br>
 			</div>
 		</div>
+		<div></div>
 		<!--div의 container클래스 끝위치-->
 
 	</form>
-</div>
-<!--wrapper의 끝위치-->
+
 
 </head>
 </body>

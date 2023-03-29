@@ -1,7 +1,7 @@
-<%@page import="vo.BoardBean"%>
+<%@page import="vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
-BoardBean article = (BoardBean)request.getAttribute("article");
+BoardVO article = (BoardVO)request.getAttribute("article");
 %>
 
 <!DOCTYPE html>

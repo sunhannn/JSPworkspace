@@ -2,7 +2,7 @@ package svc;
 
 import static db.JdbcUtil.*;
 import java.sql.Connection;
-import vo.BoardBean;
+import vo.BoardVO;
 import dao.StudyDAO;
 
 public class BoardModifyProService {
@@ -19,8 +19,7 @@ public class BoardModifyProService {
 		
 	}
 
-	public boolean modifyArticle(BoardBean article) throws Exception {
-		// TODO Auto-generated method stub
+	public boolean modifyArticle(BoardVO article) throws Exception {
 		
 		boolean isModifySuccess = false;
 		Connection con = getConnection();

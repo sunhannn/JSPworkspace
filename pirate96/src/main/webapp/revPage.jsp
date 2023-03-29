@@ -46,7 +46,7 @@ html, body {
 </head>
 
 <body style="background-color: #f5f5f7;">
-	<jsp:include page="header.jsp" flush="true" />
+	<%@ include file="/header.jsp" %> 
 	<br>
 	<br>
 	<!-- 사진 넘기기 -->
@@ -99,16 +99,16 @@ html, body {
 
 	<div class="container-fluid" style="text-align: center; width: 1500px;">
 		<form action="revJjin.jsp">
-			<div style="width: 700px; height: 500px; float: left;">
+			<div style="width: 600px; height: 500px; float: left;">
 				<p class="roomNum">1번방</p>
 				<br> <img class="roomImg" src="./img/room1.jpg"
-					style="width: 300px; height: 300px;"><br><br>
+					style="width: 300px; height: 300px;"><br> <br>
 				<button type="submit" class="btn btn-outline-primary" value="1">1번방예약</button>
 			</div>
-			<div style="width: 700px; height: 500px; float: left;">
+			<div style="width: 600px; height: 500px; float: left;">
 				<p class="roomNum">2번방</p>
 				<br> <img class="roomImg" src="./img/room1.jpg"
-					style="width: 300px; height: 300px;"><br><br>
+					style="width: 300px; height: 300px;"><br> <br>
 				<button type="submit" class="btn btn-outline-primary" value="2">2번방예약</button>
 			</div>
 		</form>
@@ -117,38 +117,97 @@ html, body {
 
 	<div class="container-fluid" style="text-align: center; width: 1500px;">
 		<form action="revJjin.jsp">
-			<div style="width: 700px; height: 500px; float: left;">
+			<div style="width: 600px; height: 500px; float: left;">
 				<p class="roomNum">3번방</p>
 				<br> <img class="roomImg" src="./img/room2.jpg"
-					style="width: 300px; height: 300px;"><br><br>
+					style="width: 300px; height: 300px;"><br> <br>
 				<button type="submit" class="btn btn-outline-primary" value="3">3번방예약</button>
 			</div>
-			<div style="width: 700px; height: 500px; float: left;">
+			<div style="width: 600px; height: 500px; float: left;">
 				<p class="roomNum">4번방</p>
 				<br> <img class="roomImg" src="./img/room2.jpg"
-					style="width: 300px; height: 300px;"><br><br>
+					style="width: 300px; height: 300px;"><br> <br>
 				<button type="submit" class="btn btn-outline-primary" value="4">4번방예약</button>
 			</div>
 		</form>
 	</div>
 	<div class="container-fluid" style="text-align: center; width: 1500px;">
 		<form action="revJjin.jsp">
-			<div style="width: 700px; height: 500px; float: left;">
+			<div style="width: 600px; height: 500px; float: left;">
 				<p class="roomNum">5번방</p>
 				<br> <img class="roomImg" src="./img/room3.jpg"
-					style="width: 300px; height: 300px;"><br>
-				<br>
+					style="width: 300px; height: 300px;"><br> <br>
 				<button type="submit" class="btn btn-outline-primary" value="5">5번방예약</button>
 			</div>
-			<div style="width: 700px; height: 500px; float: left;">
+			<div style="width: 600px; height: 500px; float: left;">
 				<p class="roomNum">6번방</p>
 				<br> <img class="roomImg" src="./img/room3.jpg"
-					style="width: 300px; height: 300px;"><br>
-				<br>
+					style="width: 300px; height: 300px;"><br> <br>
 				<button type="submit" class="btn btn-outline-primary" value="6">6번방예약</button>
 			</div>
 		</form>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 
 	<jsp:include page="footer.jsp" flush="true" />

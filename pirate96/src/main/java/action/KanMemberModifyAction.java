@@ -23,7 +23,8 @@ public class KanMemberModifyAction implements Action {
 		article.setM_ADDR(request.getParameter("M_ADDR"));
 		article.setM_EMAIL(request.getParameter("M_EMAIL"));
 		article.setM_GENDER(request.getParameter("M_GENDER"));
-
+		System.out.println(request.getParameter("M_ID"));
+		
 		memberModifyService.modifyArticle(article);
 
 		PageInfo pageInfo = new PageInfo();

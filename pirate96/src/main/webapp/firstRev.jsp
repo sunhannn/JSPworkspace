@@ -43,7 +43,7 @@ li {
 </head>
 
 <body style="background-color: #f5f6f7;">
-	<jsp:include page="header.jsp" flush="true" />
+	<%@ include file="/header.jsp"%>
 	<br>
 	<br>
 	<br>
@@ -94,7 +94,7 @@ li {
 	<br>
 	<br>
 	<br>
-	
+
 
 
 

@@ -3,6 +3,8 @@ package action;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import svc.KanMemberListService;
 import svc.MemberListService;
 import svc.ReserveListService;
 import vo.ActionForward;
@@ -23,7 +25,7 @@ public class KanMemberListAction implements Action {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 
-		MemberListService memberListService = new MemberListService();
+		KanMemberListService memberListService = new KanMemberListService();
 		int listCount = memberListService.getListCount(); // 총 리스트 수를 받아옴.
 		articleList = memberListService.getArticleList(page, limit); // 리스트를 받아옴.
 		// 총 페이지 수.

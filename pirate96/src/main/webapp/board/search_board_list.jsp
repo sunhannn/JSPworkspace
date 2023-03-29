@@ -1,12 +1,12 @@
 <%@page import="vo.PageInfo"%>
-<%@page import="vo.BoardBean"%>
+<%@page import="vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-	ArrayList<BoardBean> articleList=(ArrayList<BoardBean>)request.getAttribute("articleList");
+	ArrayList<BoardVO> articleList=(ArrayList<BoardVO>)request.getAttribute("articleList");
     PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	int listCount=pageInfo.getListCount();
 	int nowPage=pageInfo.getPage();

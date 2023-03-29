@@ -33,14 +33,13 @@ public class MemberListService {
 		return articleList;
 
 	}
-
 	// 회원 검색 리스트 수
 	public int getSearchListCount(String list_search, String list_search_value) throws Exception {
 		int listCount = 0;
 		Connection con = getConnection();
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		studyDAO.setConnection(con);
-		listCount = studyDAO.selectSearchListCount(list_search, list_search_value);
+		listCount = studyDAO.selectSearchListCountMember(list_search, list_search_value);
 		close(con);
 		return listCount;
 

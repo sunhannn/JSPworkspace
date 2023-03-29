@@ -2,15 +2,14 @@ package svc;
 
 import java.sql.Connection;
 import dao.StudyDAO;
-import vo.BoardBean;
+import vo.BoardVO;
 import static db.JdbcUtil.*;
 
 public class BoardDetailService {
 
-	public BoardBean getArticle(int board_num) throws Exception {
-		// TODO Auto-generated method stub
+	public BoardVO getArticle(int board_num) throws Exception {
 
-		BoardBean article = null;
+		BoardVO article = null;
 		Connection con = getConnection();
 		StudyDAO boardDAO = StudyDAO.getInstance();
 		boardDAO.setConnection(con);

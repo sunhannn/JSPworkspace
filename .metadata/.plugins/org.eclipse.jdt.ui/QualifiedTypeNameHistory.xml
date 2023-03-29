@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.apache.tomcat.jdbc.pool.DataSource"/>
-    <fullyQualifiedTypeName name="java.sql.Array"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="dao.MemberDAO"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="svc.MemberDeleteService"/>
-    <fullyQualifiedTypeName name="vo.MemberBean"/>
     <fullyQualifiedTypeName name="svc.MemberJoinService"/>
-    <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
     <fullyQualifiedTypeName name="svc.RerserveService"/>
     <fullyQualifiedTypeName name="javax.websocket.Session"/>
     <fullyQualifiedTypeName name="svc.ReserveListService"/>
@@ -22,10 +10,8 @@
     <fullyQualifiedTypeName name="action.ReserveDeleteAction"/>
     <fullyQualifiedTypeName name="svc.ReserveDeleteService"/>
     <fullyQualifiedTypeName name="svc.JoongbokService"/>
-    <fullyQualifiedTypeName name="action.Action"/>
     <fullyQualifiedTypeName name="svc.ReserveUpdateService"/>
     <fullyQualifiedTypeName name="action.ReserveUpdateAction"/>
-    <fullyQualifiedTypeName name="vo.ActionForward"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="action.MemberLoginAction"/>
     <fullyQualifiedTypeName name="action.MemberJoinAction"/>
@@ -45,13 +31,9 @@
     <fullyQualifiedTypeName name="svc.ReserveMemberGoService"/>
     <fullyQualifiedTypeName name="action.ReserveAction"/>
     <fullyQualifiedTypeName name="action.BoardGoGoAction"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="dao.StudyDAO"/>
     <fullyQualifiedTypeName name="db.JdbcUtil"/>
     <fullyQualifiedTypeName name="svc.KanMemberModifyService"/>
     <fullyQualifiedTypeName name="svc.KanMemberModifyFormService"/>
-    <fullyQualifiedTypeName name="vo.MemberVO"/>
     <fullyQualifiedTypeName name="svc.KanReserveDeleteService"/>
     <fullyQualifiedTypeName name="svc.KanReserveModifyService"/>
     <fullyQualifiedTypeName name="svc.KanReserveModifyFormService"/>
@@ -60,4 +42,22 @@
     <fullyQualifiedTypeName name="action.KanReserveModifyFormAction"/>
     <fullyQualifiedTypeName name="action.KanReserveModifyAction"/>
     <fullyQualifiedTypeName name="vo.BoardBean"/>
+    <fullyQualifiedTypeName name="org.apache.jasper.compiler.Node.ForwardAction"/>
+    <fullyQualifiedTypeName name="action.AdminAction"/>
+    <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+    <fullyQualifiedTypeName name="vo.ActionForward"/>
+    <fullyQualifiedTypeName name="vo.MemberVO"/>
+    <fullyQualifiedTypeName name="action.MemberCheckAjax"/>
+    <fullyQualifiedTypeName name="svc.MemberCheckAjaxService"/>
+    <fullyQualifiedTypeName name="action.Action"/>
+    <fullyQualifiedTypeName name="action.MemberCheckAjaxAction"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="action.KanReserveDeleteAction"/>
+    <fullyQualifiedTypeName name="action.KanReserveListAction"/>
+    <fullyQualifiedTypeName name="action.KanReserveSearchAction"/>
+    <fullyQualifiedTypeName name="dao.StudyDAO"/>
+    <fullyQualifiedTypeName name="action.KanMemberSearchAction"/>
+    <fullyQualifiedTypeName name="action.KanMemberListAction"/>
+    <fullyQualifiedTypeName name="action.KanMemberDeleteAction"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

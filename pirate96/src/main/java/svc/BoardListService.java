@@ -4,12 +4,11 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 import dao.StudyDAO;
-import vo.BoardBean;
+import vo.BoardVO;
 
 public class BoardListService {
 
 	public int getListCount() throws Exception {
-		// TODO Auto-generated method stub
 
 		int listCount = 0;
 		Connection con = getConnection();
@@ -21,9 +20,9 @@ public class BoardListService {
 
 	}
 
-	public ArrayList<BoardBean> getArticleList(int page, int limit) throws Exception {
+	public ArrayList<BoardVO> getArticleList(int page, int limit) throws Exception {
 
-		ArrayList<BoardBean> articleList = null;
+		ArrayList<BoardVO> articleList = null;
 		Connection con = getConnection();
 		StudyDAO boardDAO = StudyDAO.getInstance();
 		boardDAO.setConnection(con);

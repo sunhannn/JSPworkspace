@@ -2,11 +2,11 @@ package svc;
 
 import java.sql.Connection;
 import dao.StudyDAO;
-import vo.BoardBean;
+import vo.BoardVO;
 import static db.JdbcUtil.*;
 public class BoardWriteProService {
 
-	public boolean registArticle(BoardBean boardBean) throws Exception{
+	public boolean registArticle(BoardVO boardBean) throws Exception{
 		
 		boolean isWriteSuccess = false;
 		Connection con = getConnection();

@@ -9,7 +9,7 @@ import vo.ActionForward;
 import vo.ReserveVO;
 import vo.PageInfo;
 
-// 예약리스트 Action
+// 관리자 예약리스트 Action
 public class KanReserveListAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
