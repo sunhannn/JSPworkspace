@@ -1,6 +1,5 @@
 package svc;
 
-import vo.MemberVO;
 import vo.ReserveVO;
 import dao.StudyDAO;
 import static db.JdbcUtil.*;

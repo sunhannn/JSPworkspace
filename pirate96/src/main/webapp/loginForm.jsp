@@ -1,106 +1,142 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
-<html>
+
+
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
+<style>
+/* form의 길이(푸터길이를 줄이기 위해) */
+form {
+
+height:500px;}
+
+
+
+
+/*div 로고 */
+.logo {
+text-align:center;
+margin-top:100px;
+font-size: larger;
+}
+/* 아이디,비밀번호 input type */
+.login {
+
+margin: 100px 0px 30px 350px;
+	float: left;
+	display:inline;
+	
+}
+
+/* 로그인 버튼 */
+#submitlogin {
+padding: 55px 35px;
+border: 1px solid lightgray;
+margin:100px 10px 30px 20px;
+background-color:#3B4A71;
+color:white;
+
+
+}
+
+
+/* 로고크기 */
+h1{
+ margin:150px 0px 0px 0px;
+font-size:50px;}
+/* 아이디 input */
+ #id {
+ width:240px;
+ height:60px;
+ border-radius : 0px;
+ margin:0px 0px 5px 0px; 
+ text-align:center;
+ }
+/*  비밀번호 input */
+ #password {
+ 
+width:240px;
+ height:60px;
+ border-radius : 0px;
+ text-align:center;}
+ 
+/*  회원가입 a태그*/
+  #join {
+  display:block;}
+/*   회원가입버튼 글씨 */
+  a{
+  color:gray;}
+
   
-  <style>
-  
-body {background-color: #f5f6f7;}
-    h2 {
-      color: #03c75a;
-      font-weight: bolder;
-      font-size: 50pt;
-      text-align: center;
-      letter-spacing: 5px;
-    }
 
-    small {
-      color: #999;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    .cnum {
-      width: 100%;
-    }
-
-    @media (min-width: 992px) {
-      .container, .container-lg, .container-md, .container-sm {
-        max-width: 960px;
-      }
-      .col-md-8 {
-        padding-right: 0px;
-      }
-      .col-md-4{
-        padding-left: 0px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .container, .container-md, .container-sm {
-        max-width: 720px;
-      }
-      .col-md-8 {
-        padding-right: 0px;
-      }
-      .col-md-4{
-        padding-left: 0px;
-      }
-    }
-
-    @media (min-width: 576px) {
-      .container, .container-sm {
-        max-width: 540px;
-      }
-      .col-md-8 {
-        padding-right: 13px;
-      }
-    }
-
-  /* 폼요소들(입력요소들) 선택시(focus) 테두리에 그림자음영 처리 */
-  .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #29be03;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 174, 87, 0.25);
-  }
   </style>
   <script>
-  let str = '<%=request.getParameter("error")%>';
-//   alert(str);
-  if( !(str== ''|| str== 'null')){alert('로그인에 실패했습니다.');}
+  let str='<%=request.getParameter("error")%>';
+  if(!(str=='' || str=='null')) {alert('로그인에 실패했습니다.');}
+  
+  
   </script>
+  
+  
+  
+  
 </head>
-<body>
+<body style="background-color:#f5f6f7;">
 <section id = "loginformArea">
-<form name="loginform" action="../memberLoginAction.go" method="post">
-<div class="container">
-<h2>로그인</h2>
+<div class="wrapper">
+
+<form name="loginform" action="memberLoginAction.go" method="post">
+<div class="container" >
+
+<!-- 로고 h1부분에 넣을것 -->
+<div class="logo">
+<h1>LOGO</h1>
+</div>
+
+<div class="login">
+
 	
 <div class="form-group">
-<label for="id">아이디</label>
-        <input type="text" class="form-control" id="id" name="M_ID" >
+
+<input type="text" class="form-control" id="id" name="M_ID" placeholder="아이디">
+
 </div>
-	<div class="form-group">
-        <label for="pwd">비밀번호</label>
-        <input type="password" class="form-control" id="password" name="M_PW" >
-        </div>
-        <div class="form-group">
-			<input type="submit" value="로그인" class="btn btn-success" >
-			<button type="button" onclick="location.href='joinForm.jsp'" class="btn btn-success">회원가입</button>
+
+
+
+
+<div class="form-group">
+
+<input type="password" class="form-control" id="password" name="M_PW" placeholder="비밀번호" >
+
+<a href='joinForm.jsp'" id ="join">회원가입
+
 </div>
 </div>
-</form>
-</section>
+
+<div class="form-group">
+
+<input type="submit" value="로그인" id="submitlogin">
+
+  </form>
+  
+
+</div>
+</div>
+
+<div style="width: 100%; height: 200px;"></div>
+
+<%@ include file="footer.jsp" %>
+</div>
+
+
 </body>
-</html>
+<html>

@@ -42,7 +42,7 @@ div.col-m-6{
 					<!--화면양쪽에 여백부여-->
 					<div>
 						<br>
-						<h1 style="text-align:center;">하이미디어 스터디룸카페</h1>
+						<h1 style="text-align:center;">유키 스터디룸 카페</h1>
 						<br>
 						<section class="main_img">
 							<img src="../img/스터디룸이미지1.jpg" alt="메인이미지"
@@ -103,7 +103,7 @@ div.col-m-6{
                          <br>
                          <div class="container-fluid">
                         <h3>*공간소개 및 주변정보*</h3>
-                        <div class="row">
+                        <div class="row"> 
                           <div class="col-sm-6" style="width:400px; height:280px; padding-right:0 auto;">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.5564818596504!2d126.91905655129982!3d37.400319779730275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b60d1b8dde3f9%3A0xddc103e417d54cdc!2z7ZWY7J2066-465SU7Ja07Lu07ZOo7YSw7ZWZ7JuQIOyViOyWkey6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1679972863832!5m2!1sko!2skr" 
                             width="400px" height="280px" allowfullscreen="false" style="border:0;"
@@ -130,5 +130,6 @@ div.col-m-6{
 		<div style="width: 100%; height: 100px;"></div>
 		<!--본문과 footer를 나누기위한 div-->
 	
-	<jsp:include page="../footer.jsp" flush="true"/></body>
+	<jsp:include page="../footer.jsp" flush="true"/>
+	</body>
 </html>

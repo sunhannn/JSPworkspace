@@ -16,8 +16,6 @@
 body {
 	background-color: #f5f6f7;
 }
-
-
 </style>
 
 
@@ -29,7 +27,7 @@ body {
 </head>
 
 <body>
-<%@ include file="/header.jsp" %> 
+	<%@ include file="/header.jsp"%>
 	<br>
 	<br>
 	<br>
@@ -40,7 +38,7 @@ body {
 	<br>
 
 	<div class="container-fluid">
-		<h3 style="text-align: center; color: #4682b4;">고잉메리호 스터디카페 예약</h3>
+		<h3 style="text-align: center; color: #4682b4;">유키 스터디룸 카페 예약</h3>
 		<br>
 		<hr>
 		<p
@@ -49,8 +47,7 @@ body {
 	</div>
 	<div class="container-fluid"
 		style="text-align: center; width: 500px; height: 300px; border: 2px solid lime; text-decoration: underline;">
-		<br>
-		<br>
+		<br> <br>
 		<p>♣ 취식물은 마실 것만 가능합니다.</p>
 		<br>
 		<p>♣ 다음 사람을 위해 정리하고 나가주세요.</p>
@@ -152,8 +149,7 @@ body {
 
 
 			</div>
-			<br>
-			<br>
+			<br> <br>
 
 			<button type="submit" class="btn btn-outline-primary">예약하기</button>
 			<hr>

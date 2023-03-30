@@ -14,7 +14,7 @@ public class AdminAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-
+		System.out.println(id);
 		if (id.equals(null)) {
 			response.setContentType("text/html;charset=euc-kr");
 			PrintWriter out = response.getWriter();

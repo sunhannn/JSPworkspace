@@ -6,35 +6,113 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.content_all {
+width:95%;
+margin:0 auto;
+}
+
+.title {
+font-size :28px;
+font-weight: bold;
+width:95%;
+margin:0 auto;
+margin-top:30px;
+margin-bottom:20px;
+}
+
+.text_zone {
+width:90%;
+margin:0 auto;
+margin-top:50px;
+margin-bottom:100px;
+}
+
+hr{
+height: 3px;
+background: #000;
+border:0;
+}
+
+table{
+margin:auto;
+margin-top:150px;
+border:none;
+width:50%;
+height:450px;
+}
+
+td {
+border-bottom:2px solid gray;
+}
+
+.name {
+font-weight:bolder;
+border:none;
+}
+
+.mypage {text-align:center;
+margin-top:30px;
+}
+
+.gmypage {
+
+width:49%;
+height:35px;
+background-color:white;
+color:blue;
+border:none;}
+
+.v {
+
+color:gray;}
+
+
+
+</style>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 	<!-- 내정보확인페이지 -->
 	<%
 	MemberVO member = (MemberVO) request.getAttribute("member");
 	%>
-	<table>
-		<tr>
-			<th>아이디</th>
-			<th>비번</th>
-			<th>이름</th>
-			<th>전화번호</th>
-			<th>주소</th>
-			<th>이메일 주소</th>
-			<th>성별</th>
-		</tr>
-		<tr>
-			<td><%=member.getM_ID()%></td>
-			<td><%=member.getM_PW()%></td>
-			<td><%=member.getM_NAME()%></td>
-			<td><%=member.getM_PH()%></td>
-			<td><%=member.getM_ADDR()%></td>
-			<td><%=member.getM_EMAIL()%></td>
-			<td><%=member.getM_GENDER()%></td>
-		</tr>
-	</table>
-	<form action="../myPage.go">
-		<button type="submit">내정보로 돌아가기</button>
+	<div class="content_all">
+	<p class="title">개인정보조회</p>
+	<hr>
+	<div class="text_zone">
+	
+	
+<table>
+<tr>
+<td class="name">아이디</td>
+</tr>
+<tr>
+<td class="v"><%=member.getM_ID()%></td>
+</tr>
+<tr>
+<td class="name">비밀번호</td>
+</tr>
+<tr>
+<td class="v"><%=member.getM_PW()%></td>
+</tr>
+<tr><td class="name">이름</td></tr>
+<tr><td class="v"><%=member.getM_NAME()%></td><tr>
+<tr><td class="name">전화번호</td></tr>
+<tr><td class="v"><%=member.getM_PH()%></td></tr>
+<tr><td class="name">이메일</td></tr>
+<tr><td class="v"><%=member.getM_EMAIL()%></td></tr>
+
+
+</table>
+<div class="mypage">
+<form action="../myPage.go">
+		<button type="submit" class="gmypage">마이페이지</button>
 
 	</form>
+	</div>
+	</div>
+	</div>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

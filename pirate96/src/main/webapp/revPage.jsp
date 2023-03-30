@@ -46,7 +46,7 @@ html, body {
 </head>
 
 <body style="background-color: #f5f5f7;">
-	<%@ include file="/header.jsp" %> 
+	<%@ include file="/header.jsp"%>
 	<br>
 	<br>
 	<!-- 사진 넘기기 -->
@@ -93,7 +93,7 @@ html, body {
 	<div>
 
 		<p
-			style="font-size: 20px; font-weight: bold; text-align: center; font-family: Comic Sans, Apple Chancery, cursive;">상현
+			style="font-size: 20px; font-weight: bold; text-align: center; font-family: Comic Sans, Apple Chancery, cursive;">유키
 			스터디 룸 카페</p>
 	</div>
 

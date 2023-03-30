@@ -1,32 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- -start- 관리자 아이디인지 세션 확인 -->
-	<%
-// 		String user_id = request.getParameter("id");  // 로그인으로 받아온 아이디(합칠 때 name값 확인★)
-// 		String user_pw = request.getParameter("passwd"); // 로그인으로 받아온 비밀번호(합칠 때 name값 확인★) 
-// 		boolean return_main = false;
-// 		if(user_id.equals("admin") && user_pw.equals("1234")) {
-// 			session.setAttribute("userID", user_id);
-// 			session.setAttribute("userPW", user_pw);
-// 			} else {
-// 			return_main = true;
-// 		}
 
-// 		if(return_main)
-// 		{
-// 			// 관리자 계정이 아닐 시 메인 페이지로 이동
-// 		    out.print("<script>alert('권한이 없습니다.'); location.href ='main.jsp';</script>");
-// 		}
-
-		// 로그인 연결 전 test로 설정한 값, 연결하면 삭제 요망(★)
-		String user_id = "admin";  // 로그인으로 받아온 아이디(합칠 때 name값 확인★)
-		String user_pw = "1234"; // 로그인으로 받아온 비밀번호(합칠 때 name값 확인★) 		
-
-		session.setAttribute("id", user_id);
-		session.setAttribute("pw", user_pw);
-		// 로그인 연결 전 test로 설정한 값, 연결하면 삭제 요망(★)
-	%>
-<!-- -end- 관리자 아이디인지 세션 확인 -->
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -34,7 +8,6 @@
   <meta charset="UTF-8">
   <title>관리자 페이지</title>
   <!--외부 스타일시트 적용-->
-  <link rel="stylesheet" href="css/main.css">
 
   <style>
 

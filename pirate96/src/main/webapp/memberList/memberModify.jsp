@@ -3,108 +3,173 @@
 <%
 MemberVO article = (MemberVO)request.getAttribute("article");
 %>
-
+<!-- -start- 관리자 아이디인지 세션 확인 -->
+	<%
+		String user_id = (String)session.getAttribute("id");  // 이전 페이지에서 로그인으로 받아온 아이디
+		String user_pw = (String)session.getAttribute("pw"); // 이전 페이지에서 로그인으로 받아온 비밀번호 
+		boolean return_main = false;
+		
+		if(user_id==null || user_pw==null || !(user_id.equals("admin") || user_pw.equals("1234"))) {
+			return_main = true;
+		}
+		
+		if(return_main)
+		{
+			// 관리자 계정이 아닐 시 메인 페이지로 이동
+		    out.print("<script>alert('권한이 없습니다.'); location.href ='main.jsp';</script>");
+		}
+ 	%>
+<!-- -end- 관리자 아이디인지 세션 확인 -->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"> 
-	<title>회원 수정 폼</title>
-	<script type="text/javascript">
-	function modifymember(){
-		modifyform.submit();
-	}
-	</script>
-	<style type="text/css">
-   #registForm{
-      width: 500px;
-      height: 600px;
-      border : 1px solid red; 
-      margin:auto; 
-   }   
-   h2{
-      text-align: center;
-   }
-   table{
-      margin:auto;
-      width: 450px;
-      }
-   .td_left{
-      width: 150px;
-      background:orange;
-   }
-   .td_right{
-      width: 300px;
-      background:skyblue;
-   }
-   #commandCell{
-      text-align: center;
-      
-   }
+<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+<title>회원 목록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.css"/>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.js"></script>
+<style>
+
+body{
+background-color: #f5f6f7;
+}
+
+.content_all{
+width:80%;
+margin:0 auto;
+}
+
+.content_all section{
+width:95%;
+margin: 0 auto;
+padding-bottom: 15px;
+border-bottom: 1px solid #ccc;
+}
+
+.write_title{
+font-size:36px;
+font-weight:bold;
+padding: 30px 0;
+border-bottom:2px solid #000;
+}
+
+.text_zone{
+width:75%;
+margin:0 auto;
+}
+
+.btn_zone{
+width: 30%;
+margin:0 auto;
+margin-top:20px;
+margin-bottom:30px;
+}
+
+.btn{
+background-color:#aacef2;
+}
+
+.btn:hover{
+    background-color: #75b2f0;
+}
+
+.write_table{
+   width: 70%;
+   margin:0 auto;
+   margin-top: 50px;
+}
+
+.td_sub{
+vertical-align:middle;
+text-align: right;
+font-size: 0.8em;
+font-weight:bold;
+padding-right:20px;
+border-right:1px solid #ccc;
+}
+
+.td_content{
+padding-left:20px;
+}
+
+.write_table td{
+padding-bottom:30px;
+}
+
+label{
+margin:0;
+display:inline-block;
+}
+
+.modi_input{
+border:none;
+border:1px solid #d9d8d7;
+padding:5px 0;
+padding-left:20px;
+width: 175px;
+}
+
+.modify_select{
+border:1px solid #d9d8d7;
+width: 175px;
+padding: 5px;
+padding-left:20px;
+}
+
 </style>
 </head>
 <body>
-<!-- 게시판 등록 -->
 
-<section id = "writeForm">
-<h2>게시판글수정</h2>
-<form action="memberModifyPro.go" method="post" name = "modifyform"
->
-<input type = "hidden" name = "M_ID" value = "<%=article.getM_ID()%>"/>
-<table>
-	<tr>
-		<td class="td_left">
-			<label for = "M_ID">아이디</label>
-		</td>
-		<td class="td_right">
-			<input type = "text" name="M_ID" id = "M_ID" value = "<%=article.getM_ID()%>" DISABLED/>
-		</td>
-	</tr>
-	<tr>
-		<td class="td_left">
-			<label for = "M_NAME">이름</label>
-		</td>
-		<td class="td_right">
-			<input name="M_NAME" type="text" id = "M_NAME" value = "<%=article.getM_NAME()%>"/>
-		</td>
-	</tr>
-	<tr>
-		<td class="td_left">
-			<label for = "M_PH">핸드폰 번호</label>
-		</td>
-		<td>
-			<input id = "M_PH" name="M_PH" value =<%=article.getM_PH()%> />
-		</td>
-	</tr>
-	<tr>
-		<td class="td_left">
-			<label for = "M_ADDR">주소</label>
-		</td>
-		<td>
-			<input id = "M_ADDR" name="M_ADDR" value = <%=article.getM_ADDR()%> />
-		</td>
-	</tr>
-	<tr>
-		<td class="td_left">
-			<label for = "M_EMAIL">이메일</label>
-		</td>
-		<td>
-			<input id = "M_EMAIL" name="M_EMAIL" value = <%=article.getM_EMAIL()%> />
-		</td>
-	</tr>
-	<tr>
-		<td class="td_left">
-			<label for = "M_GENDER">성별</label>
-		</td>
-		<td>
-			<input id = "M_GENDER" name="M_GENDER" value = <%=article.getM_GENDER()%> />
-		</td>
-	</tr>
-</table>
-	<section id = "commandCell">
-			<a href="javascript:modifymember()">[수정완료]</a>
-			<a href="memberList.go">[돌아가기]</a>
-	</section>
-</form>
-</section>
+<div class="content_all">
+   <section>
+      <p class="write_title">회원 수정</p>
+      <div class="text_zone">
+      <form action="memberModifyPro.go" method="post" enctype="multipart/form-data" name="boardform">
+      <input type = "hidden" name ="M_ID" value = "<%=article.getM_ID()%>"/>
+         <table class="write_table">
+           		<tr>
+					<td class="td_sub"><label for="M_ID">아이디</label></td>
+					<td class="td_content"><input class="modi_input" type="text" name="M_ID" id="M_ID"
+						value="<%=article.getM_ID()%>" DISABLED /></td>
+				</tr>
+				<tr>
+					<td class="td_sub"><label for="M_NAME">이름</label></td>
+					<td class="td_content"><input class="modi_input" name="M_NAME" type="text"
+						id="M_NAME" value="<%=article.getM_NAME()%>" required="required" /></td>
+				</tr>
+				<tr>
+					<td class="td_sub"><label for="M_PH">핸드폰 번호</label></td>
+					<td class="td_content"><input class="modi_input" id="M_PH" name="M_PH"
+						value=<%=article.getM_PH()%> required="required" /></td>
+				</tr>
+				<tr>
+					<td class="td_sub"><label for="M_ADDR">주소</label></td>
+					<td class="td_content"><input class="modi_input" id="M_ADDR" name="M_ADDR" value=<%=article.getM_ADDR()%> required="required" />
+					</td>
+				</tr>
+				<tr>
+					<td class="td_sub"><label for="M_EMAIL">이메일</label></td>
+					<td class="td_content"><input class="modi_input" id="M_EMAIL" name="M_EMAIL" value=<%=article.getM_EMAIL()%> required="required" />
+					</td>
+				</tr>
+				<tr>
+					<td class="td_sub"><label for="M_GENDER">성별</label></td>
+					<td class="td_content"><input class="modi_input" id="M_GENDER" name="M_GENDER" value=<%=article.getM_GENDER()%> />
+					</td>
+				</tr>
+
+         </table>
+         <br>
+         <div class="btn_zone">
+         <button type="button" class="btn" onClick="location.href='memberList.go'">목록으로</button>
+         <button type="submit" class="btn" id="btn1">수정</button>
+         </div>
+      </form>
+      </div>
+   </section>
+   
+   </div>
+   
+   <!-- 게시판 등록 -->
 </body>
 </html>

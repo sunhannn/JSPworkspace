@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="svc.MemberJoinService"/>
-    <fullyQualifiedTypeName name="svc.RerserveService"/>
     <fullyQualifiedTypeName name="javax.websocket.Session"/>
     <fullyQualifiedTypeName name="svc.ReserveListService"/>
     <fullyQualifiedTypeName name="action.ReserveViewAction"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="action.KanMemberListAction"/>
     <fullyQualifiedTypeName name="action.KanMemberDeleteAction"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="action.KanMemberModifyFormAction"/>
+    <fullyQualifiedTypeName name="action.KanMemberModifyAction"/>
 </qualifiedTypeNameHistroy>

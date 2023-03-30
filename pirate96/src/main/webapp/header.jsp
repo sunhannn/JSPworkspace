@@ -137,7 +137,7 @@ a {
 								onclick="location.href='../mainPage/main.jsp'">HOME</a></li>
 							<li><a href="#" onclick="location.href='../boardGo.go'">공지</a></li>
 							<li><a href="#" onclick="location.href='QnA.html'">QnA</a></li>
-							<li><a href="#" onclick="location.href='location.html'">공간소개
+							<li><a href="#" onclick="location.href='../location.jsp'">공간소개
 									및 오시는 길</a></li>
 							<li><a href="#" onclick="location.href='../firstRev.jsp'">스터디룸
 									예약</a></li>

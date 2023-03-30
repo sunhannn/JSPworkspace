@@ -864,7 +864,6 @@ public class StudyDAO {
 				boradbean.setBOARD_NUM(rs.getInt("BOARD_NUM"));
 				boradbean.setBOARD_NAME(rs.getString("BOARD_NAME"));
 				boradbean.setBOARD_SUBJECT(rs.getString("BOARD_SUBJECT"));
-				;
 
 				articleList.add(boradbean);
 

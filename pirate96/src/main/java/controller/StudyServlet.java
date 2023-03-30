@@ -28,6 +28,8 @@ import action.BoardWriteProAction;
 import action.CheckMyInfoAction;
 import action.KanMemberDeleteAction;
 import action.KanMemberListAction;
+import action.KanMemberModifyAction;
+import action.KanMemberModifyFormAction;
 import action.KanMemberSearchAction;
 import action.KanReserveDeleteAction;
 import action.KanReserveListAction;
@@ -60,11 +62,6 @@ public class StudyServlet extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		// 카데고리 값(아이디, 이름 등) 과 검색값(input에 쓴 내용) 받아오기
-//		String list_search = request.getParameter("search"); // 카테고리
-//		String list_search_value = request.getParameter("search_value");// 검색값
-
-		// 예약 페이지 if문
 		if (command.equals("/rev.go")) {
 			action = new ReserveAction();
 			try {
@@ -114,7 +111,6 @@ public class StudyServlet extends HttpServlet {
 			// 예약 수정 사이트로 이동
 		} else if (command.equals("/revUp.go")) {
 			forward = new ActionForward();
-//			forward.setRedirect(true);
 			forward.setPath("./revUpdate.jsp");
 		} else if (command.equals("/memberLogin.go")) {
 			action = new MemberLoginAction();
@@ -319,6 +315,7 @@ public class StudyServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			// 
 		} else if (command.equals("/boardGo.go")) {
 			action = new BoardGoGoAction();
 			try {
@@ -326,7 +323,7 @@ public class StudyServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			// 관리자 페이지 이동
 		} else if (command.equals("/admin.go")) {
 			action = new AdminAction();
 			try {
@@ -343,7 +340,26 @@ public class StudyServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
+			// 관리자 회원 수정 폼으로 이동
+		} else if (command.equals("/memberModify.go")) {
+			action = new KanMemberModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 관리자 회원 수정 적용
+		else if (command.equals("/memberModifyPro.go")) {
+			action = new KanMemberModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		else {
 			try {
 				// fileName 파라미터로 파일명을 가져온다.
 				String fileName = request.getParameter("fname");

@@ -74,32 +74,37 @@ int upNum = Integer.parseInt(request.getParameter("r_num"));
 			<br>
 			<div class="start">
 				<p style="font-size: 15px; font-weight: bold;">시작 시간</p>
+				<%
+				String r_stime = request.getParameter("r_stime"); 
+				String r_etime = request.getParameter("r_etime");
+				String r_room =request.getParameter("r_room");
+				%>
 				<select name="R_STIME" id="startTime"
 					style="width: 150px; text-align: center;">
-					<option value="1">01:00</option>
-					<option value="2">02:00</option>
-					<option value="3">03:00</option>
-					<option value="4">04:00</option>
-					<option value="5">05:00</option>
-					<option value="6">06:00</option>
-					<option value="7">07:00</option>
-					<option value="8">08:00</option>
-					<option value="9">09:00</option>
-					<option value="10">10:00</option>
-					<option value="11">11:00</option>
-					<option value="12">12:00</option>
-					<option value="13">13:00</option>
-					<option value="14">14:00</option>
-					<option value="15">15:00</option>
-					<option value="16">16:00</option>
-					<option value="17">17:00</option>
-					<option value="18">18:00</option>
-					<option value="19">19:00</option>
-					<option value="20">20:00</option>
-					<option value="21">21:00</option>
-					<option value="22">22:00</option>
-					<option value="23">23:00</option>
-					<option value="24">24:00</option>
+					<option value="1" <%="1".equals(r_stime)?"selected":"" %>>01:00</option>
+                        <option value="2" <%="2".equals(r_stime)?"selected":"" %>>02:00</option>
+                        <option value="3" <%="3".equals(r_stime)?"selected":"" %>>03:00</option>
+                        <option value="4" <%="4".equals(r_stime)?"selected":"" %>>04:00</option>
+                        <option value="5" <%="5".equals(r_stime)?"selected":"" %>>05:00</option>
+                        <option value="6" <%="6".equals(r_stime)?"selected":"" %>>06:00</option>
+                        <option value="7" <%="7".equals(r_stime)?"selected":"" %>>07:00</option>
+                        <option value="8" <%="8".equals(r_stime)?"selected":"" %>>08:00</option>
+                        <option value="9" <%="9".equals(r_stime)?"selected":"" %>>09:00</option>
+                        <option value="10" <%="10".equals(r_stime)?"selected":"" %>>10:00</option>
+                        <option value="11" <%="11".equals(r_stime)?"selected":"" %>>11:00</option>
+                        <option value="12" <%="12".equals(r_stime)?"selected":"" %>>12:00</option>
+                        <option value="13" <%="13".equals(r_stime)?"selected":"" %>>13:00</option>
+                        <option value="14" <%="14".equals(r_stime)?"selected":"" %>>14:00</option>
+                        <option value="15" <%="15".equals(r_stime)?"selected":"" %>>15:00</option>
+                        <option value="16" <%="16".equals(r_stime)?"selected":"" %>>16:00</option>
+                        <option value="17" <%="17".equals(r_stime)?"selected":"" %>>17:00</option>
+                        <option value="18" <%="18".equals(r_stime)?"selected":"" %>>18:00</option>
+                        <option value="19" <%="19".equals(r_stime)?"selected":"" %>>19:00</option>
+                        <option value="20" <%="20".equals(r_stime)?"selected":"" %>>20:00</option>
+                        <option value="21" <%="21".equals(r_stime)?"selected":"" %>>21:00</option>
+                        <option value="22" <%="22".equals(r_stime)?"selected":"" %>>22:00</option>
+                        <option value="23" <%="23".equals(r_stime)?"selected":"" %>>23:00</option>
+                        <option value="24" <%="24".equals(r_stime)?"selected":"" %>>24:00</option>
 				</select>
 			</div>
 			<br>
@@ -107,30 +112,30 @@ int upNum = Integer.parseInt(request.getParameter("r_num"));
 				<p style="font-size: 15px; font-weight: bold;">종료 시간</p>
 				<select name="R_ETIME" id="endTime"
 					style="width: 150px; text-align: center;">
-					<option value="1">01:00</option>
-					<option value="2">02:00</option>
-					<option value="3">03:00</option>
-					<option value="4">04:00</option>
-					<option value="5">05:00</option>
-					<option value="6">06:00</option>
-					<option value="7">07:00</option>
-					<option value="8">08:00</option>
-					<option value="9">09:00</option>
-					<option value="10">10:00</option>
-					<option value="11">11:00</option>
-					<option value="12">12:00</option>
-					<option value="13">13:00</option>
-					<option value="14">14:00</option>
-					<option value="15">15:00</option>
-					<option value="16">16:00</option>
-					<option value="17">17:00</option>
-					<option value="18">18:00</option>
-					<option value="19">19:00</option>
-					<option value="20">20:00</option>
-					<option value="21">21:00</option>
-					<option value="22">22:00</option>
-					<option value="23">23:00</option>
-					<option value="24">24:00</option>
+						<option value="1" <%="1".equals(r_etime)?"selected":"" %>>01:00</option>
+                        <option value="2" <%="2".equals(r_etime)?"selected":"" %>>02:00</option>
+                        <option value="3" <%="3".equals(r_etime)?"selected":"" %>>03:00</option>
+                        <option value="4" <%="4".equals(r_etime)?"selected":"" %>>04:00</option>
+                        <option value="5" <%="5".equals(r_etime)?"selected":"" %>>05:00</option>
+                        <option value="6" <%="6".equals(r_etime)?"selected":"" %>>06:00</option>
+                        <option value="7" <%="7".equals(r_etime)?"selected":"" %>>07:00</option>
+                        <option value="8" <%="8".equals(r_etime)?"selected":"" %>>08:00</option>
+                        <option value="9" <%="9".equals(r_etime)?"selected":"" %>>09:00</option>
+                        <option value="10" <%="10".equals(r_etime)?"selected":"" %>>10:00</option>
+                        <option value="11" <%="11".equals(r_etime)?"selected":"" %>>11:00</option>
+                        <option value="12" <%="12".equals(r_etime)?"selected":"" %>>12:00</option>
+                        <option value="13" <%="13".equals(r_etime)?"selected":"" %>>13:00</option>
+                        <option value="14" <%="14".equals(r_etime)?"selected":"" %>>14:00</option>
+                        <option value="15" <%="15".equals(r_etime)?"selected":"" %>>15:00</option>
+                        <option value="16" <%="16".equals(r_etime)?"selected":"" %>>16:00</option>
+                        <option value="17" <%="17".equals(r_etime)?"selected":"" %>>17:00</option>
+                        <option value="18" <%="18".equals(r_etime)?"selected":"" %>>18:00</option>
+                        <option value="19" <%="19".equals(r_etime)?"selected":"" %>>19:00</option>
+                        <option value="20" <%="20".equals(r_etime)?"selected":"" %>>20:00</option>
+                        <option value="21" <%="21".equals(r_etime)?"selected":"" %>>21:00</option>
+                        <option value="22" <%="22".equals(r_etime)?"selected":"" %>>22:00</option>
+                        <option value="23" <%="23".equals(r_etime)?"selected":"" %>>23:00</option>
+                        <option value="24" <%="24".equals(r_etime)?"selected":"" %>>24:00</option>
 				</select>
 
 
@@ -141,13 +146,12 @@ int upNum = Integer.parseInt(request.getParameter("r_num"));
 				<p style="font-size: 15px; font-weight: bold;">원하시는 방 번호를 골라주세요.</p>
 				<select name="R_ROOM" id="roomNum"
 					style="width: 150px; text-align: center;">
-					<option value="1">1번방</option>
-					<option value="2">2번방</option>
-					<option value="3">3번방</option>
-					<option value="4">4번방</option>
-					<option value="5">5번방</option>
-					<option value="6">6번방</option>
-
+                      <option value="1" <%="1".equals(r_room)?"selected":"" %> >1번방</option>
+                      <option value="2" <%="2".equals(r_room)?"selected":"" %> >2번방</option>
+                      <option value="3" <%="3".equals(r_room)?"selected":"" %>>3번방</option>
+                      <option value="4" <%="4".equals(r_room)?"selected":"" %>>4번방</option>
+                      <option value="5" <%="5".equals(r_room)?"selected":"" %>>5번방</option>
+                      <option value="6" <%="6".equals(r_room)?"selected":"" %>>6번방</option>
 				</select>
 
 
