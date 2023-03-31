@@ -17,7 +17,7 @@ font-size :28px;
 font-weight: bold;
 width:95%;
 margin:0 auto;
-margin-top:30px;
+margin-top:10px;
 margin-bottom:20px;
 }
 
@@ -36,10 +36,11 @@ border:0;
 
 table{
 margin:auto;
-margin-top:150px;
+margin-top:80px;
 border:none;
 width:50%;
 height:450px;
+
 }
 
 td {
@@ -59,9 +60,15 @@ margin-top:30px;
 
 width:49%;
 height:35px;
-background-color:white;
-color:blue;
-border:none;}
+background-color:#aacef2;
+color:black;
+border:none;
+border-radius:10px;
+}
+
+button:hover {
+background-color:#75b2f0;
+}
 
 .v {
 

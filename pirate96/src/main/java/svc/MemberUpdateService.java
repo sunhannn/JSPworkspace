@@ -19,7 +19,7 @@ public class MemberUpdateService {
 		StudyDAO studyDAO = StudyDAO.getInstance(); //instance
 		studyDAO.setConnection(con);
 		
-		int updateCount = studyDAO.updateMember(updateId,member); //뭘넣어야하니
+		int updateCount = studyDAO.updateMember(updateId,member); 
 		if(updateCount > 0) {
 			
 			commit(con);

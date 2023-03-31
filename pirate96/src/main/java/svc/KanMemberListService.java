@@ -6,7 +6,6 @@ import static db.JdbcUtil.*;
 
 import dao.StudyDAO;
 import vo.MemberVO;
-import vo.ReserveVO;
 
 public class KanMemberListService {
 

@@ -20,7 +20,7 @@ int endPage = pageInfo.getEndPage();
 <html>
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
-<title>MVC 게시판</title>
+<title>공지사항 리스트</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.js"></script>
@@ -285,6 +285,8 @@ float:right;
       </form>
 		
 	</div>
-            <%@ include file="/footer.jsp" %>
+   <div class="footer">
+<%@ include file="/footer.jsp" %>
+   </div>
 </body>
 </html>

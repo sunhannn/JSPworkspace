@@ -47,6 +47,10 @@ String list_search_value = request.getParameter("search_value");
 	
 	<style>
 	
+	body{
+	background-color:#f5f6f7;
+	}
+	
 	.content_all{
 	width: 80%;
 	margin: 0 auto;
@@ -193,7 +197,7 @@ String list_search_value = request.getParameter("search_value");
 	});
 </script>
 </head>
-<body style="background-color: #f5f6f7;">
+<body>
 <%@ include file="/header.jsp" %>
 	<div class="content_all">
 		<p class="title">예약 내역</p>
@@ -319,6 +323,8 @@ String list_search_value = request.getParameter("search_value");
 		</form>
 		
 	</div>
-	<%@ include file="../footer.jsp" %>
+	   <div class="footer">
+<%@ include file="/footer.jsp" %>
+	</div>
 </body>
 </html>

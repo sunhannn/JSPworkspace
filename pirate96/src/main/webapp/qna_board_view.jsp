@@ -13,7 +13,7 @@ BoardVO article = (BoardVO)request.getAttribute("article");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MVC 게시판</title>
+<title>공지사항 세부내용</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.css"/>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.js"></script>
@@ -34,17 +34,17 @@ background-color: #f5f6f7;
    padding: 30px 0;
    }
    #basicInfoArea{
-      font-size: 25px;
+      font-size: 18px;
+      font-weight:bold;
       width: 75%;
       margin:0 auto;
-      margin-bottom: 40px;
-      text-align: center;
+      margin-bottom: 20px;
+      text-align: left;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
+      padding:10px;
    }
-   .p_file{
-   display:inline;
-   }
+
    #articleContentArea{
       font-size: 16px;
       width: 75%;
@@ -58,7 +58,7 @@ background-color: #f5f6f7;
    form{
    display:inline;
    }
-   .button{
+   .btn{
    background-color:#aacef2;
    border:none;
    border-radius:5px;
@@ -71,7 +71,19 @@ background-color: #f5f6f7;
    margin: 0 auto;
    text-align:center;
 }
-
+.left{
+text-align:left;
+display:inline;
+}
+.right{
+text-align:right !important;
+display:inline;
+}
+.pright{
+display:inline;
+float:right;
+width:300px;
+}
 </style>
 </head>
 
@@ -85,16 +97,18 @@ background-color: #f5f6f7;
 					<p class="title">공지사항</p>
 				</div>
 		<section id="basicInfoArea">
-			제 목 :
-			<%=article.getBOARD_SUBJECT()%>
-			첨부파일 :
+			<p class="left">제 목 :
+			<%=article.getBOARD_SUBJECT()%></p>
+			<div class="pright">
+			<p class="right">첨부파일 :
 			<%if(!(article.getBOARD_FILE()==null)){ %>
 			<a href="filedown.go?fname=<%=article.getBOARD_FILE()%>"> <%=article.getBOARD_FILE() %>
-			</a><%} %>
+			</a><%} %></p>
 			
 			<%if((article.getBOARD_FILE()==null)){ %>
-			<p class="p_file">첨부파일 없음</p>
-			<%} %>
+			<p class="right">첨부파일 없음
+			<%} %></p>
+			</div>
 		</section>
 		<section id="articleContentArea">
 			<%=article.getBOARD_CONTENT() %>
@@ -104,7 +118,7 @@ background-color: #f5f6f7;
 	
 	<section class="btn_zone">
 	<c:if test="${ 'admin' eq id }">
-	    <button type="button" class="button" onclick="location.href='boardModifyForm.go?board_num=<%=article.getBOARD_NUM() %>'">수정</button>
+	    <button type="button" class="btn" style="background-color:#aacef2;" onclick="location.href='boardModifyForm.go?board_num=<%=article.getBOARD_NUM() %>'">수정</button>
        </c:if>
 	
         <script>
@@ -119,14 +133,16 @@ background-color: #f5f6f7;
         <form name="deleteForm" action="boardDeletePro.go?board_num=<%=article.getBOARD_NUM() %>" method="post">
         <input type = "hidden" name = "page" value = "<%=nowPage %>"/>
         <c:if test="${ 'admin' eq id }">
-        <button type="submit" class="button" onclick="return test()">삭제</button>
+        <button type="submit" class="btn" style="background-color:#aacef2;" onclick="return test()">삭제</button>
         </c:if>
         </form>
-        <button type="button" class="button" onclick="location.href='boardList.go?<%=article.getBOARD_NUM() %>page=${page }'">목록</button>
+        <button type="button" class="btn" style="background-color:#aacef2;" onclick="location.href='boardList.go?<%=article.getBOARD_NUM() %>page=${page }'">목록</button>
 	</section>
 
 	</div>
-	<%@ include file="/footer.jsp" %>
+	   <div class="footer">
+<%@ include file="/footer.jsp" %>
+   </div>
 </body>
 </html>
 		

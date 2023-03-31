@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.JoongbokService;
-import svc.RerserveService;
 import svc.ReserveUpdateService;
 import vo.ActionForward;
 import vo.ReserveVO;

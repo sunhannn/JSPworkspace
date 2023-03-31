@@ -29,15 +29,17 @@
 }
 
 .container {
-    width: 1300px;
+	width: 1300px;
 	align-items: center;
 	justify-content: center;
 }
-@media (min-width: 1200px){
-.container, .container-lg, .container-md, .container-sm, .container-xl {
-    max-width: 1300px;
+
+@media ( min-width : 1200px) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl {
+		max-width: 1300px;
+	}
 }
-}
+
 header { /*header 영역*/
 	position: fixed;
 	width: 100%; /*메인이미지의 너비사이즈와 같음*/
@@ -118,62 +120,79 @@ a {
 	width: 820px;
 	margin: 0px auto;
 }
+
+.main_title {
+	font-size: 40px;
+	font-weight: bold;
+	color: #30476b;
+	text-align: center;
+}
+/*배경이미지 삽입시 사용*/
+/*
+body{
+ background-image: url("../img/설산.png");
+ background-repeat: no-repeat;
+ background-size: cover;
+} 
+*/
 </style>
-<script></script>
+</head>
+<body>
+	<script></script>
 	<form method="post">
-	
-		<div id="mainpage">
-			<header>
-				<div id="logo">
-					<!--이미지로고 추가할시 사용-->
-					<img src="" alt="">
-				</div>
-				<!--로고 div영역끝-->
-				<div>
-					<nav>
-						<!--메뉴바 목록들-->
-						<ul class="menubar">
-							<li><a href="#"
-								onclick="location.href='../mainPage/main.jsp'">HOME</a></li>
-							<li><a href="#" onclick="location.href='../boardGo.go'">공지</a></li>
-							<li><a href="#" onclick="location.href='QnA.html'">QnA</a></li>
-							<li><a href="#" onclick="location.href='../location.jsp'">공간소개
-									및 오시는 길</a></li>
-							<li><a href="#" onclick="location.href='../firstRev.jsp'">스터디룸
-									예약</a></li>
-						</ul>
 
-
-						<div style="float: right; margin:40px;">
-							<c:if test="${ 'admin' eq id }">
-								<button type="button" onclick="location.href='../logout.jsp'">로그아웃</button>
-								<button type="button" onclick="location.href='../admin.jsp'">관리자페이지</button>
-							</c:if>
-
-							<c:if test="${ id == null}">
-								<a href="../loginForm.jsp">LOGIN</a>
-							</c:if>
-
-							<c:if test="${ id != null and id != 'admin'}">
-								<button type="button" onclick="location.href='../logout.jsp'">로그아웃</button>
-								<button type="button" onclick="location.href='../mypage.jsp'">마이페이지</button>
-							</c:if>
-						</div>
-					</nav>
-				</div>
-			</header>
-			<div>
-			<br>
-		    <h1 style="text-align:center;">하이미디어 스터디룸카페</h1>
-		    <br>
+		<header>
+			<div id="logo">
+				<!--이미지로고 추가할시 사용-->
+				<img src="" alt="">
 			</div>
+			<!--로고 div영역끝-->
+			<div>
+				<nav>
+					<!--메뉴바 목록들-->
+					<ul class="menubar">
+						<li><a href="#"
+							onclick="location.href='../mainPage/main.jsp'">HOME</a></li>
+						<li><a href="#" onclick="location.href='../boardGo.go'">공지</a></li>
+						<li><a href="#" onclick="location.href='../location.jsp'">공간소개
+								및 오시는 길</a></li>
+						<li><a href="#" onclick="location.href='../firstRev.jsp'">스터디룸
+								예약</a></li>
+					</ul>
+
+
+					<div style="float: right; margin: 40px;">
+						<c:if test="${ 'admin' eq id }">
+							<button type="button" class="btn btn-outline-success"
+								onclick="location.href='../logout.jsp'">로그아웃</button>
+							<button type="button" class="btn btn-outline-success"
+								onclick="location.href='../admin.jsp'">관리자페이지</button>
+						</c:if>
+
+						<c:if test="${ id == null}">
+							<button type="button" class="btn btn-outline-success"
+								onclick="location.href='../loginForm.jsp'">LOGIN</button>
+						</c:if>
+
+						<c:if test="${ id != null and id != 'admin'}">
+							<button type="button" class="btn btn-outline-success"
+								onclick="location.href='../logout.jsp'">로그아웃</button>
+							<button type="button" class="btn btn-outline-success"
+								onclick="location.href='../mypage.jsp'">마이페이지</button>
+						</c:if>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<div>
+			<br>
+			<h1 class="main_title">유키 스터디 카페</h1>
+			<br>
 		</div>
-		<div></div>
+		</div>
 		<!--div의 container클래스 끝위치-->
 
 	</form>
-
-
 </head>
 </body>
 </html>

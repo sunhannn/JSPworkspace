@@ -1,181 +1,193 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*"%>
+    pageEncoding="UTF-8"%>
+    <%@ page import="java.util.*" %>
 <%@page import="vo.MemberVO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>mypage</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <style>
 
 /* 전체페이지 */
-.content_all {
-	width: 95%;
-	margin: 0 auto;
+
+*{
+margin:0;
+padding:0;}
+
+body {
+background-color:#f5f6f7;
 }
+.content_all {
+
+width:95%;
+margin:0 auto;
+height:300px;}
+
 
 .title {
-	font-size: 28px;
-	font-weight: bold;
-	width: 80%;
-	margin: 0 auto;
-	margin-top: 30px;
-	margin-bottom: 20px;
+font-size :28px;
+font-weight: bold;
+width:80%;
+height:60px;
+margin-top:30px;
+margin-bottom:20px;
+margin-left:200px;
 }
 
 /* 마이페이지밑 hr */
-hr {
-	height: 3px;
-	background: #000;
-	border: 0;
-	width: 80%;
-}
+.mypage_{
+    height: 3px;
+    background: #000;
+border:0;
+margin-left:90px;
+margin-top:10px;
+
+width:90%;}
 
 .text_zone {
-	width: 90%;
-	margin: 0 auto;
-	margin-top: 50px;
-	margin-bottom: 100px;
-}
+
+width:90%;
+margin:0 auto;
+
+height:5px;}
+
+
 /* 테이블 */
 table {
-	margin: auto;
-	text-align: center;
-	border: none;
-	height: 600px;
-}
+margin:auto;
+margin-top:0;
+text-align:center;
+border:none;
 
-tr, td {
-	margin: auto;
-	border: none;
-	width: 400px;
-}
+height:400px;}
+
+td {
+margin:auto;
+border:none;
+width:400px;
+height:3px;
+} 
+
+hr {
+
+width:100%}
+
 /* 내정보확인 */
 .chkinfo {
-	padding: 45px 35px;
+padding:110px 95px;
+font-weight:bolder;
+color:rgb(136 136 136);
 }
+
+
 /* 예약목록확인 */
 .revlist {
-	padding: 45px 28px;
+padding:110px 90px;
+font-weight:bolder;
+color:rgb(136 136 136);
 }
-/* 메인으로가기 */
-.main {
-	padding: 45px 43px;
-}
+
+
 /* 회원탈퇴 */
 .deleteinfo {
-	padding: 45px 28px;
-}
-/* 로그아웃 */
-.logout {
-	padding: 45px 28px;
-}
+
+padding:110px 90px;
+font-weight:bolder;
+color:rgb(136 136 136);}
+
 /* 개인정보변경 */
 .updateinfo {
-	padding: 45px 28px;
-}
-/* 버튼 */
-button {
-	border: none;
-	border-radius: 50%;
-	background-color: #aacef2;
-	border: 1px solid lightgray;
-	font-weight: bolder;
-	color: #7796b5;
-	font-size: 13px;
-}
-/* submit */
-input {
-	border: none;
-	border-radius: 50%;
-	background-color: #aacef2;
-	border: 1px solid lightgra;
-	color: #7796b5;
-	font-size: 13px;
-	font-weight: bolder;
-}
-/* 버튼 호버시 */
-button:hover {
-	background-color: #75b2f0;
-	color: white;
-	border: 2px solid white;
-	cursor: pointer;
-}
 
-/* submit 호버시 */
-input:hover {
-	background-color: #75b2f0;
-	color: white;
-	border: 2px solid white;
-	cursor: pointer;
-}
+padding:110px 90px;
+font-weight:bolder;
+color:rgb(136 136 136);}
+
+
+
 
 .welcome {
-	margin-left: 100px;
+margin-left:100px;
 }
+
+
+
+button:hover {
+background-color:rgb(228,225,221);
+}
+
+input:hover {
+background-color:rgb(228,225,221);
+}
+
+button:active {
+border: 2px solid #eaedf0;
+  background-color: rgb(233, 224, 224);
+}
+
+input:active {border: 2px solid #eaedf0;
+  background-color: rgb(233, 224, 224);}
+  
+  .session {
+  
+ font-size:18px;
+}
+
+.menu {
+text-align: center;
+	font-size:22px;
+	font-weight: bold;
+	color: #333;}
+	
+	.menu_ {
+	width:80%;
+	margin-left:170px;
+	}
 </style>
+
+
 </head>
 
 <body>
-	<!-- 마이페이지 -->
-	<div class="content_all">
-		<p class="title">마이페이지</p>
-		<hr>
-		<div class="text_zone">
+
+
+<!-- 마이페이지 -->
+<%@ include file="/header.jsp" %>
+<div class="content_all">
+	<p class="title">마이페이지</p>
+		<hr class="mypage_">
+			<div class="text_zone">
 			<div class="welcome">
-				<%
-				Enumeration enumeration = session.getAttributeNames();
-				int i = 0;
-				while (enumeration.hasMoreElements()) {
-					i++;
-
-					String sName = enumeration.nextElement().toString();
-					String sValue = (String) session.getAttribute(sName);
-
-					if (sValue != null) {
-						out.println(sValue + "님, 안녕하세요<br/>");
-					} else {
-						out.println("일치하는 데이터가 존재하지 않습니다.");
-					}
-				}
-				%>
+			
+		
+	
 			</div>
-		</div>
 
-		<table>
-			<tr>
-				<td><form action="./myinfo.go">
-						<button type="submit" class="chkinfo">내정보</button>
-
-					</form></td>
-				<td><form action="updatepage.jsp">
-						<input type="submit" value="정보변경" class="updateinfo">
-					</form></td>
-				<td><form action="memberDeleteAction.go">
-						<input type="submit" value="회원탈퇴" class="deleteinfo">
-					</form></td>
-			</tr>
-			<tr>
-				<td><form action="memberLogout.go" class="logout">
-						<input type="submit" value="로그아웃" class="logout">
-
-					</form></td>
-				<td><form action="revList.go" class="chkrevlist">
-						<button type="submit" class="revlist">예약목록</button>
-					</form></td>
-				<td><form action="mainPage/main.jsp" class="gomain">
-						<button type="submit" class="main">메인</button>
-					</form></td>
-			</tr>
-
-		</table>
-
-	</div>
+ </div>
+ <p class="menu">MENU</p>
+ <hr class="menu_">
+<table>
+<tr>
+<td><form action="./myinfo.go">
+    	<button type="submit" class="chkinfo" style="border-radius:80px; border: 2px solid rgb(218, 218, 218);" >내정보</button>
+    	
+	</form></td><td><form action ="updatepage.jsp">
+		<input type="submit" value="정보변경" class="updateinfo" style="border-radius:80px; border: 2px solid rgb(218, 218, 218);">
+	</form></td><td><form action ="memberDeleteAction.go"  >
+		<input type="submit" value="회원탈퇴" class="deleteinfo" style="border-radius:80px;  border: 2px solid rgb(218, 218, 218);">
+	</form></td><td><form action="revList.go" class="chkrevlist">
+		<button type="submit" class="revlist" style="border-radius:80px;  border: 2px solid rgb(218, 218, 218);">예약목록</button>
+	</form></td>
+</tr>
+</table>
+	
+	
 
 
-	<!-- </div>  -->
+<!-- </div>  -->
+<%@include file="footer.jsp" %>
 
-
+</div>
 </body>
 </html>

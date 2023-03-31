@@ -35,6 +35,10 @@ html, body {
 	vertical-align: bottom;
 	position: relative;
 }
+.wrap{
+margin-left: 220px;
+
+}
 </style>
 
 
@@ -58,6 +62,7 @@ html, body {
 				<li data-target="#demo" data-slide-to="1"></li>
 				<li data-target="#demo" data-slide-to="2"></li>
 			</ul>
+
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img src="./img/room1.jpg" alt="room1" width="400" height="400">
@@ -96,56 +101,60 @@ html, body {
 			style="font-size: 20px; font-weight: bold; text-align: center; font-family: Comic Sans, Apple Chancery, cursive;">유키
 			스터디 룸 카페</p>
 	</div>
+	<div class="wrap">
+		<div class="container-fluid"
+			style="text-align: center; width: 1500px;">
+			<form action="revJjin.jsp">
+				<div style="width: 600px; height: 500px; float: left;">
+					<p class="roomNum">1번방</p>
+					<br> <img class="roomImg" src="./img/room1.jpg"
+						style="width: 300px; height: 300px;"><br> <br>
+					<button type="submit" class="btn btn-outline-primary" value="1">1번방예약</button>
+				</div>
+				<div style="width: 600px; height: 500px; float: left;">
+					<p class="roomNum">2번방</p>
+					<br> <img class="roomImg" src="./img/room1.jpg"
+						style="width: 300px; height: 300px;"><br> <br>
+					<button type="submit" class="btn btn-outline-primary" value="2">2번방예약</button>
+				</div>
+			</form>
+		</div>
+		<br>
 
-	<div class="container-fluid" style="text-align: center; width: 1500px;">
-		<form action="revJjin.jsp">
-			<div style="width: 600px; height: 500px; float: left;">
-				<p class="roomNum">1번방</p>
-				<br> <img class="roomImg" src="./img/room1.jpg"
-					style="width: 300px; height: 300px;"><br> <br>
-				<button type="submit" class="btn btn-outline-primary" value="1">1번방예약</button>
-			</div>
-			<div style="width: 600px; height: 500px; float: left;">
-				<p class="roomNum">2번방</p>
-				<br> <img class="roomImg" src="./img/room1.jpg"
-					style="width: 300px; height: 300px;"><br> <br>
-				<button type="submit" class="btn btn-outline-primary" value="2">2번방예약</button>
-			</div>
-		</form>
-	</div>
-	<br>
-
-	<div class="container-fluid" style="text-align: center; width: 1500px;">
-		<form action="revJjin.jsp">
-			<div style="width: 600px; height: 500px; float: left;">
-				<p class="roomNum">3번방</p>
-				<br> <img class="roomImg" src="./img/room2.jpg"
-					style="width: 300px; height: 300px;"><br> <br>
-				<button type="submit" class="btn btn-outline-primary" value="3">3번방예약</button>
-			</div>
-			<div style="width: 600px; height: 500px; float: left;">
-				<p class="roomNum">4번방</p>
-				<br> <img class="roomImg" src="./img/room2.jpg"
-					style="width: 300px; height: 300px;"><br> <br>
-				<button type="submit" class="btn btn-outline-primary" value="4">4번방예약</button>
-			</div>
-		</form>
-	</div>
-	<div class="container-fluid" style="text-align: center; width: 1500px;">
-		<form action="revJjin.jsp">
-			<div style="width: 600px; height: 500px; float: left;">
-				<p class="roomNum">5번방</p>
-				<br> <img class="roomImg" src="./img/room3.jpg"
-					style="width: 300px; height: 300px;"><br> <br>
-				<button type="submit" class="btn btn-outline-primary" value="5">5번방예약</button>
-			</div>
-			<div style="width: 600px; height: 500px; float: left;">
-				<p class="roomNum">6번방</p>
-				<br> <img class="roomImg" src="./img/room3.jpg"
-					style="width: 300px; height: 300px;"><br> <br>
-				<button type="submit" class="btn btn-outline-primary" value="6">6번방예약</button>
-			</div>
-		</form>
+		<div class="container-fluid"
+			style="text-align: center; width: 1500px;">
+			<form action="revJjin.jsp">
+				<div style="width: 600px; height: 500px; float: left;">
+					<p class="roomNum">3번방</p>
+					<br> <img class="roomImg" src="./img/room2.jpg"
+						style="width: 300px; height: 300px;"><br> <br>
+					<button type="submit" class="btn btn-outline-primary" value="3">3번방예약</button>
+				</div>
+				<div style="width: 600px; height: 500px; float: left;">
+					<p class="roomNum">4번방</p>
+					<br> <img class="roomImg" src="./img/room2.jpg"
+						style="width: 300px; height: 300px;"><br> <br>
+					<button type="submit" class="btn btn-outline-primary" value="4">4번방예약</button>
+				</div>
+			</form>
+		</div>
+		<div class="container-fluid"
+			style="text-align: center; width: 1500px;">
+			<form action="revJjin.jsp">
+				<div style="width: 600px; height: 500px; float: left;">
+					<p class="roomNum">5번방</p>
+					<br> <img class="roomImg" src="./img/room3.jpg"
+						style="width: 300px; height: 300px;"><br> <br>
+					<button type="submit" class="btn btn-outline-primary" value="5">5번방예약</button>
+				</div>
+				<div style="width: 600px; height: 500px; float: left;">
+					<p class="roomNum">6번방</p>
+					<br> <img class="roomImg" src="./img/room3.jpg"
+						style="width: 300px; height: 300px;"><br> <br>
+					<button type="submit" class="btn btn-outline-primary" value="6">6번방예약</button>
+				</div>
+			</form>
+		</div>
 	</div>
 	<br>
 	<br>

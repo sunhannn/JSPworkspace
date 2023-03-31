@@ -248,7 +248,7 @@ public class StudyServlet extends HttpServlet {
 			// 게시판 글쓰기
 		} else if (command.equals("/boardWriteForm.go")) {
 			forward = new ActionForward();
-			forward.setPath("/board/qna_board_write.jsp");
+			forward.setPath("/qna_board_write.jsp");
 
 			// 게시판 글쓰기 (액션)
 		} else if (command.equals("/boardWritePro.go")) {

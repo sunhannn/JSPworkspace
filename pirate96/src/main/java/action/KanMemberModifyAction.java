@@ -26,7 +26,7 @@ public class KanMemberModifyAction implements Action {
 		System.out.println(request.getParameter("M_ID"));
 		
 		memberModifyService.modifyArticle(article);
-
+		
 		PageInfo pageInfo = new PageInfo();
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("article", article);

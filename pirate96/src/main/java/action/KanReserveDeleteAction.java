@@ -1,13 +1,11 @@
 package action;
 
-import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.KanReserveDeleteService;
 import vo.ActionForward;
 import vo.PageInfo;
-import vo.ReserveVO;
 
 public class KanReserveDeleteAction implements Action {
 

@@ -1,15 +1,12 @@
 package action;
 
-import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.MemberDeleteService;
-import svc.ReserveDeleteService;
 import vo.ActionForward;
 import vo.MemberVO;
 import vo.PageInfo;
-import vo.ReserveVO;
 
 public class KanMemberDeleteAction implements Action {
 

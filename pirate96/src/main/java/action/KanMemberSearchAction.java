@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.KanMemberListService;
-import svc.MemberListService;
-import svc.ReserveListService;
 import vo.ActionForward;
 import vo.MemberVO;
 import vo.PageInfo;

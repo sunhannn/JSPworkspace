@@ -9,7 +9,7 @@ BoardVO article = (BoardVO) request.getAttribute("article");
 <head>
 <meta charset="UTF-8" name="viewport"
 	content="width=device-width,initial-scale=1">
-<title>MVC 게시판</title>
+<title>공지사항 수정</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.js"></script>
@@ -63,7 +63,7 @@ margin:0 auto;
 
 .right {
     border: none;
-	width: 100%;
+	width: 90%;
 	margin: 0;
 	display:block;
 }
@@ -120,12 +120,14 @@ margin: 0;
 					</tr>
 				</table>
 				<section class="btn_zone">
-				<button type="button" class="button" onclick="location.href='javascript:modifyboard()'">수정</button>
-				<button type="button" class="button" onclick="location.href='javascript:history.go(-1)'">뒤로</button>
+				<button type="button" class="button" style="background-color:#aacef2; color:black;" onclick="location.href='javascript:modifyboard()'">수정</button>
+				<button type="button" class="button" style="background-color:#aacef2; color:black;" onclick="location.href='javascript:history.go(-1)'">뒤로</button>
 				</section>
 			</form>
 		</section>
 	</div>
-	<%@ include file="/footer.jsp" %>
+	   <div class="footer">
+<%@ include file="/footer.jsp" %>
+   </div>
 </body>
 </html>

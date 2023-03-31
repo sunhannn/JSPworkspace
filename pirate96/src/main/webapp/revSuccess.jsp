@@ -15,9 +15,9 @@ body {
 	background-color: #f5f6f7;
 }
 
-.btn {
+.btn-primary {
 	width: 400px;
-	display: inline;
+	display: inline; 
 }
 
 .bu {
@@ -60,7 +60,7 @@ body {
 		<div class="buWap">
 			<div class="bu">
 				<form action="../mainPage/main.jsp">
-					<button type="submit" class="btn btn-primary btn-block">메인화면으로
+					<button type="submit" class="btn btn-primary">메인화면으로
 						돌아가기</button>
 
 				</form>
@@ -70,7 +70,7 @@ body {
 
 			<div class="bu">
 				<form action="revJjin.jsp">
-					<button type="submit" class="btn btn-primary btn-block">추가
+					<button type="submit" class="btn btn-primary">추가
 						예약하기</button>
 				</form>
 
@@ -78,7 +78,7 @@ body {
 			<br> <br>
 			<div class="bu">
 				<form action="revList.go">
-					<button type="submit" class="btn btn-primary btn-block">예약
+					<button type="submit" class="btn btn-primary">예약
 						목록 보기</button>
 
 

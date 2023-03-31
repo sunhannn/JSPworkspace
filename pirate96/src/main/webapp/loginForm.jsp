@@ -16,7 +16,9 @@
 /* form의 길이(푸터길이를 줄이기 위해) */
 form {
 
-height:500px;}
+height:270px;}
+
+
 
 
 
@@ -24,13 +26,12 @@ height:500px;}
 /*div 로고 */
 .logo {
 text-align:center;
-margin-top:100px;
 font-size: larger;
 }
 /* 아이디,비밀번호 input type */
 .login {
 
-margin: 100px 0px 30px 350px;
+margin: 100px 0px 30px 360px;
 	float: left;
 	display:inline;
 	
@@ -71,9 +72,9 @@ width:240px;
 /*  회원가입 a태그*/
   #join {
   display:block;}
+
 /*   회원가입버튼 글씨 */
-  a{
-  color:gray;}
+
 
   
 
@@ -90,6 +91,7 @@ width:240px;
   
 </head>
 <body style="background-color:#f5f6f7;">
+<%@ include file="/header.jsp" %>
 <section id = "loginformArea">
 <div class="wrapper">
 
@@ -117,7 +119,7 @@ width:240px;
 
 <input type="password" class="form-control" id="password" name="M_PW" placeholder="비밀번호" >
 
-<a href='joinForm.jsp'" id ="join">회원가입
+<a href='joinForm.jsp'" id ="join" style="color:gray">회원가입
 
 </div>
 </div>
@@ -134,7 +136,7 @@ width:240px;
 
 <div style="width: 100%; height: 200px;"></div>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="/footer.jsp" %>
 </div>
 
 

@@ -15,7 +15,7 @@ public class MemberUpdateAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("M_ID");
+		String id = (String) session.getAttribute("id");
 		System.out.println("M_ID :" + id);
 		ActionForward forward = null;
 
@@ -50,6 +50,7 @@ public class MemberUpdateAction implements Action {
 				out.println("</script>");
 
 			} else {
+				session.setAttribute("id", member.getM_ID());
 				forward = new ActionForward();
 				forward.setRedirect(true);
 				forward.setPath("./mypage.jsp");

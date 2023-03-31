@@ -14,10 +14,12 @@
 body{
 background-color: #f5f6f7;
 }
+
 .content_all{
 width:80%;
 margin:0 auto;
 }
+
 .write_title{
 font-size:36px;
 font-weight:bold;
@@ -25,29 +27,36 @@ width:95%;
 padding: 30px 0;
 border-bottom:2px solid #000;
 }
+
 #BOARD_NAME, #BOARD_SUBJECT, #BOARD_CONTENT{
 width: 100%;
 }
+
 #BOARD_CONTENT{
 margin: 0;
 }
+
 .text_zone{
 width:75%;
 margin:0 auto;
 margin-left: 10%;
 }
-.btn_zone{
-width: 90%;
-margin:0 auto;
-border-top:1px solid #ccc;
-margin-bottom: 20px;
-}
+
 .btn{
 background-color:#aacef2;
 }
-.btn:hover{
-    background-color: #black;
+   
+.btn_zone{
+margin:0 auto;
+margin-top:20px;
+margin-bottom:30px;
+text-align:center;
 }
+
+.btn:hover{
+    background-color: #75b2fo;
+}
+
 .left {
 	width: 70px;
 	margin: 0;
@@ -60,6 +69,7 @@ background-color:#aacef2;
 	margin: 0;
 	display:block;
 }
+
 #BOARD_CONTENT{
   resize : none;
   display: block;
@@ -71,19 +81,23 @@ background-color:#aacef2;
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
+
 #BOARD_FILE{
  display: inline;
 }
+
 .ptext{
     font:0.8em; 
     font-weight: bold; 
     margin: 0;
 	vertical-align:bottom;
 }
+
 .write_table{
 	width: 90%;
 	margin:0 auto;
 }
+
 #BOARD_NAME, #BOARD_SUBJECT, #BOARD_CONTENT{
  border:1px solid #e7e7e7;
  border-radius: 5px;
@@ -121,16 +135,17 @@ background-color:#aacef2;
 			</table>
 			<br>
 			<div class="btn_zone">
-				<input type="reset" value="다시쓰기" class="btn" />
-                <input type="submit" value="등록" class="btn" id="btn1" style="float: right;">&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" class="btn" style="background-color:#aacef2;">다시쓰기</button>
+                <button type="submit" class="btn" style="background-color:#aacef2;">등록</button>
 			</div>
 		</form>
 		</div>
 	</section>
-	<hr style="width:90%;">
 	
 	</div>
-	
-	<%@ include file="/footer.jsp" %>
+
+	   <div class="footer">
+<%@ include file="/footer.jsp" %>
+   </div>
 </body>
 </html>

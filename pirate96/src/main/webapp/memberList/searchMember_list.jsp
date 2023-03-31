@@ -45,6 +45,10 @@ String list_search_value = request.getParameter("search_value");
 	
 	<style>
 	
+	body{
+	background-color:#f5f6f7;
+	}
+	
 	.content_all{
 	width: 80%;
 	margin: 0 auto;
@@ -318,6 +322,8 @@ String list_search_value = request.getParameter("search_value");
 			</table>
 		</form>
 	</div>
-			<%@ include file="/footer.jsp" %>
+   <div class="footer">
+<%@ include file="/footer.jsp" %>
+	</div>
 </body>
 </html>
