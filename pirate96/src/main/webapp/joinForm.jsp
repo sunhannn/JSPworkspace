@@ -22,248 +22,271 @@
 
 <style>
 
-
-
 /* label */
 label {
-      font-weight: bold;
-    }
+	font-weight: bold;
+}
 /* 전화번호  */
-    .cnum {
-      width: 100%;
-    }
-    @media (min-width: 992px) {
-      .container, .container-lg, .container-md, .container-sm {
-        max-width: 960px;
-      }
-      .col-md-8 {
-        padding-right: 0px;
-      }
-      .col-md-4{
-        padding-left: 0px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .container, .container-md, .container-sm {
-        max-width: 720px;
-      }
-      .col-md-8 {
-        padding-right: 0px;
-      }
-      .col-md-4{
-        padding-left: 0px;
-      }
-    }
-
-    @media (min-width: 576px) {
-      .container, .container-sm {
-        max-width: 540px;
-      }
-      .col-md-8 {
-        padding-right: 13px;
-      }
-    }
-.content_all
-{width:95%;
-margin:auto;} 
-
-.title {
-font-size :28px;
-font-weight: bold;
-width:95%;
-margin:0 auto;
-margin-top:30px;
-margin-bottom:20px;
+.cnum {
+	width: 100%;
 }
 
-.hr{
-background: #000;
+@media ( min-width : 992px) {
+	.container, .container-lg, .container-md, .container-sm {
+		max-width: 960px;
+	}
+	.col-md-8 {
+		padding-right: 0px;
+	}
+	.col-md-4 {
+		padding-left: 0px;
+	}
+}
 
-margin:0 auto;
-height:2px;
-width:95%;}
+@media ( min-width : 768px) {
+	.container, .container-md, .container-sm {
+		max-width: 720px;
+	}
+	.col-md-8 {
+		padding-right: 0px;
+	}
+	.col-md-4 {
+		padding-left: 0px;
+	}
+}
+
+@media ( min-width : 576px) {
+	.container, .container-sm {
+		max-width: 540px;
+	}
+	.col-md-8 {
+		padding-right: 13px;
+	}
+}
+
+.content_all {
+	width: 95%;
+	margin: auto;
+}
+
+.title {
+	font-size: 28px;
+	font-weight: bold;
+	width: 95%;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.hr {
+	background: #000;
+	margin: 0 auto;
+	height: 2px;
+	width: 95%;
+}
 
 .joinformjoin {
-width:50%;
-margin:100px 50px 30px 600px;}
+	width: 50%;
+	margin: 100px 50px 30px 600px;
+}
 
 .text_zone {
-
-width:100px;
-margin-top:50px;
-margin-bottom:100px;}
+	width: 100px;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
 
 /* 아이디 인풋 */
 #id {
-border:none;
-background-color:#f5f6f7;
-border-bottom:solid 2px black;
-border-radius:0px;
-margin-bottom:6px;}
+	border: none;
+	background-color: #f5f6f7;
+	border-bottom: solid 2px black;
+	border-radius: 0px;
+	margin-bottom: 6px;
+}
 /* 비밀번호 인풋 */
-#password {border:none;
-background-color:#f5f6f7;
-border-bottom:solid 2px black;
-border-radius:0px;}
+#password {
+	border: none;
+	background-color: #f5f6f7;
+	border-bottom: solid 2px black;
+	border-radius: 0px;
+}
 /* 비밀번호 확인 인풋 */
-#passwordre {border:none;
-background-color:#f5f6f7;
-border-bottom:solid 2px black;
-border-radius:0px;}
+#passwordre {
+	border: none;
+	background-color: #f5f6f7;
+	border-bottom: solid 2px black;
+	border-radius: 0px;
+}
 /* 이름 인풋 */
-#name {border:none;
-background-color:#f5f6f7;
-border-bottom:solid 2px black;
-border-radius:0px;}
+#name {
+	border: none;
+	background-color: #f5f6f7;
+	border-bottom: solid 2px black;
+	border-radius: 0px;
+}
 /* 전화번호 인풋 */
-#cnum {border:none;
-background-color:#f5f6f7;
-border-bottom:solid 2px black;
-border-radius:0px;}
+#cnum {
+	border: none;
+	background-color: #f5f6f7;
+	border-bottom: solid 2px black;
+	border-radius: 0px;
+}
 /* 이메일 인풋 */
-#email {border:none;
-background-color:#f5f6f7;
-border-bottom:solid 2px black;
-border-radius:0px;}
+#email {
+	border: none;
+	background-color: #f5f6f7;
+	border-bottom: solid 2px black;
+	border-radius: 0px;
+}
 /* 성별 인풋 */
-#gender {border:none;
-background-color:#f5f6f7;
-border-bottom:solid 2px black;
-border-radius:0px;}
+#gender {
+	border: none;
+	background-color: #f5f6f7;
+	border-bottom: solid 2px black;
+	border-radius: 0px;
+}
 /* 주소 인풋 */
 #addr {
-  background-color:#3B4A71;
-  border-radius:5px;
-  color:white;
-  
+	background-color: #3B4A71;
+	border-radius: 5px;
+	color: white;
 }
 
 /* 회원가입버튼 */
-  #joinbutton{
-  background-color:#3B4A71;
-  color:white;
-  width:100%;
-  height:50px;}
-  
+#joinbutton {
+	background-color: #3B4A71;
+	color: white;
+	width: 100%;
+	height: 50px;
+}
+
 /*   input */
-  input {
-  border:none;
-  background-color:#f5f6f7;
-  
+input {
+	border: none;
+	background-color: #f5f6f7;
 }
 /*   button */
-  button {
-  border:none;
-  background-color:#3B4A71;
-  color:white;
-  border-radius:5px;}
+button {
+	border: none;
+	background-color: #3B4A71;
+	color: white;
+	border-radius: 5px;
+}
 /*   버튼 호버시 */
-  button:hover {
-  
-  background-color:##5b71ab;
-  color:white;}
-  
-
-  </style>
+button:hover {
+	background-color: ##5b71ab;
+	color: white;
+}
+</style>
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
-<body style="background-color:#f5f6f7">
-<div class="content_all">
-<p class="title">회원가입</p>
-<hr class="hr">
-<div class="text_zone">
+<body style="background-color: #f5f6f7">
+	<div class="content_all">
+		<p class="title">회원가입</p>
+		<hr class="hr">
+		<div class="text_zone">
 
-	<div class="container">
-		<div class="joinformjoin">
-		<form class="needs-validation" action="memberJoinAction.go" name="frm"
-			id="joinForm" method="post" novalidate> 
-<!-- 			novalidate: required를 무시하라 -->
+			<div class="container">
+				<div class="joinformjoin">
+					<form class="needs-validation" action="memberJoinAction.go"
+						name="frm" id="joinForm" method="post" novalidate>
+						<!-- 			novalidate: required를 무시하라 -->
 
-			<div class="form-group">
-				<label for="id">아이디</label> 
-				<input type="text" class="form-control"
-					id="id" name="M_ID" required>
-				<div class="valid-feedback">멋진 아이디네요!</div>
-				<div class="invalid-feedback">필수 정보입니다.</div>
-				<button type="button" id="idCheck" style="border-radius:5px">아이디 중복체크</button>
-			</div>
+						<div class="form-group">
+							<label for="id">아이디</label> <input type="text"
+								class="form-control" id="id" name="M_ID" required>
+							<div class="valid-feedback">사용가능한 아이디입니다.</div>
+							<div class="invalid-feedback">필수 정보입니다.</div>
+							<button type="button" id="idCheck" style="border-radius: 5px">아이디
+								중복체크</button>
+						</div>
 
-			<div class="form-group">
-				<label for="pwd">비밀번호</label> 
-				<input type="password" class="form-control" id="password" name="M_PW" required>
-				<div class="invalid-feedback">필수 정보입니다.</div>
-			</div>
+						<div class="form-group">
+							<label for="pwd">비밀번호</label> <input type="password"
+								class="form-control" id="password" name="M_PW" required>
+							<div class="invalid-feedback">필수 정보입니다.</div>
+						</div>
 
-			<div class="form-group">
-				<label for="passwordre">비밀번호 확인</label> 
-				<input type="password" class="form-control" id="passwordre" name="M_PW" required>
-				<div class="valid-feedback"></div>
-				<div class="invalid-feedback">필수 정보입니다.</div>
-			</div>
+						<div class="form-group">
+							<label for="passwordre">비밀번호 확인</label> <input type="password"
+								class="form-control" id="passwordre" name="M_PW" required>
+							<div class="valid-feedback"></div>
+							<div class="invalid-feedback">필수 정보입니다.</div>
+						</div>
 
 
-			<div class="form-group">
-				<label for="name">이름</label> 
-				<input type="text" class="form-control" id="name" name="M_NAME" required>
-				<div class="invalid-feedback">필수 정보입니다.</div>
-			</div>
+						<div class="form-group">
+							<label for="name">이름</label> <input type="text"
+								class="form-control" id="name" name="M_NAME" required>
+							<div class="invalid-feedback">필수 정보입니다.</div>
+						</div>
 
-			<div class="form-group">
-				<label for="phone">휴대전화</label>
-				<div class="row">
-					<div class="col-md-8">
-						<input type="tel" class="form-control mt-2" id="cnum"
-							placeholder="전화번호 입력" name="M_PH" required>
-					</div>
+						<div class="form-group">
+							<label for="phone">휴대전화</label>
+							<div class="row">
+								<div class="col-md-8">
+									<input type="tel" class="form-control mt-2" id="cnum"
+										placeholder="전화번호 입력" name="M_PH" required>
+								</div>
 
+							</div>
+						</div>
+						<br>
+
+						<div class="form-group">
+							<label for="address">주소</label> <input type="text"
+								id="sample4_postcode" placeholder="우편번호" name="M_ADDR"
+								style="border-bottom: 2px solid black; margin-bottom: 20px;"
+								required> <input type="button"
+								onclick="sample4_execDaumPostcode()" value="우편번호 찾기"
+								name="M_ADDR"
+								style="color: white; background: #3B4A71; border-radius: 0.3em;"><br>
+							<input type="text" id="sample4_roadAddress" placeholder="도로명주소"
+								name="M_ADDR"
+								style="border-bottom: 2px solid black; margin-bottom: 20px;">
+							<input type="text" id="sample4_jibunAddress" placeholder="지번주소"
+								name="M_ADDR"
+								style="border-bottom: 2px solid black; margin-bottom: 20px;">
+							<span id="guide" style="color: #999; display: none"></span> <input
+								type="text" id="sample4_detailAddress" placeholder="상세주소"
+								name="M_ADDR"
+								style="border-bottom: 2px solid black; margin-bottom: 20px;">
+							<input type="text" id="sample4_extraAddress" placeholder="참고항목"
+								style="border-bottom: 2px solid black; margin-bottom: 20px;">
+							<div class="invalid-feedback">필수 정보입니다.</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email">본인 확인 이메일</label> <input type="email"
+								class="form-control" id="email" placeholder="Enter email"
+								name="M_EMAIL" required>
+							<div class="invalid-feedback">필수 정보입니다.</div>
+						</div>
+						<br>
+
+						<div class="form-group">
+							<label for="gender">성별</label> <select class="form-control"
+								id="gender" name="M_GENDER" required>
+								<option value="">성별</option>
+								<option>남</option>
+								<option>여</option>
+								<option>선택안함</option>
+							</select>
+							<div class="invalid-feedback">필수 정보입니다.</div>
+						</div>
+
+						<div class="form-group">
+							<button type="submit" class="from-control"
+								style="border-radius: 5px">가입하기</button>
+						</div>
+					</form>
 				</div>
-			</div>
-			<br>
 
-			<div class="form-group">
-				<label for="address">주소</label> <input type="text"
-					id="sample4_postcode" placeholder="우편번호" name="M_ADDR" style="border-bottom:2px solid black; margin-bottom:20px;"required>
-				<input type="button" onclick="sample4_execDaumPostcode()"
-					value="우편번호 찾기" name="M_ADDR" style="color:white; background:#3B4A71; border-radius:0.3em;"><br> <input type="text"
-					id="sample4_roadAddress" placeholder="도로명주소" name="M_ADDR" style="border-bottom:2px solid black; margin-bottom:20px;">
-				<input type="text" id="sample4_jibunAddress" placeholder="지번주소" 
-					name="M_ADDR" style="border-bottom:2px solid black; margin-bottom:20px;"> <span id="guide"
-					style="color: #999; display: none" ></span> <input type="text"
-					id="sample4_detailAddress" placeholder="상세주소" name="M_ADDR" style="border-bottom:2px solid black; margin-bottom:20px;">
-				<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="border-bottom:2px solid black; margin-bottom:20px;">
-				<div class="invalid-feedback">필수 정보입니다.</div>
-			</div>
-
-			<div class="form-group">
-				<label for="email">본인 확인 이메일</label> 
-				<input type="email" class="form-control" id="email"
-					placeholder="Enter email" name="M_EMAIL" required>
-				<div class="invalid-feedback">필수 정보입니다.</div>
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="gender">성별</label> <select class="form-control"
-					id="gender" name="M_GENDER" required>
-					<option value="">성별</option>
-					<option>남</option>
-					<option>여</option>
-					<option>선택안함</option>
-				</select>
-				<div class="invalid-feedback">필수 정보입니다.</div>
-			</div>
-
-			<div class="form-group">
-				<button type="submit"class="from-control" style="border-radius:5px">가입하기</button>
-			</div>
-		</form>
-	</div>
-	
-	<script>
+				<script>
 	
 (function() {
 	  'use strict';
@@ -290,18 +313,18 @@ border-radius:0px;}
 function valChk(e){
 // 	  e.preventDefault(); //위에서 막아준 거 한번 더 막아준거임 혹시나해서
 
-	  var emailRegex = /^[-!#$%\s'*+./0-9=?A-Z^_a-z{|}~]+@[A-Za-z{|}~]+.[A-Za-z]$/,
+	  var emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/,
 // 	  정규식패턴 /^시작해서 $/로 끝남
 	  idRegex = /^[0-9A-Z_a-z]$/, 
-	  phoneRegex = /^010\d{4}\d{4}$/, 
+	  phoneRegex = /^01[0179][0-9]$/, 
 // 	  d가 뭔 숫자 영어인거같은데 아무튼 4자리 숫자
 	  id = $( "#id" ), 
 // 	  id가 id인 input타입을 통째로 던짐
 	  password = $( "#password" ),
 	  passwordre = $( "#passwordre" ),
 	  name = $( "#name" ),
-	  phone = $( "#cnum" );
-	  email = $( "#email" ),
+	  phone = $( "#cnum" ),
+	  email = $( "#email" );
 
 	  //비밀번호 매칭 여부 조정
 	  $("#passwordre, #password").on('keyup', function(){
@@ -316,7 +339,7 @@ function valChk(e){
 	  valid = valid && checkLength( password, "비밀번호는 5~16자 이상으로 입력해주세요.", 5, 16 ); //5자리에서 16자리까지
 // 	  valid = valid && checkMatch( password, passwordre);
 	  valid = valid && checkMatch( password.val(), passwordre.val());
-	  valid = valid && checkLength( name, "사용자이름", 3, 16 ); //3자리에서 16자리까지
+	  valid = valid && checkLength( name, "사용자이름", 2, 16 ); //3자리에서 16자리까지
 	  valid = valid && checkRegexp( phone, phoneRegex,"전화번호 입력 형식이 잘못되었습니다." );
 	  valid = valid && checkRegexp( email, emailRegex,"이메일 입력 형식이 잘못되었습니다." );
 	
@@ -472,9 +495,9 @@ $(()=>{
 
 
 </script>
-</div>
-</div>
-<%@ include file="/footer.jsp" %>
+			</div>
+		</div>
+		<%@ include file="/footer.jsp"%>
 </body>
 
 </html>

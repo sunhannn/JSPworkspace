@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -17,8 +16,8 @@ public class BoardWriteProAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
+//		HttpSession session = request.getSession();
+//		String id = (String) session.getAttribute("id");
 
 		ActionForward forward = null;
 		BoardVO boardBean = null;

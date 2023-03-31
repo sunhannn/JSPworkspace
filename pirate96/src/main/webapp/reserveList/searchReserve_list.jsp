@@ -17,23 +17,7 @@ String list_search = request.getParameter("search");
 String list_search_value = request.getParameter("search_value");
 %>
 
-<!-- -start- 관리자 아이디인지 세션 확인 -->
-	<%
-		String user_id = (String)session.getAttribute("id");  // 이전 페이지에서 로그인으로 받아온 아이디
-		String user_pw = (String)session.getAttribute("pw"); // 이전 페이지에서 로그인으로 받아온 비밀번호 
-		boolean return_main = false;
-		
-		if(user_id==null || user_pw==null || !(user_id.equals("admin") || user_pw.equals("1234"))) {
-			return_main = true;
-		}
-		
-		if(return_main)
-		{
-			// 관리자 계정이 아닐 시 메인 페이지로 이동
-		    out.print("<script>alert('권한이 없습니다.'); location.href ='main.jsp';</script>");
-		}
- 	%>
-<!-- -end- 관리자 아이디인지 세션 확인 -->
+
 
 <!DOCTYPE html>
 <html lang="ko">

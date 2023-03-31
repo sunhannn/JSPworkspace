@@ -48,11 +48,15 @@ body {
 	margin-bottom: 30px;
 }
 
-.btn {
+.small_btn {
 	background-color: #aacef2;
+	border: none;
+	border-radius: 5px;
+	height: 50px;
+	width: 100px;
 }
 
-.btn:hover {
+.small_btn:hover {
 	background-color: #75b2f0;
 }
 
@@ -218,9 +222,9 @@ label {
 					</table>
 					<br>
 					<div class="btn_zone">
-						<button type="button" class="btn"
+						<button type="button" class="small_btn"
 							onClick="location.href='reserveList.go'">목록으로</button>
-						<button type="submit" class="btn">수정</button>
+						<button type="submit" class="small_btn">수정</button>
 					</div>
 				</form>
 			</div>
