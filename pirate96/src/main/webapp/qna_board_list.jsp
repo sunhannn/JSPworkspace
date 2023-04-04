@@ -265,7 +265,7 @@ float:right;
 		%>
 		<section id="emptyArea">등록된 글이 없습니다.</section>
 						<c:if test="${ 'admin' eq id }">
-		<div class="list_a"><a href="boardWriteForm.go" style="color:black;">게시판글쓰기</a></div>
+		<div class="list_a"><a href="boardWriteForm.go" style="color:black;">글쓰기</a></div>
 				</c:if>
 		<%
 		}

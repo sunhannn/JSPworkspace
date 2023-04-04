@@ -30,7 +30,7 @@ public class BoardWriteProAction implements Action {
 		boardBean = new BoardVO();
 		boardBean.setBOARD_NAME(multi.getParameter("BOARD_NAME"));
 		boardBean.setBOARD_SUBJECT(multi.getParameter("BOARD_SUBJECT"));
-		boardBean.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
+		boardBean.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT").replace("\r\n","<br>"));
 		boardBean.setBOARD_FILE(multi.getOriginalFileName((String) multi.getFileNames().nextElement()));
 		BoardWriteProService boardWriteProService = new BoardWriteProService();
 		boolean isWriteSuccess = boardWriteProService.registArticle(boardBean);

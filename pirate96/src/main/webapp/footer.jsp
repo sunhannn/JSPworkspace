@@ -71,7 +71,7 @@ body{
   <footer class="footer">
    <hr style="border: 1px solid grey; margin-top:3px;">
    <p>현재 사이트는 교육용으로 제작된 웹사이트로 실제로는 사용불가능합니다.</p>
-   <p>&copy;: 3조 세미해적단</p>
+   <p>&copy;: 3조 96해적단</p>
    <p>팀장: 한상현, 부팀장: 박수빈, 팀원: 김선찬, 송채은, 윤지원</p>
    <br>
 </footer><!--footer영역끝-->

@@ -29,136 +29,134 @@ String list_search_value = request.getParameter("search_value");
 <!--외부 스타일시트 적용-->
 <link rel="stylesheet" href="../css/main.css">
 	
-	<style>
-	
-	body{
-	background-color:#f5f6f7;
-	}
-	
-	.content_all{
+<style>
+body {
+	background-color: #f5f6f7;
+}
+
+.content_all {
 	width: 80%;
 	margin: 0 auto;
 	margin-bottom: 20px;
-	}
-	
-	/* 공지사항*/
-	.title{
+}
+
+/* 공지사항*/
+.title {
 	font-size: 36px;
 	font-weigth: bold;
 	text-align: center;
 	width: 80%;
 	margin: 0 auto;
 	padding: 30px 0;
-	}
-	
-	/* 리스트 테이블 */
-	.list_table{
-		font-size: 13px;
-		width: 80%;
-		margin:0 auto;
-		margin-bottom: 40px;
-		text-align: center;
-		border-top: 1px solid #ccc;
-		border-bottom: 1px solid #ccc;
-	}
-	
-	.list_table th{
+}
+
+/* 리스트 테이블 */
+.list_table {
+	font-size: 13px;
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 40px;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.list_table th {
 	padding: 14px 0;
-	}
-	
-	.list_table td{
+}
+
+.list_table td {
 	padding: 12px 0;
 	border-top: 1px solid #e7e7e7;
-	}
-	
-	.delete_btn:hover{
-	cursor:pointer;
-	}
-	
-	#td_r_num{
-	color:#333;
+}
+
+.delete_btn:hover {
+	cursor: pointer;
+}
+
+#td_r_num {
+	color: #333;
 	font-weight: bold;
-	}
-	
-	.list_table a{
+}
+
+.list_table a {
 	color: #333;
 	line-height: 1.4;
 	vertical-align: middle;
 	text-decoration: none;
-	}
-	
-	.list_table a:hover{
-	text-decoration:underline;
-	}
-	
-	/* 페이징 처리 */
-	#pageList {
+}
+
+.list_table a:hover {
+	text-decoration: underline;
+}
+
+/* 페이징 처리 */
+#pageList {
 	width: 95%;
-	margin:0 auto;
+	margin: 0 auto;
 	text-align: center;
 	font-color: black;
-	}
-	
-	/* 페이징 버튼 css */
-	.paging_btn{
-	background-color:#f5f6f7;
+}
+
+/* 페이징 버튼 css */
+.paging_btn {
+	background-color: #f5f6f7;
 	outline: none;
 	border: 0;
-	cursor:pointer;
+	cursor: pointer;
 	padding: 3px;
-	}
-	
-	button.select{
+}
+
+button.select {
 	font-weight: bold;
 	border: 1px solid #ccc;
-	}
-	
-	/* 검색 */
-	#search_table{
-	width:95%;
+}
+
+/* 검색 */
+#search_table {
+	width: 95%;
 	margin: 0 auto;
 	margin-top: 30px;
-	}
-	
-	#search_table td{
+}
+
+#search_table td {
 	vertical-align: bottom;
-	}
-	
-	#search_select{
+}
+
+#search_select {
 	padding: 14px 10px;
 	border: 1px solid #999;
 	font-size: 0.9em;
-	}
-	
-	.search_sub{
+}
+
+.search_sub {
 	text-align: left;
-	}
-	
-	#search_value{
+}
+
+#search_value {
 	width: 250px;
 	padding: 14px 15px;
 	border: 1px solid #999;
-	outline:none;
-	}
-	
-	#search_btn{
+	outline: none;
+}
+
+#search_btn {
 	border: 1px solid #999;
 	vertical-align: bottom;
-	background-color:#999;
-	color:#fff;
-	cursor:pointer;
-	height:54px;
+	background-color: #999;
+	color: #fff;
+	cursor: pointer;
+	height: 54px;
 	padding: 0 15px;
-	}
-	
-	/* 보여줄 리스트가 없을 때 공간 */
-	#emptyArea {
+}
+
+/* 보여줄 리스트가 없을 때 공간 */
+#emptyArea {
 	margin: 100px auto;
 	width: 80%;
 	text-align: center;
-	
 }
-	</style>
+</style>
 	<script>
 	/* 취소/삭제 시 경고창 */
 
@@ -200,6 +198,7 @@ String list_search_value = request.getParameter("search_value");
 				<th scope="col">예약 시간</th>
 				<th scope="col">가격</th>
 				<th scope="col">핸드폰 번호</th>
+				<th scope="col">예약일자</th>
 				<th scope="col" colspan="2">관 리</th>
 			</tr>
 			
@@ -215,6 +214,7 @@ String list_search_value = request.getParameter("search_value");
 			<td><%=articleList.get(i).getR_STIME()%>:00 - <%=articleList.get(i).getR_ETIME()%>:00</td>
 			<td><%=articleList.get(i).getR_PRI()%> 원</td>
 			<td><%=articleList.get(i).getR_PH()%></td>
+			<td><%=articleList.get(i).getR_DATE() %>
 			<td><a style="color: gray;"
 			href="reserveModify.go?r_num=<%=articleList.get(i).getR_NUM()%>&page=<%=nowPage%>">
 					예약 수정</a></td>

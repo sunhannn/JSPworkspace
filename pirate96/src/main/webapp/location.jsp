@@ -54,8 +54,8 @@ body, html {
 }
 /*슬라이드 쇼 이미지 및 타이머설정영역*/
 .slider {
-	width: 550px;
-	height: 350px;
+	width: 600px;
+	height: 400px;
 	/*height: 300px; */
 	position: relative;
 	margin: 0 auto;
@@ -81,8 +81,8 @@ ul.imgs li {
 }
 
 ul.imgs li img {
-	width: 550px;
-	height: 350px;
+	width: 600px;
+	height: 400px;
 }
 
 .bullets {
@@ -151,7 +151,20 @@ ul.imgs li img {
 }
 </style>
 <script>
-	
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("slider");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1}
+    x[slideIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // 2초마다 이미지변경효과부여
+}
 </script>
 </head>
 <body>
@@ -171,22 +184,22 @@ ul.imgs li img {
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-sm-6"
-						style="width: 600px; height: 300px; padding-right: 0 auto;">
-						<img alt="스터디룸" src="../img/스터디룸이미지1.jpg"
-							style="width: 550px; height: 350px;">
+						style="width: 800px; height: 400px; padding-right: 0 auto;">
+						<img alt="스터디룸" src="img/스터디룸이미지1.jpg"
+							style="width: 600px; height: 400px;">
 					</div>
 					<div class="col-sm-6"
-						style="width: 600px; height: 300px; padding-right: 0 auto;">
+						style="width: 800px; height: 400px; padding-right: 0 auto;">
 						<div class="slider" style="position: absolute;">
 							<input type="radio" name="slide" id="slide1" checked> <input
 								type="radio" name="slide" id="slide2"> <input
 								type="radio" name="slide" id="slide3"> <input
 								type="radio" name="slide" id="slide4">
 							<ul id="imgholder" class="imgs">
-								<li><img src="/img/1인스터디룸 이미지1.jpg"></li>
-								<li><img src="/img/2인스터디룸이미지2.jpg"></li>
-								<li><img src="/img/4인스터디룸이미지3.jpg"></li>
-								<li><img src="/img/대형스터디룸 이미지2.jpg"></li>
+								<li><img src="img/1인스터디룸 이미지1.jpg"></li>
+								<li><img src="img/2인스터디룸이미지2.jpg"></li>
+								<li><img src="img/4인스터디룸이미지3.jpg"></li>
+								<li><img src="img/대형스터디룸 이미지2.jpg"></li>
 							</ul>
 							<div class="bullets">
 								<label for="slide1">&nbsp;</label> <label for="slide2">&nbsp;</label>
@@ -210,22 +223,22 @@ ul.imgs li img {
 				<div class="row">
 					<!--구글지도- 위치변경시 src에 지도소스넣으면됨 -->
 					<div class="col-sm-6"
-						style="height: 280px; width: 600px; padding-left: 0 auto;">
+						style="height: 400px; width: 600px; padding-left: 0 auto;">
 						<iframe
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.5564818596504!2d126.91905655129982!3d37.400319779730275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b60d1b8dde3f9%3A0xddc103e417d54cdc!2z7ZWY7J2066-465SU7Ja07Lu07ZOo7YSw7ZWZ7JuQIOyViOyWkey6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1679972863832!5m2!1sko!2skr"
-							width="450px" height="320px" allowfullscreen="false"
+							width="600px" height="400px" allowfullscreen="false"
 							style="border: 0; margin: 0;" loading="lazy"
-							referrerpolicy="no-referrer-when-downgrade"> </iframe>
+							referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
 					<div class="col-sm-6"
-						style="height: 280px; width: 600px; padding-left: 0 auto;">
+						style="height: 400px; width: 600px; padding-left: 0 auto;">
 						<hr style="border-top: 2px ridge skyblue;">
 						<h4 style="text-align: center;">*유키 스터디카페는 !!!*</h4>
 						<br>
 						<p>하나, 단체공간이 준비되어있는 스터디룸카페입니다.</p>
 						<p>둘, 중간중간 간단한 스낵바와 커피를 즐길 수 있는 카페가 내부에 위치해 있습니다.</p>
 						<p>셋, 다양한 교통수단을 가까이 이용할 수 있습니다.</p>
-						<br>
+						<br><br><br><br><br><br>
 						<hr style="border-top: 2px ridge skyblue;">
 					</div>
 				</div>
@@ -242,13 +255,13 @@ ul.imgs li img {
 				<h3>*주변정보*</h3>
 				<div class="row">
 					<div class="col-sm-6"
-						style="width: 400px; height: 280px; padding-right: 0 auto;">
+						style="width: 600px; height: 400px; padding-right: 0 auto;">
 						<img src="img/주변 주차장지도.png" alt="안양1번가 주변주차장지도"
-							style="width: 450px; height: 320px;">
+							style="width: 600px; height: 400px;">
 					</div>
 					<br>
 					<div class="col-sm-6"
-						style="width: 400px; height: 280px; padding-left: auto;">
+						style="width: 600px; height: 400px; padding-left: auto;">
 						<hr style="border-top: 2px ridge skyblue;">
 						<h4 style="text-align: center">*주변 교통정보*</h4>
 						<p>1.근접한 전철역: 안양역</p>
@@ -261,6 +274,7 @@ ul.imgs li img {
 						<p>
 							3.주변 주차장: 일번가공영주차장,수암개복공영주차장 <br>안양역 1,2 노상공영주차장,삼덕공원공영주차장등
 						</p>
+						<br><br><br>
 						<hr style="border-top: 2px ridge skyblue;">
 					</div>
 				</div>

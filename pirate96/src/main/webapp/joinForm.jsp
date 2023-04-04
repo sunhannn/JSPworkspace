@@ -86,12 +86,12 @@ label {
 }
 
 .joinformjoin {
-	width: 50%;
-	margin: 100px 50px 30px 600px;
+	width: 500px;
+	margin: 0 auto;
 }
 
 .text_zone {
-	width: 100px;
+	width: 100%;
 	margin-top: 50px;
 	margin-bottom: 100px;
 }

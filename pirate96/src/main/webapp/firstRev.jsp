@@ -93,7 +93,19 @@ background-color:#728c99;
 		<p style="font-size: 14px;">▼ 아래버튼을 클릭하시면 예약페이지로 이동할 수 있습니다.</p>
 		<form action="revPage.jsp" id="frm">
 			<div class="rev__btn" style="height: 90px; text-align: center;">
-				<button onclick="btn()" id="rev">스터디룸 예약하러 가기 ▶</button>
+			
+  <c:choose>
+  <c:when test="${ null eq id }">
+  <button type="button" onclick="location.href='loginForm.jsp'" id="rev">스터디룸 예약하러 가기 ▶</button>	
+  </c:when>
+  <c:otherwise>
+  <button type="button" onclick="btn()" id="rev">스터디룸 예약하러 가기 ▶</button>
+  </c:otherwise>
+  </c:choose>
+			
+			
+	
+				
 			</div>
 		</form>
 		<p class="sub_text">예약 후 별도 절차없이 예약시간 현장 방문하여 이용하시면 됩니다.</p>
@@ -110,12 +122,9 @@ background-color:#728c99;
 	</div>
 
 	<script>
-		window.onload = function() {
-			document.getElementById('btn').onclick = function() {
-				document.getElementById('frm').submit();
-				return false;
-			};
-		};
+		function btn() {
+			document.getElementById('frm').submit();
+		}
 	</script>
 
 </body>

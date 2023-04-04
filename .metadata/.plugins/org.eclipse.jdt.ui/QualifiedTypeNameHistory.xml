@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.websocket.Session"/>
-    <fullyQualifiedTypeName name="svc.ReserveListService"/>
-    <fullyQualifiedTypeName name="action.ReserveViewAction"/>
-    <fullyQualifiedTypeName name="svc.ReserveViewService"/>
     <fullyQualifiedTypeName name="action.ReserveListAction"/>
     <fullyQualifiedTypeName name="action.ReserveDeleteAction"/>
     <fullyQualifiedTypeName name="svc.ReserveDeleteService"/>
     <fullyQualifiedTypeName name="svc.JoongbokService"/>
     <fullyQualifiedTypeName name="svc.ReserveUpdateService"/>
     <fullyQualifiedTypeName name="action.ReserveUpdateAction"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="action.MemberLoginAction"/>
     <fullyQualifiedTypeName name="action.MemberJoinAction"/>
     <fullyQualifiedTypeName name="vo.MemberVOVOVO"/>
@@ -35,7 +30,6 @@
     <fullyQualifiedTypeName name="svc.KanReserveDeleteService"/>
     <fullyQualifiedTypeName name="svc.KanReserveModifyService"/>
     <fullyQualifiedTypeName name="svc.KanReserveModifyFormService"/>
-    <fullyQualifiedTypeName name="vo.ReserveVO"/>
     <fullyQualifiedTypeName name="svc.KanReserveListService"/>
     <fullyQualifiedTypeName name="action.KanReserveModifyFormAction"/>
     <fullyQualifiedTypeName name="action.KanReserveModifyAction"/>
@@ -47,7 +41,6 @@
     <fullyQualifiedTypeName name="vo.MemberVO"/>
     <fullyQualifiedTypeName name="action.MemberCheckAjax"/>
     <fullyQualifiedTypeName name="svc.MemberCheckAjaxService"/>
-    <fullyQualifiedTypeName name="action.Action"/>
     <fullyQualifiedTypeName name="action.MemberCheckAjaxAction"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="action.KanReserveDeleteAction"/>
@@ -60,4 +53,11 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="action.KanMemberModifyFormAction"/>
     <fullyQualifiedTypeName name="action.KanMemberModifyAction"/>
+    <fullyQualifiedTypeName name="action.Action"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="vo.ReserveVO"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="svc.ReserveAutoDeleteService"/>
+    <fullyQualifiedTypeName name="svc.ReserveAutoServiceGOGO"/>
 </qualifiedTypeNameHistroy>

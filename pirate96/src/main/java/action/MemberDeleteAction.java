@@ -29,7 +29,9 @@ public class MemberDeleteAction implements Action {
 			boolean deleteResult = memberDeleteService.deleteMember(deleteId);
 
 			if (deleteResult) {
+
 				forward = new ActionForward();
+				session.invalidate();
 				forward.setRedirect(true);
 				forward.setPath("./loginForm.jsp");
 			} else {

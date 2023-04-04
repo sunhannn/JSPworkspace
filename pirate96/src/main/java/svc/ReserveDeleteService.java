@@ -7,7 +7,6 @@ import static db.JdbcUtil.rollback;
 
 import java.sql.Connection;
 import dao.StudyDAO;
-import vo.ReserveVO;
 
 public class ReserveDeleteService {
 	public boolean deleteReserve(int deleteNum) {
@@ -15,10 +14,8 @@ public class ReserveDeleteService {
 		Connection con = getConnection();
 		StudyDAO studyDAO = StudyDAO.getInstance();
 		studyDAO.setConnection(con);
-		ReserveVO reserve = studyDAO.selectReserve(deleteNum);
-		int insertDel = studyDAO.insertDelReserve(reserve);
 		int deleteCount = studyDAO.deleteReserve(deleteNum);
-		if (deleteCount > 0 && insertDel > 0) {
+		if (deleteCount > 0) {
 			commit(con);
 			deleteResult = true;
 

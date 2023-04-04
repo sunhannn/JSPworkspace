@@ -30,7 +30,7 @@ public class BoardModifyProAction implements Action {
 		else{
 			article.setBOARD_NUM(board_num);
 			article.setBOARD_SUBJECT(request.getParameter("BOARD_SUBJECT"));
-			article.setBOARD_CONTENT(request.getParameter("BOARD_CONTENT")); 
+			article.setBOARD_CONTENT(request.getParameter("BOARD_CONTENT").replace("\r\n","<br>")); 
 			isModifySuccess = boardModifyProService.modifyArticle(article);
 
 			if(!isModifySuccess){

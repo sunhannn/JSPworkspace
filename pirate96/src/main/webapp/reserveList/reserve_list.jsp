@@ -131,7 +131,7 @@ button.select {
 
 #search_value {
 	width: 250px;
-	padding: 16px 15px;
+	padding: 14px 15px;
 	border: 1px solid #999;
 	outline: none;
 }
@@ -142,7 +142,7 @@ button.select {
 	background-color: #999;
 	color: #fff;
 	cursor: pointer;
-	height: 49px;
+	height: 54px;
 	padding: 0 15px;
 }
 
@@ -160,7 +160,7 @@ button.select {
 	$(function() {
 		$(".delete_btn").on("click", function() {
 
-			if (confirm("정말 해당 회원을 삭제하시겠습니까 ?") == true) {
+			if (confirm("정말 해당 예약을 삭제하시겠습니까 ?") == true) {
 				alert("삭제되었습니다");
 				$(this).parent().submit();
 			} else {
@@ -195,6 +195,7 @@ button.select {
 				<th scope="col">예약 시간</th>
 				<th scope="col">가격</th>
 				<th scope="col">핸드폰 번호</th>
+				<th scope="col">예약일자</th>
 				<th scope="col" colspan="2">관 리</th>
 			</tr>
 
@@ -210,6 +211,7 @@ button.select {
 				<td><%=articleList.get(i).getR_STIME()%>:00 - <%=articleList.get(i).getR_ETIME()%>:00</td>
 				<td><%=articleList.get(i).getR_PRI()%> 원</td>
 				<td><%=articleList.get(i).getR_PH()%></td>
+				<td><%=articleList.get(i).getR_DATE() %>
 				<td><a style="color: gray;"
 					href="reserveModify.go?r_num=<%=articleList.get(i).getR_NUM()%>&page=<%=nowPage%>">
 						예약 수정</a></td>
@@ -297,8 +299,7 @@ button.select {
 							<option value="ph" class="search_sub">핸드폰 번호
 								<!--  찾을 조건들 -->
 					</select> <input type="text" name="search_value" id="search_value"
-						placeholder="검색할 정보를 입력해주세요." maxlength="200">
-					<button id="search_btn" type="submit">검색</button></td>
+						placeholder="검색할 정보를 입력해주세요." maxlength="200"><button id="search_btn" type="submit">검색</button></td>
 				</tr>
 			</table>
 		</form>

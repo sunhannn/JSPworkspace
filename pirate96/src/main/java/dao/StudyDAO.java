@@ -65,45 +65,6 @@ public class StudyDAO {
 
 	}
 
-	// 전체 예약 목록 보기
-	public ArrayList<ReserveVO> selectArticleListReserve(int page, int limit) {
-
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String reserve_list_sql = "select * from (select rownum rnum, A.* from (select * from reserve r_NUM order by r_num desc) A ) where rnum between ? and ?";
-		ArrayList<ReserveVO> articleList = new ArrayList<ReserveVO>();
-		int startrow = (page - 1) * 10 + 1;
-		int endrow = (page - 1) * 10 + 10;
-		try {
-			pstmt = con.prepareStatement(reserve_list_sql);
-			pstmt.setInt(1, startrow);
-			pstmt.setInt(2, endrow);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				ReserveVO reserve = new ReserveVO();
-				reserve.setR_ID(rs.getString("R_ID"));
-				reserve.setR_NUM(rs.getInt("R_NUM"));
-				reserve.setR_NAME(rs.getString("R_NAME"));
-				reserve.setR_STIME(rs.getString("R_STIME"));
-				reserve.setR_ETIME(rs.getString("R_ETIME"));
-				reserve.setR_PRI(rs.getInt("R_PRI"));
-				reserve.setR_PH(rs.getString("R_PH"));
-				reserve.setR_ROOM(rs.getString("R_ROOM"));
-
-				articleList.add(reserve);
-			}
-
-		} catch (Exception ex) {
-			System.out.println("getReserveList 에러 : " + ex);
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return articleList;
-
-	}
-
 	// 관리자 예약 검색
 	// 예약 리스트 갯수 검색
 	public int selectSearchListCountReserve(String list_search, String list_search_value) {
@@ -145,64 +106,6 @@ public class StudyDAO {
 		}
 
 		return listCount;
-
-	}
-
-	// 예약목록 검색
-	public ArrayList<ReserveVO> selectSearchArticleList(String list_search, String list_search_value, int page,
-			int limit) {
-
-		ArrayList<ReserveVO> articleList = new ArrayList<ReserveVO>();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String reserve_search_sql;
-		try {
-			if (list_search.equals("id")) {
-				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_id like ? order by r_num desc) A ) where rnum between ? and ?";
-			} else if (list_search.equals("num")) {
-				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_num in ? order by r_num desc) A ) where rnum between ? and ?";
-			} else if (list_search.equals("name")) {
-				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_name like ? order by r_num desc) A ) where rnum between ? and ?";
-			} else {
-				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_ph like ? order by r_num desc) A ) where rnum between ? and ?";
-			}
-
-			int startrow = (page - 1) * 10 + 1;
-			int endrow = (page - 1) * 10 + 10;
-
-			pstmt = con.prepareStatement(reserve_search_sql);
-
-			// 자료형 맞춰서 검색되도록 조건문 걸기
-			if (list_search.equals("num")) {
-				pstmt.setString(1, list_search_value);
-			} else {
-				pstmt.setString(1, "%" + list_search_value + "%");
-			}
-			pstmt.setInt(2, startrow);
-			pstmt.setInt(3, endrow);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				ReserveVO reserve = new ReserveVO();
-				reserve.setR_ID(rs.getString("R_ID"));
-				reserve.setR_NUM(rs.getInt("R_NUM"));
-				reserve.setR_NAME(rs.getString("R_NAME"));
-				reserve.setR_STIME(rs.getString("R_STIME"));
-				reserve.setR_ETIME(rs.getString("R_ETIME"));
-				reserve.setR_PRI(rs.getInt("R_PRI"));
-				reserve.setR_PH(rs.getString("R_PH"));
-				reserve.setR_ROOM(rs.getString("R_ROOM"));
-
-				articleList.add(reserve);
-			}
-
-		} catch (Exception ex) {
-			System.out.println("selectSearchArticleList 에러 : " + ex);
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return articleList;
 
 	}
 
@@ -1147,7 +1050,7 @@ public class StudyDAO {
 		return insertCount;
 	}
 
-	// 예약 정보 삭제 (임시삭제)
+	// 예약 정보 삭제
 	public int deleteReserve(int num) {
 		String sql = "DELETE reserve WHERE r_num = ?";
 		int deleteCount = 0;
@@ -1288,6 +1191,158 @@ public class StudyDAO {
 		}
 
 		return listCount;
+
+	}
+
+	// ID로 예약 테이블 전체 정보 가져오기
+	public ArrayList<ReserveVO> selectReserveListToday() {
+		String sql = "SELECT * FROM reserve";
+		ArrayList<ReserveVO> reserveList = new ArrayList<ReserveVO>();
+		ReserveVO reserve = null;
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				do {
+					reserve = new ReserveVO();
+					reserve.setR_NUM(rs.getInt("R_NUM"));
+					reserve.setR_ID(rs.getString("R_ID"));
+					reserve.setR_NAME(rs.getString("R_NAME"));
+					reserve.setR_DATE(rs.getString("R_DATE"));
+					reserve.setR_STIME(rs.getString("R_STIME"));
+					reserve.setR_ETIME(rs.getString("R_ETIME"));
+					reserve.setR_PRI(rs.getInt("R_PRI"));
+					reserve.setR_PH(rs.getString("R_PH"));
+					reserve.setR_ROOM(rs.getString("R_ROOM"));
+					reserveList.add(reserve);
+				} while (rs.next());
+			}
+		} catch (Exception ex) {
+			System.out.println("getDeatilReserve 에러: " + ex);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return reserveList;
+	}
+
+	public int deleteAutoReserve(int num) {
+		String reserve_delete_sql = "delete from reserve where R_NUM=?";
+
+		PreparedStatement pstmt = null;
+		int deleteCount = 0;
+
+		try {
+			pstmt = con.prepareStatement(reserve_delete_sql);
+			pstmt.setInt(1, num);
+			deleteCount = pstmt.executeUpdate();
+
+		} catch (Exception ex) {
+			System.out.println("boardDelete 에러 : " + ex);
+		} finally {
+			close(pstmt);
+		}
+
+		return deleteCount;
+
+	}
+
+	// 전체 예약 목록 보기
+	public ArrayList<ReserveVO> selectArticleListReserve(int page, int limit) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String reserve_list_sql = "select * from (select rownum rnum, A.* from (select * from reserve r_NUM order by r_num desc) A ) where rnum between ? and ?";
+		ArrayList<ReserveVO> articleList = new ArrayList<ReserveVO>();
+		int startrow = (page - 1) * 10 + 1;
+		int endrow = (page - 1) * 10 + 10;
+		try {
+			pstmt = con.prepareStatement(reserve_list_sql);
+			pstmt.setInt(1, startrow);
+			pstmt.setInt(2, endrow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ReserveVO reserve = new ReserveVO();
+				reserve.setR_ID(rs.getString("R_ID"));
+				reserve.setR_NUM(rs.getInt("R_NUM"));
+				reserve.setR_NAME(rs.getString("R_NAME"));
+				reserve.setR_STIME(rs.getString("R_STIME"));
+				reserve.setR_ETIME(rs.getString("R_ETIME"));
+				reserve.setR_PRI(rs.getInt("R_PRI"));
+				reserve.setR_PH(rs.getString("R_PH"));
+				reserve.setR_ROOM(rs.getString("R_ROOM"));
+				reserve.setR_DATE(rs.getString("R_DATE"));
+
+				articleList.add(reserve);
+			}
+
+		} catch (Exception ex) {
+			System.out.println("getReserveList 에러 : " + ex);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+
+	}
+
+	public ArrayList<ReserveVO> selectSearchArticleList(String list_search, String list_search_value, int page,
+			int limit) {
+
+		ArrayList<ReserveVO> articleList = new ArrayList<ReserveVO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String reserve_search_sql;
+		try {
+			if (list_search.equals("id")) {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_id like ? order by r_num desc) A ) where rnum between ? and ?";
+			} else if (list_search.equals("num")) {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_num in ? order by r_num desc) A ) where rnum between ? and ?";
+			} else if (list_search.equals("name")) {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_name like ? order by r_num desc) A ) where rnum between ? and ?";
+			} else {
+				reserve_search_sql = "select * from (select rownum rnum, A.* from (select * from reserve where r_ph like ? order by r_num desc) A ) where rnum between ? and ?";
+			}
+
+			int startrow = (page - 1) * 10 + 1;
+			int endrow = (page - 1) * 10 + 10;
+
+			pstmt = con.prepareStatement(reserve_search_sql);
+
+			// 자료형 맞춰서 검색되도록 조건문 걸기
+			if (list_search.equals("num")) {
+				pstmt.setString(1, list_search_value);
+			} else {
+				pstmt.setString(1, "%" + list_search_value + "%");
+			}
+			pstmt.setInt(2, startrow);
+			pstmt.setInt(3, endrow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ReserveVO reserve = new ReserveVO();
+				reserve.setR_ID(rs.getString("R_ID"));
+				reserve.setR_NUM(rs.getInt("R_NUM"));
+				reserve.setR_NAME(rs.getString("R_NAME"));
+				reserve.setR_STIME(rs.getString("R_STIME"));
+				reserve.setR_ETIME(rs.getString("R_ETIME"));
+				reserve.setR_PRI(rs.getInt("R_PRI"));
+				reserve.setR_PH(rs.getString("R_PH"));
+				reserve.setR_ROOM(rs.getString("R_ROOM"));
+				reserve.setR_DATE(rs.getString("R_DATE"));
+
+				articleList.add(reserve);
+			}
+
+		} catch (Exception ex) {
+			System.out.println("selectSearchArticleList 에러 : " + ex);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
 
 	}
 

@@ -71,12 +71,12 @@ header { /*header 영역*/
 	position: fixed;
 	/*position: absolute;*/
 	float: right;
-	font-size: 16px
+	font-size: 30px;
 }
 
 .login a:hover {
 	color: red;
-	font-size: 20px;
+	font-size: 30px;
 }
 
 /*menubar a의 글씨색설정*/
@@ -88,9 +88,9 @@ header { /*header 영역*/
 nav ul {
 	margin: auto;
 	position: absolute;
-	bottom: 10px;
+	bottom: 5px;
 	left: 220px;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 nav ul a:hover {
@@ -101,9 +101,14 @@ nav li {
 	text-align: auto;
 	display: inline-block;
 	margin: 30px;
+	margin-top: 40px;
+	
+	
 }
 
 nav li a {
+  
+    font-size: 24px;
 	color: white;
 }
 
@@ -161,7 +166,7 @@ body{
 					</ul>
 
 
-					<div style="float: right; margin: 40px;">
+					<div style="float: right; margin: 40px; margin-top: 30px;">
 						<c:if test="${ 'admin' eq id }">
 							<button type="button" class="btn btn-outline-success"
 								onclick="location.href='../logout.jsp'">로그아웃</button>

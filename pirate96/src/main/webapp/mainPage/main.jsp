@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -38,11 +37,11 @@ div.col-m-6{
 		<form method="post">
 			<jsp:include page="../header.jsp" flush="true" />
 
-				<div class="main">
+				
 					<!--화면양쪽에 여백부여-->
 					<div>
 						<br>
-						<h1 style="text-align:center;">하이미디어 스터디룸카페</h1>
+						<h1 style="text-align:center;">유키 스터디카페</h1>
 						<br>
 						<section class="main_img">
 							<img src="../img/스터디룸이미지1.jpg" alt="메인이미지"
@@ -56,7 +55,8 @@ div.col-m-6{
 					<br>
 			
 					<!--헤더밑 경계선-->
-						<!--공지작성영역-->
+					<!--공지작성영역-->
+					<div class="main">	
 						
 						<div class="container-fluid">
                         <h3>*공지사항*</h3>
@@ -70,7 +70,7 @@ div.col-m-6{
                         <h4 style="text-align: center;">*공지사항*</h4>
                         <p>1.팀장의 말을 잘 듣자</p>
                         <p>2.컨디션 잘 챙기자</p>
-                        <p>3.개발자들이 머리에서 아픈 건 자연스러운 현상이다.</p>
+                        <p>3.개발자들이 머리가 아픈 건 자연스러운 현상이다.</p>
                         <p>4.열심히 하자</p><br>
                         <hr style="border-top: 2px ridge skyblue;">
                         </div>
@@ -123,7 +123,7 @@ div.col-m-6{
                         </div><!-- row의 div -->
                         </div><!-- fluid의 div -->
                          <br>
-                                       
+                
 				</div>
 			</form>
 				

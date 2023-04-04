@@ -116,7 +116,7 @@ margin: 0;
 					<tr>
 						<td class="left"><label for="BOARD_CONTENT"><p class="ptext">내용</p></label></td>
 						<td class="right"><textarea id="BOARD_CONTENT" name="BOARD_CONTENT"
-								cols="40" rows="15"><%=article.getBOARD_CONTENT()%></textarea></td>
+								cols="40" rows="15"><%=article.getBOARD_CONTENT().replace("<br>","\r\n")%></textarea></td>
 					</tr>
 				</table>
 				<section class="btn_zone">

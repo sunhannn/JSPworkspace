@@ -135,7 +135,7 @@ form {
 				</div>
 			</section>
 			<section id="articleContentArea">
-				<%=article.getBOARD_CONTENT()%>
+				<textarea style="width:100%; height:100%; border:none; resize:none; outline:none; background-color:#f5f6f7;" readonly="readonly"><%=article.getBOARD_CONTENT().replace("<br>","\r\n")%></textarea>
 			</section>
 		</section>
 

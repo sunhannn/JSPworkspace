@@ -69,12 +69,14 @@ width:240px;
  border-radius : 0px;
  text-align:center;}
  
-/*  회원가입 a태그*/
-  #join {
-  display:block;}
 
-/*   회원가입버튼 글씨 */
+/*   회원가입버튼  */
 
+#joinbutton {
+font-size:18px;
+display:block;
+color:gray;
+margin-top:10px;}
 
   
 
@@ -100,7 +102,7 @@ width:240px;
 
 <!-- 로고 h1부분에 넣을것 -->
 <div class="logo">
-<h1>LOGO</h1>
+<h1>유 키</h1>
 </div>
 
 <div class="login">
@@ -119,8 +121,10 @@ width:240px;
 
 <input type="password" class="form-control" id="password" name="M_PW" placeholder="비밀번호" >
 
-<a href='joinForm.jsp'" id ="join" style="color:gray">회원가입
+<div class="joinbutton">
 
+<a href="joinForm.jsp" id ="joinbutton">회원가입</a>
+</div>
 </div>
 </div>
 

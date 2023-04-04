@@ -174,9 +174,22 @@ text-align: center;
     	
 	</form></td><td><form action ="updatepage.jsp">
 		<input type="submit" value="정보변경" class="updateinfo" style="border-radius:80px; border: 2px solid rgb(218, 218, 218);">
-	</form></td><td><form action ="memberDeleteAction.go"  >
-		<input type="submit" value="회원탈퇴" class="deleteinfo" style="border-radius:80px;  border: 2px solid rgb(218, 218, 218);">
-	</form></td><td><form action="revList.go" class="chkrevlist">
+	</form></td><td>
+	
+	 <script>
+        function test() {
+            if (!confirm("정말 탈퇴하시겠습니까?")) {
+               return false;
+            } else {
+                alert("탈퇴 되었습니다.");
+            }
+        }
+        </script>
+<form action ="memberDeleteAction.go"  >
+<button type="submit" class="deleteinfo" onclick="return test()" style="border-radius:80px;  border: 2px solid rgb(218, 218, 218);">회원탈퇴</button>
+</form>
+	</td>
+	<td><form action="revList.go" class="chkrevlist">
 		<button type="submit" class="revlist" style="border-radius:80px;  border: 2px solid rgb(218, 218, 218);">예약목록</button>
 	</form></td>
 </tr>

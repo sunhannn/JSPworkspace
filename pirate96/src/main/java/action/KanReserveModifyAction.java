@@ -15,6 +15,7 @@ public class KanReserveModifyAction implements Action {
 		ActionForward forward = null;
 		int r_num = Integer.parseInt(request.getParameter("R_NUM"));
 		int r_pri = Integer.parseInt(request.getParameter("R_PRI"));
+		
 		ReserveVO article = new ReserveVO();
 		KanReserveModifyService reserveModifyService = new KanReserveModifyService();
 
@@ -27,7 +28,7 @@ public class KanReserveModifyAction implements Action {
 		article.setR_ETIME(request.getParameter("R_ETIME"));
 		article.setR_PH(request.getParameter("R_PH"));
 		article.setR_ROOM(request.getParameter("R_ROOM"));
-
+		System.out.println(article.getR_PH());
 		reserveModifyService.modifyArticle(article);
 
 		PageInfo pageInfo = new PageInfo();

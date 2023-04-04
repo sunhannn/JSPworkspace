@@ -31,6 +31,9 @@ border-bottom:2px solid #000;
 #BOARD_NAME, #BOARD_SUBJECT, #BOARD_CONTENT{
 width: 100%;
 }
+#BOARD_NAME, #BOARD_SUBJECT{
+height: 30px;
+}
 
 #BOARD_CONTENT{
 margin: 0;

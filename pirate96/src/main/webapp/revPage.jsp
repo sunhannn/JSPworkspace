@@ -21,8 +21,8 @@ html, body {
 
 .roomNum {
 	text-align: center;
-	font-family: "Comic Sans", "Apple Chancery", cursive;
 	font-size: 18px;
+	font-weight: bold;
 }
 
 .btn btn-outline-primary {
@@ -98,7 +98,7 @@ margin-left: 220px;
 	<div>
 
 		<p
-			style="font-size: 20px; font-weight: bold; text-align: center; font-family: Comic Sans, Apple Chancery, cursive;">유키
+			style="font-size: 20px; font-weight: bold; text-align: center;">유키
 			스터디 룸 카페</p>
 	</div>
 	<div class="wrap">
